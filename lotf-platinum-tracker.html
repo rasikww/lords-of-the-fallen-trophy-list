@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lords of the Fallen — Platinum Tracker</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --gold: #c8a84b;
+    --gold-light: #e8c96a;
+    --gold-dim: #7a6228;
+    --blood: #8b1a1a;
+    --blood-dark: #5a0f0f;
+    --umbral: #2a1a3e;
+    --umbral-mid: #3d2a5a;
+    --umbral-light: #6b4e9c;
+    --surface: #12100e;
+    --surface-2: #1a1714;
+    --surface-3: #221f1c;
+    --surface-4: #2d2925;
+    --text: #e8e0d0;
+    --text-muted: #9a8e7a;
+    --text-dim: #5a5248;
+    --silver: #b0b8c8;
+    --bronze: #c8834b;
+    --platinum: #e0e8f0;
+    --green: #4a8a5a;
+    --green-light: #6ab87e;
+    --border: rgba(200,168,75,0.18);
+    --border-light: rgba(200,168,75,0.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--surface);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(180deg, #0a0806 0%, var(--surface) 100%);
+    border-bottom: 1px solid var(--border-light);
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,168,75,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+
+  .header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+  }
+
+  .header .subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-section {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .progress-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .progress-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .progress-count {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .progress-pct {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .progress-bar-bg {
+    height: 8px;
+    background: var(--surface-4);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    min-width: 4px;
+  }
+
+  .trophy-counts {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .tc-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .tc-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+  .tc-dot.plat { background: var(--platinum); }
+  .tc-dot.silver { background: var(--silver); }
+  .tc-dot.bronze { background: var(--bronze); }
+
+  /* ===== LAYOUT ===== */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  /* ===== PHASE ===== */
+  .phase {
+    margin-bottom: 2rem;
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .phase-header:hover { background: var(--surface-3); }
+
+  .phase-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gold-dim);
+    background: rgba(200,168,75,0.1);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .phase-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    flex: 1;
+  }
+
+  .phase-time {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .phase-progress {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .phase-chevron {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  .phase.collapsed .phase-chevron { transform: rotate(-90deg); }
+
+  .phase-mini-bar {
+    width: 60px;
+    height: 3px;
+    background: var(--surface-4);
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .phase-mini-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.3s;
+  }
+
+  .phase-body {
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+  }
+
+  .phase.collapsed .phase-body { display: none; }
+
+  /* ===== SECTION within phase ===== */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    padding: 0.6rem 1rem 0.3rem;
+    background: var(--surface-3);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ===== TASK ROW ===== */
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    background: var(--surface-2);
+    border-bottom: 1px solid rgba(200,168,75,0.07);
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+
+  .task:last-child { border-bottom: none; }
+  .task:hover { background: var(--surface-3); }
+  .task.done { background: rgba(74,138,90,0.05); }
+  .task.done:hover { background: rgba(74,138,90,0.1); }
+
+  .task-check {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1.5px solid var(--text-dim);
+    background: transparent;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    pointer-events: none;
+  }
+
+  .task.done .task-check {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .check-svg { display: none; width: 10px; height: 10px; }
+  .task.done .check-svg { display: block; }
+
+  .task-content { flex: 1; min-width: 0; }
+
+  .task-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    transition: color 0.15s;
+  }
+
+  .task.done .task-name {
+    color: var(--text-dim);
+    text-decoration: line-through;
+    text-decoration-color: var(--text-dim);
+  }
+
+  .task-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .task.done .task-desc { color: var(--text-dim); }
+
+  .task-tags {
+    display: flex;
+    gap: 0.35rem;
+    margin-top: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 2px;
+    font-weight: 400;
+  }
+
+  .tag.missable { background: rgba(139,26,26,0.35); color: #e06060; border: 1px solid rgba(139,26,26,0.5); }
+  .tag.online { background: rgba(107,78,156,0.35); color: #b08eea; border: 1px solid rgba(107,78,156,0.5); }
+  .tag.silver { background: rgba(176,184,200,0.15); color: var(--silver); border: 1px solid rgba(176,184,200,0.3); }
+  .tag.farming { background: rgba(200,131,75,0.2); color: #e8a060; border: 1px solid rgba(200,131,75,0.4); }
+  .tag.ng-plus { background: rgba(200,168,75,0.15); color: var(--gold); border: 1px solid var(--border); }
+  .tag.auto { background: rgba(74,138,90,0.2); color: var(--green-light); border: 1px solid rgba(74,138,90,0.4); }
+  .tag.warning { background: rgba(200,131,75,0.2); color: #f0b060; border: 1px solid rgba(200,131,75,0.5); }
+
+  /* ===== TIP BOX ===== */
+  .tip-box {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    background: rgba(200,168,75,0.06);
+    border-left: 3px solid var(--gold-dim);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .tip-box strong {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ===== WARN BOX ===== */
+  .warn-box {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    background: rgba(139,26,26,0.12);
+    border-left: 3px solid var(--blood);
+    font-size: 0.85rem;
+    color: #c08080;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .warn-box strong { color: #e07070; font-style: normal; font-weight: 600; }
+
+  /* ===== RESET BUTTON ===== */
+  .reset-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--surface-3);
+    border: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 200;
+  }
+
+  .reset-btn:hover {
+    background: var(--blood-dark);
+    border-color: var(--blood);
+    color: #e08080;
+  }
+
+  /* ===== PLATINUM BANNER ===== */
+  .plat-banner {
+    display: none;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    background: rgba(200,168,75,0.06);
+  }
+
+  .plat-banner.show { display: block; }
+
+  .plat-banner h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .plat-banner p {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ===== UTILITY ===== */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.25rem; }
+    .phase-time { display: none; }
+    .main { padding: 1rem 0.5rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <svg class="header-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="28" cy="28" r="27" stroke="#c8a84b" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <circle cx="28" cy="28" r="22" stroke="#c8a84b" stroke-width="0.5" fill="none" opacity="0.25"/>
+    <path d="M28 8 L32 22 L46 22 L34 31 L38 46 L28 37 L18 46 L22 31 L10 22 L24 22 Z" fill="#c8a84b" opacity="0.85"/>
+    <circle cx="28" cy="28" r="5" fill="#e8c96a" opacity="0.6"/>
+  </svg>
+  <h1>Lords of the Fallen</h1>
+  <p class="subtitle">Platinum Trophy Tracker · 2023</p>
+</div>
+
+<div class="progress-section">
+  <div class="progress-stats">
+    <span class="progress-label">Overall Progress</span>
+    <span class="progress-count" id="pct-count">0 / 62 tasks</span>
+    <span class="progress-pct" id="pct-val">0%</span>
+  </div>
+  <div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="main-bar" style="width:0%"></div>
+  </div>
+  <div class="trophy-counts">
+    <span class="tc-item"><span class="tc-dot plat"></span>1 Platinum</span>
+    <span class="tc-item"><span class="tc-dot silver"></span>7 Silver</span>
+    <span class="tc-item"><span class="tc-dot bronze"></span>55 Bronze</span>
+    <span class="tc-item" style="margin-left:auto;font-size:0.7rem;color:var(--text-dim);font-style:italic;">~80–100 hours total</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="plat-banner" id="plat-banner">
+    <h2>✦ Lord of the Fallen ✦</h2>
+    <p>All tasks complete. Platinum awaits, Lampbearer.</p>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- PRE-GAME -->
+  <!-- ======================================== -->
+  <div class="phase" id="phase-0">
+    <div class="phase-header" onclick="togglePhase('phase-0')">
+      <span class="phase-num">Setup</span>
+      <span class="phase-title">Before You Begin</span>
+      <span class="phase-time">Read first</span>
+      <div class="phase-mini-bar"><div class="phase-mini-fill" id="phase-0-bar" style="width:0%"></div></div>
+      <span class="phase-progress" id="phase-0-prog">0/4</span>
+      <span class="phase-chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="tip-box">
+        <strong>Key info:</strong> Platinum requires <strong>3 playthroughs</strong> with the <em>same character</em>. Each ending unlocks soul-bound items needed for collectors. Estimated time: 80–100 hours. Difficulty 7/10 (6/10 with duplication exploit).
+      </div>
+      <div class="task" onclick="tick(this)" data-id="setup-1">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Disable automatic PS+ save sync</div>
+          <div class="task-desc">PS5 Settings → Saved Data → Saved Data (PS5) → Sync Saved Data → disable auto sync. This prevents cloud from overwriting your manual backups.</div>
+          <div class="task-tags"><span class="tag warning">Critical</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="setup-2">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Learn the Duplication Exploit (optional but recommended)</div>
+          <div class="task-desc">Co-op partner drops Vigor Skulls → you consume them to level fast. Back up save → drop items to friend → redownload save → repeat. Cannot duplicate: spells, armour, gestures, quest items, boss materials.</div>
+          <div class="task-tags"><span class="tag ng-plus">Time Saver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="setup-3">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Read the All Endings Guide before starting</div>
+          <div class="task-desc">Understanding all three endings (Adyr / Radiant / Umbral) upfront prevents costly mistakes. Each ending requires specific beacon interaction behavior throughout the run.</div>
+          <div class="task-tags"><span class="tag warning">Critical</span><span class="tag missable">27 Missables</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="setup-4">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Read the All-in-One Collectible Guide</div>
+          <div class="task-desc">Familiarise yourself with all collectible types: weapons, armour, rings, pendants, spells, umbral eyes, stigmas, gestures, ammo, throwables. Know which items require farming from enemy drops.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- PLAYTHROUGH 1 -->
+  <!-- ======================================== -->
+  <div class="phase" id="phase-1">
+    <div class="phase-header" onclick="togglePhase('phase-1')">
+      <span class="phase-num">Run 1</span>
+      <span class="phase-title">Adyr Ending · All Collectibles · Most Side Quests</span>
+      <span class="phase-time">40–60 hrs</span>
+      <div class="phase-mini-bar"><div class="phase-mini-fill" id="phase-1-bar" style="width:0%"></div></div>
+      <span class="phase-progress" id="phase-1-prog">0/28</span>
+      <span class="phase-chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="warn-box"><strong>⚠ Do NOT cleanse any beacons</strong> this entire playthrough — beacons appear as red lights. Interacting with even one locks you out of the Adyr ending.</div>
+
+      <div class="section-label">Preparation</div>
+      <div class="task" onclick="tick(this)" data-id="p1-01">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">A Veil Lifted — Die in Axiom for the first time</div>
+          <div class="task-desc">Automatic — you will die during the first Lightreaper encounter and enter Umbral for the first time.</div>
+          <div class="task-tags"><span class="tag auto">Automatic</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-02">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Lost and Found — Retrieve vigor after death</div>
+          <div class="task-desc">Automatic — collect dropped vigor from your death location. Beware enemies with purple eyes who will consume your vigor if not defeated first.</div>
+          <div class="task-tags"><span class="tag auto">Automatic</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-03">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Salvation in Blood — Fully upgrade the Sanguinarix</div>
+          <div class="task-desc">Collect all Sanguinarix upgrade materials throughout the run and fully upgrade your lamp (healing flask). Find all upgrade locations via the Collectible Guide.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-04">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Honed in Perfection — Fully upgrade a weapon</div>
+          <div class="task-desc">Collect upgrade materials and fully upgrade any weapon to its maximum level at a blacksmith. Can be done early — prioritise your main weapon.</div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-05">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Rune Novice — Place a rune in a socket</div>
+          <div class="task-desc">Find a weapon or armor with a rune socket and insert any rune. Unlocked early in the game.</div>
+          <div class="task-tags"><span class="tag auto">Easy</span></div>
+        </div>
+      </div>
+
+      <div class="section-label">Side Quests (most tied to a specific ending or NPC chain)</div>
+      <div class="task" onclick="tick(this)" data-id="p1-06">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">A Hunger Sated — Complete Damarose the Marked's quest</div>
+          <div class="task-desc">Follow Damarose's quest line carefully — she is one of several NPCs whose quests fail if you progress the story too far without completing her steps.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-07">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Part of the Divine — Complete Pieta's / Stomund's quest</div>
+          <div class="task-desc">Complete the Stomund, Captain of the Fidelis quest chain. Tied to the Radiant faction questline but completable in Run 1.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-08">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Travels Resumed — Complete Exacter Dunmire's quest</div>
+          <div class="task-desc">Follow Dunmire's multi-step questline throughout Mournstead. Check in with him at each major area transition.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-09">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Moving On — Complete Byron's quest</div>
+          <div class="task-desc">Required to collect the Umbral Eye tied to Byron's questline — this is needed for "What Sights Contained Within." Do not miss this quest.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-10">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Hero Worship — Complete Gerlinde's quest</div>
+          <div class="task-desc">Complete the blacksmith Gerlinde's questline. She can be found early and her quest progresses through multiple stages.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-11">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Faithful — Complete Freyjan Cleric's / Drustan's quest</div>
+          <div class="task-desc">Follow the Cleric of the Radiant quest chain. Multiple steps spread across different areas.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-12">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Without Purpose — Complete Andreas of Ebb's quest</div>
+          <div class="task-desc">Andreas has a quest chain spanning several areas. Speak with him at each opportunity to keep his quest progressing.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-13">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">A Queen's Rest — Complete Thehk's quest</div>
+          <div class="task-desc">Follow Thehk the Umbral NPC quest — requires careful attention in Umbral realm sections.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-14">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Vengeful Reflection — Complete Tortured Prisoner quest</div>
+          <div class="task-desc">Find and complete the Tortured Prisoner's questline. Involves tracking them across Umbral and Axiom.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-15">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">A Trace of Venom — Complete Sparky's quest</div>
+          <div class="task-desc">Follow the NPC Sparky's questline. Missable if certain story milestones are passed.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+
+      <div class="section-label">Collectibles — Grind All Enemy Drops This Run (easier than NG+)</div>
+      <div class="task" onclick="tick(this)" data-id="p1-16">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Ammunition Collector — Collect all ammo types</div>
+          <div class="task-desc">All ammo types are obtainable in a single playthrough. Follow the Collectible Guide — cannot be dropped by other players so must be found yourself.</div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-17">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Throwable Collector — Collect all throwables</div>
+          <div class="task-desc">All throwables are obtainable in a single playthrough. Cannot be dropped by co-op partners.</div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-18">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Lingering Moments — Collect all Umbral Stigmas (62 total)</div>
+          <div class="task-desc">Find all Umbral Stigmas throughout the world. Note: Lightreaper Stigma has multiple locations — only one is needed. Check the Stigma checklist.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-19">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">What Sights Contained Within — Collect all 15 Umbral Eyes</div>
+          <div class="task-desc">Collect all Umbral Eyes — requires completing the Byron quest (Moving On). Most are found in the world but one is quest-locked.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-20">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Begin farming random enemy drops (weapons & armour)</div>
+          <div class="task-desc">Certain weapons and armour pieces are random drops from specific enemies. Farm these NOW in NG — enemies in NG are much weaker than in NG+. The Collectible Guide marks each farmable item's enemy location.</div>
+          <div class="task-tags"><span class="tag farming">Grind</span><span class="tag warning">Do in NG</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-21">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Online: Donate to shrines for online gestures (Infernal, Radiant, Umbral Offerings)</div>
+          <div class="task-desc">While connected online: donate to the three faction shrines to unlock Infernal Offerings, Radiant Offerings, and Umbral Offerings trophies — also needed for some gestures (Gesture Collector).</div>
+          <div class="task-tags"><span class="tag online">Online</span><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-22">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Online: Co-op / Invasion trophies — Comrades, No Mercy, Shared Triumph</div>
+          <div class="task-desc">Play co-op (Comrades / Shared Triumph) and invade another player's world (No Mercy). These can be done anytime while online. Best done early to avoid forgetting.</div>
+          <div class="task-tags"><span class="tag online">Online</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-23">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">None Shall be Spared — Defeat all 37 Bosses</div>
+          <div class="task-desc">Track all boss locations across Axiom and Umbral. This is the hardest trophy. Some bosses are found only in Umbral. Cross-reference with the Boss Checklist regularly.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag warning">Hardest</span></div>
+        </div>
+      </div>
+
+      <div class="section-label">Ending the First Playthrough</div>
+      <div class="task" onclick="tick(this)" data-id="p1-24">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Back up your save to PS+ Cloud before the final boss</div>
+          <div class="task-desc">Upload your save before committing to the ending. If you accidentally trigger the wrong ending, you can restore this backup instead of starting a 4th playthrough.</div>
+          <div class="task-tags"><span class="tag warning">Critical</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-25">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Fallen — Complete Elianne the Starved's quest (Adyr ending path)</div>
+          <div class="task-desc">This quest is directly tied to the Adyr ending. Follow its steps carefully — failing it may lock the Adyr ending.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-26">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Lord of the Risen — Get the Adyr Ending</div>
+          <div class="task-desc">Complete the game without cleansing any beacons. At the final confrontation, choose the Adyr path. Unlocks the Adyr soul-bound class and items for the next playthrough.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-27">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Collect Adyr soul-bound items from the secret class</div>
+          <div class="task-desc">After the Adyr ending, a new secret class unlocks. Collect its exclusive soul-bound weapons, armor, and spells — these count toward Weapon Collector, Ironclad, and spell trophies.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-28">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Upload save to PS+ Cloud before starting NG+</div>
+          <div class="task-desc">Always backup before transitioning to New Game+. If something goes wrong early in Run 2, you can restore without restarting entirely.</div>
+          <div class="task-tags"><span class="tag warning">Important</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- PLAYTHROUGH 2 -->
+  <!-- ======================================== -->
+  <div class="phase" id="phase-2">
+    <div class="phase-header" onclick="togglePhase('phase-2')">
+      <span class="phase-num">Run 2 · NG+</span>
+      <span class="phase-title">Radiant Ending · Kukajin Quest · Remaining Side Quests</span>
+      <span class="phase-time">7–10 hrs</span>
+      <div class="phase-mini-bar"><div class="phase-mini-fill" id="phase-2-bar" style="width:0%"></div></div>
+      <span class="phase-progress" id="phase-2-prog">0/9</span>
+      <span class="phase-chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="tip-box"><strong>Note:</strong> Fast travel is disabled in NG+. You must use Vestige Seeds as checkpoints — carry 5 max, buy more from Molhu or farm from bosses. Cleanse ALL beacons this run.</div>
+      <div class="warn-box"><strong>⚠ Cleanse ALL beacons</strong> this run — this is the opposite requirement from Run 1 and is mandatory for the Radiant ending.</div>
+
+      <div class="task" onclick="tick(this)" data-id="p2-01">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Cleanse every beacon as you progress</div>
+          <div class="task-desc">The Radiant ending requires all beacons cleansed. Make this a priority — consult the Endings Guide map to ensure none are missed before reaching the final area.</div>
+          <div class="task-tags"><span class="tag warning">Critical for Radiant</span><span class="tag ng-plus">NG+</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-02">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">The Last Step — Complete Kukajin's quest</div>
+          <div class="task-desc">Kukajin's quest was cancelled in Run 1 (due to Adyr ending path conflict). Complete it fully in this run. Follow the All Side Quests Guide carefully.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag ng-plus">NG+</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-03">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Clean up any failed side quests from Run 1</div>
+          <div class="task-desc">Check your trophy list against the Side Quests Guide. Any quest trophies you're missing should be attempted now. Each NPC side quest has a bronze trophy.</div>
+          <div class="task-tags"><span class="tag ng-plus">NG+</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-04">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Continue collecting any missed weapons and armour (enemy farm drops)</div>
+          <div class="task-desc">If random drops weren't completed in Run 1, keep farming. Note that NG+ enemies have greatly inflated health — it's harder but still possible.</div>
+          <div class="task-tags"><span class="tag farming">Grind</span><span class="tag ng-plus">NG+</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-05">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Collect Radiant class soul-bound spells and items</div>
+          <div class="task-desc">Progress normally through the story to unlock Radiant-exclusive spells and items tied to this ending. Cross-reference the Spell Checklist for Radiant Adept.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag ng-plus">NG+</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-06">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Back up save to PS+ Cloud before the final boss</div>
+          <div class="task-desc">Critical backup point. Ensure all beacons are cleansed before triggering the ending sequence.</div>
+          <div class="task-tags"><span class="tag warning">Critical</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-07">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">In Light We Walk — Get the Radiant Ending</div>
+          <div class="task-desc">Complete the game with all beacons cleansed. Select the Radiant path at the ending. Unlocks the Radiant secret class and its exclusive soul-bound items.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag silver">Silver</span><span class="tag ng-plus">NG+</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-08">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Collect Radiant soul-bound class items</div>
+          <div class="task-desc">After Radiant ending, collect the unlocked exclusive items. These contribute to Weapon Collector, Ironclad, and spell trophies.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p2-09">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Upload save to PS+ Cloud before starting NG++</div>
+          <div class="task-desc">Final safety backup before the last run. Ensure you've collected all Radiant soul-bound items first.</div>
+          <div class="task-tags"><span class="tag warning">Important</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- PLAYTHROUGH 3 -->
+  <!-- ======================================== -->
+  <div class="phase" id="phase-3">
+    <div class="phase-header" onclick="togglePhase('phase-3')">
+      <span class="phase-num">Run 3 · NG++</span>
+      <span class="phase-title">Umbral Ending · Kill All NPCs · Paladin Isaac · Iron Wayfarer</span>
+      <span class="phase-time">6–10 hrs</span>
+      <div class="phase-mini-bar"><div class="phase-mini-fill" id="phase-3-bar" style="width:0%"></div></div>
+      <span class="phase-progress" id="phase-3-prog">0/13</span>
+      <span class="phase-chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="warn-box"><strong>⚠ Umbral Ending requires killing all NPCs.</strong> Follow the Endings Guide <em>step by step</em> — kill order matters. Back up your save regularly throughout this run. This is the most complex ending.</div>
+
+      <div class="task" onclick="tick(this)" data-id="p3-01">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Follow the Umbral Ending Guide step-by-step from start</div>
+          <div class="task-desc">The Umbral ending (Back to the Void) requires killing all friendly NPCs in a specific order. Do not deviate — consult the Endings Guide before each NPC interaction.</div>
+          <div class="task-tags"><span class="tag warning">Critical</span><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-02">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Complete Paladin Isaac's questline</div>
+          <div class="task-desc">Paladin Isaac's full questline is reserved for this run. Complete it in its entirety alongside the Umbral ending path.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-03">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Complete Iron Wayfarer's questline</div>
+          <div class="task-desc">The Iron Wayfarer's quest has multiple steps. It must be completed this run — track his appearances carefully across the world.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-04">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Defeat remaining bosses (None Shall be Spared)</div>
+          <div class="task-desc">If any of the 37 bosses were missed in previous runs, defeat them now. Check the Boss Checklist against your kill list.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+
+      <div class="section-label">Final Collectibles — Cross-Check All Checklists</div>
+      <div class="task" onclick="tick(this)" data-id="p3-05">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Weapon Collector — Confirm all weapons & shields collected</div>
+          <div class="task-desc">Compare your inventory against the All Weapons & Shields Checklist. Soul-bound items from all 3 endings must be present. Items can be dropped by co-op partners to speed this up.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-06">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Ironclad — Confirm all armour pieces collected</div>
+          <div class="task-desc">Compare inventory against All Armours Checklist. Online shrine armours are no longer required (patched in v1.01). Shields do NOT count as armour.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-07">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Trinket Collector — All rings and pendants collected</div>
+          <div class="task-desc">Compare inventory against All Rings & Pendants Checklist. Some are locked behind side quests. Confirm those are complete.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-08">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Inferno Adept / Radiant Adept / Umbral Adept — Confirm all spells</div>
+          <div class="task-desc">All three spell categories must be complete. Inferno / Radiance / Umbral spells span all 3 endings' secret classes. Cross-check All Spells Checklist for each category.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-09">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Gesture Collector — Confirm all gestures collected</div>
+          <div class="task-desc">Requires online access for three shrine-exclusive gestures (Orian Vow of Protection, Putrid Mother's Embrace, Crimson Ritual Fervour). Must be connected to internet when unlocking these.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag online">Online</span></div>
+        </div>
+      </div>
+
+      <div class="section-label">The Umbral Ending</div>
+      <div class="task" onclick="tick(this)" data-id="p3-10">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Kill all friendly NPCs as per the Endings Guide</div>
+          <div class="task-desc">Every friendly NPC in Mournstead must be killed for the Umbral ending. The Guide specifies a safe kill order that avoids locking quest-related items.</div>
+          <div class="task-tags"><span class="tag warning">Critical</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-11">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Back up save to PS+ Cloud immediately before the ending sequence</div>
+          <div class="task-desc">Final critical backup. After this point the game cannot be undone.</div>
+          <div class="task-tags"><span class="tag warning">Critical</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-12">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Back to the Void — Get the Umbral Ending</div>
+          <div class="task-desc">Complete the game with all NPCs killed and select the Umbral path at the finale. Unlocks the Umbral secret class and exclusive soul-bound items.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p3-13">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Collect Umbral soul-bound class items</div>
+          <div class="task-desc">Collect all Umbral-exclusive secret class items after the ending. These are the final pieces needed for Weapon Collector, Ironclad, and Umbral Adept.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- CLEANUP -->
+  <!-- ======================================== -->
+  <div class="phase" id="phase-4">
+    <div class="phase-header" onclick="togglePhase('phase-4')">
+      <span class="phase-num">Cleanup</span>
+      <span class="phase-title">Final Verification · Free Roam · Grind</span>
+      <span class="phase-time">Variable</span>
+      <div class="phase-mini-bar"><div class="phase-mini-fill" id="phase-4-bar" style="width:0%"></div></div>
+      <span class="phase-progress" id="phase-4-prog">0/8</span>
+      <span class="phase-chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="tip-box"><strong>Free roam is available after completing the story.</strong> Fast travel works in NG but not NG+. Use the 100% Checklist to compare your inventory and find anything still missing.</div>
+
+      <div class="task" onclick="tick(this)" data-id="c-01">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Cross-check 100% Items Checklist against inventory</div>
+          <div class="task-desc">Use the powerpyx.com 100% Checklist and compare everything: weapons, armour, rings, pendants, spells (x3), umbral eyes, stigmas, gestures, ammo, throwables.</div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-02">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Weapon Collector — Final confirmation and trophy unlock</div>
+          <div class="task-desc">Verify all weapons + shields in inventory including all 3 ending soul-bound weapons. Trophy should unlock once the final missing item is obtained.</div>
+          <div class="task-tags"><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-03">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Ironclad — Final confirmation and trophy unlock</div>
+          <div class="task-desc">Verify all armour pieces including secret class sets. Remember online shrine armours are no longer required post-patch 1.01.</div>
+          <div class="task-tags"><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-04">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Confirm all spell trophies: Inferno Adept, Radiant Adept, Umbral Adept</div>
+          <div class="task-desc">All three should be unlocked. If missing any spells, check which category and which ending's soul-bound class they belong to.</div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-05">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Confirm None Shall be Spared (all 37 bosses defeated)</div>
+          <div class="task-desc">Check the Boss Checklist. Some bosses appear only in Umbral. If missing any, they can be found in free roam — fast travel to the nearest vestibule and explore.</div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-06">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Confirm Lingering Moments (all Umbral Stigmas found)</div>
+          <div class="task-desc">Verify all 62 Umbral Stigmas. Remember only one Lightreaper Stigma is needed despite multiple locations. Use the Stigma Checklist.</div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-07">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Confirm Gesture Collector (all gestures obtained incl. online shrine gestures)</div>
+          <div class="task-desc">Must be online for 3 shrine gestures. Ensure internet was connected when donating to shrines. If missing, reconnect online and donate again.</div>
+          <div class="task-tags"><span class="tag online">Online</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-08">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">🏆 Lord of the Fallen — Platinum trophy unlocks</div>
+          <div class="task-desc">All trophies collected. The platinum is yours, Lampbearer. Mournstead is cleansed — or corrupted — as you saw fit.</div>
+          <div class="task-tags"><span class="tag silver" style="background:rgba(224,232,240,0.15);color:var(--platinum);border-color:rgba(224,232,240,0.3);">Platinum</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<button class="reset-btn" onclick="resetAll()">Reset Progress</button>
+
+<script>
+  const STORE_KEY = 'lotf_2023_plat';
+  const PHASES = ['phase-0','phase-1','phase-2','phase-3','phase-4'];
+  const PHASE_COUNTS = {
+    'phase-0': 4,
+    'phase-1': 28,
+    'phase-2': 9,
+    'phase-3': 13,
+    'phase-4': 8
+  };
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+    } catch(e) {}
+  }
+
+  function tick(el) {
+    const id = el.dataset.id;
+    if (!id) return;
+    const state = loadState();
+    state[id] = !state[id];
+    saveState(state);
+    el.classList.toggle('done', state[id]);
+    updateProgress();
+  }
+
+  function togglePhase(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('collapsed');
+  }
+
+  function updateProgress() {
+    const state = loadState();
+    const allIds = Array.from(document.querySelectorAll('.task[data-id]')).map(t => t.dataset.id);
+    const total = allIds.length;
+    const done = allIds.filter(id => state[id]).length;
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+    document.getElementById('pct-count').textContent = done + ' / ' + total + ' tasks';
+    document.getElementById('pct-val').textContent = pct + '%';
+    document.getElementById('main-bar').style.width = pct + '%';
+
+    PHASES.forEach(phaseId => {
+      const phaseEl = document.getElementById(phaseId);
+      if (!phaseEl) return;
+      const phaseTasks = phaseEl.querySelectorAll('.task[data-id]');
+      const pTotal = phaseTasks.length;
+      const pDone = Array.from(phaseTasks).filter(t => state[t.dataset.id]).length;
+      const pPct = pTotal > 0 ? Math.round((pDone / pTotal) * 100) : 0;
+      const barEl = document.getElementById(phaseId + '-bar');
+      const progEl = document.getElementById(phaseId + '-prog');
+      if (barEl) barEl.style.width = pPct + '%';
+      if (progEl) progEl.textContent = pDone + '/' + pTotal;
+    });
+
+    const banner = document.getElementById('plat-banner');
+    if (banner) banner.classList.toggle('show', done === total);
+  }
+
+  function applyState() {
+    const state = loadState();
+    document.querySelectorAll('.task[data-id]').forEach(el => {
+      el.classList.toggle('done', !!state[el.dataset.id]);
+    });
+    updateProgress();
+  }
+
+  function resetAll() {
+    if (!confirm('Reset all progress? This cannot be undone.')) return;
+    localStorage.removeItem(STORE_KEY);
+    applyState();
+  }
+
+  applyState();
+</script>
+</body>
+</html>
