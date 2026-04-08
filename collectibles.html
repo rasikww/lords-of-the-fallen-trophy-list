@@ -6,7 +6,6 @@
 <title>Lords of the Fallen — Collectible Checklist</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
-
   :root {
     --gold: #c8a84b;
     --gold-light: #e8c96a;
@@ -31,9 +30,7 @@
     --border: rgba(200,168,75,0.18);
     --border-light: rgba(200,168,75,0.35);
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Crimson Pro', Georgia, serif;
     background: var(--surface);
@@ -42,14 +39,12 @@
     font-size: 16px;
     line-height: 1.6;
   }
-
   .header {
     background: linear-gradient(180deg, #0a0806 0%, var(--surface) 100%);
     border-bottom: 1px solid var(--border-light);
     padding: 1.5rem 1.5rem 1rem;
     text-align: center;
   }
-
   .header h1 {
     font-family: 'Cinzel', serif;
     font-size: 1.4rem;
@@ -59,12 +54,10 @@
     text-transform: uppercase;
     margin-bottom: 0.3rem;
   }
-
   .header .subtitle {
     font-size: 0.9rem;
     color: var(--text-muted);
   }
-
   .back-link {
     display: inline-block;
     margin-top: 0.5rem;
@@ -73,7 +66,6 @@
     font-size: 0.85rem;
   }
   .back-link:hover { color: var(--gold-light); }
-
   .progress-section {
     background: var(--surface-2);
     border-bottom: 1px solid var(--border);
@@ -82,14 +74,12 @@
     top: 0;
     z-index: 100;
   }
-
   .progress-stats {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0.5rem;
   }
-
   .progress-label {
     font-family: 'Cinzel', serif;
     font-size: 0.7rem;
@@ -97,42 +87,36 @@
     text-transform: uppercase;
     color: var(--text-muted);
   }
-
   .progress-count {
     font-family: 'Cinzel', serif;
     font-size: 0.85rem;
     color: var(--gold);
     font-weight: 600;
   }
-
   .progress-pct {
     font-family: 'Cinzel', serif;
     font-size: 1rem;
     font-weight: 700;
     color: var(--gold-light);
   }
-
   .progress-bar-bg {
     height: 6px;
     background: var(--surface-4);
     border-radius: 3px;
     overflow: hidden;
   }
-
   .progress-bar-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
     border-radius: 3px;
     transition: width 0.3s ease;
   }
-
   .category-tabs {
     display: flex;
     gap: 0.5rem;
     margin-top: 0.75rem;
     flex-wrap: wrap;
   }
-
   .cat-tab {
     font-family: 'Cinzel', serif;
     font-size: 0.6rem;
@@ -146,23 +130,19 @@
     cursor: pointer;
     transition: all 0.2s;
   }
-
   .cat-tab:hover, .cat-tab.active {
     background: var(--gold-dim);
     color: var(--text);
     border-color: var(--gold);
   }
-
   .main {
     max-width: 900px;
     margin: 0 auto;
     padding: 1rem 1rem 4rem;
   }
-
   .area {
     margin-bottom: 1.5rem;
   }
-
   .area-header {
     display: flex;
     align-items: center;
@@ -174,9 +154,7 @@
     cursor: pointer;
     user-select: none;
   }
-
   .area-header:hover { background: var(--surface-3); }
-
   .area-num {
     font-family: 'Cinzel', serif;
     font-size: 0.6rem;
@@ -188,7 +166,6 @@
     border-radius: 3px;
     padding: 0.1rem 0.4rem;
   }
-
   .area-title {
     font-family: 'Cinzel', serif;
     font-size: 0.8rem;
@@ -196,29 +173,23 @@
     color: var(--gold-light);
     flex: 1;
   }
-
   .area-progress {
     font-size: 0.7rem;
     color: var(--text-dim);
   }
-
   .area-chevron {
     font-size: 0.65rem;
     color: var(--text-dim);
     transition: transform 0.25s;
   }
-
   .area.collapsed .area-chevron { transform: rotate(-90deg); }
-
   .area-body {
     border: 1px solid var(--border);
     border-top: none;
     border-radius: 0 0 5px 5px;
     overflow: hidden;
   }
-
   .area.collapsed .area-body { display: none; }
-
   .item {
     display: flex;
     align-items: center;
@@ -229,10 +200,8 @@
     transition: background 0.15s;
     cursor: pointer;
   }
-
   .item:hover { background: var(--surface-3); }
   .item.checked { background: rgba(74,138,90,0.08); }
-
   .item-check {
     width: 16px;
     height: 16px;
@@ -246,28 +215,23 @@
     transition: all 0.15s;
     pointer-events: none;
   }
-
   .item.checked .item-check {
     background: var(--green);
     border-color: var(--green);
   }
-
   .check-svg { display: none; width: 9px; height: 9px; }
   .item.checked .check-svg { display: block; }
-
   .item-name {
     font-size: 0.85rem;
     color: var(--text);
     flex: 1;
     min-width: 0;
   }
-
   .item.checked .item-name {
     color: var(--text-dim);
     text-decoration: line-through;
     text-decoration-color: var(--text-dim);
   }
-
   .item-type {
     font-family: 'Cinzel', serif;
     font-size: 0.5rem;
@@ -279,7 +243,6 @@
     color: var(--text-muted);
     white-space: nowrap;
   }
-
   .item-type.trophy { background: rgba(200,131,75,0.2); color: var(--bronze); }
   .item-type.weapon { background: rgba(139,26,26,0.2); color: #e07070; }
   .item-type.armor { background: rgba(107,78,156,0.2); color: #b08eea; }
@@ -294,13 +257,11 @@
   .item-type.boss { background: rgba(139,26,26,0.3); color: #e06060; }
   .item-type.upgrade { background: rgba(200,131,75,0.2); color: #e8a060; }
   .item-type.collectible { background: var(--surface-3); color: var(--text-muted); }
-
   .item.missable > .item-name::after {
     content: ' ⚠';
     color: #e06060;
     font-size: 0.75rem;
   }
-
   .item-farm {
     font-family: 'Cinzel', serif;
     font-size: 0.45rem;
@@ -313,7 +274,6 @@
     white-space: nowrap;
     margin-left: 0.5rem;
   }
-
   .tips-section {
     margin: 1rem;
     padding: 0.75rem 1rem;
@@ -322,9 +282,7 @@
     font-size: 0.8rem;
     color: var(--text-muted);
   }
-
   .tips-section strong { color: var(--gold); }
-
   @media (max-width: 600px) {
     .main { padding: 0.75rem 0.5rem 4rem; }
     .category-tabs { gap: 0.35rem; }
@@ -333,13 +291,11 @@
 </style>
 </head>
 <body>
-
 <div class="header">
   <h1>Lords of the Fallen</h1>
   <p class="subtitle">Collectible Checklist</p>
   <a href="index.html" class="back-link">← Back to Roadmap</a>
 </div>
-
 <div class="progress-section">
   <div class="progress-stats">
     <span class="progress-label">Overall Progress</span>
@@ -363,16 +319,13 @@
     <button class="cat-tab" onclick="filterCategory('trophy')">Trophies (0)</button>
   </div>
 </div>
-
 <div class="main" id="collectibles-list">
   <!-- Generated by JavaScript -->
 </div>
-
 <div class="tips-section">
   <strong>Tip:</strong> Check off items as you collect them. Your progress syncs with the main roadmap. 
   Missable items are marked with ⚠ — complete them in the correct playthrough!
 </div>
-
 <script>
 // ============ COLLECTIBLES DATA ============
 // Total: 913 collectibles (Weapons:212, Armor:342, Rings:85, Spells:59, Ammo:60, Gestures:21, Stigmas:62, Eyes:15, Bosses:37, Upgrades:20, Misc:10)
@@ -388,7 +341,6 @@ const collectibles = [
 { id: 'defsep-troph-01', name: 'Trophy: Essence of Death (Soulflay + Backstab)', type: 'trophy', area: 'defsep', missable: false },
 { id: 'defsep-troph-02', name: 'Trophy: A Rest Among the Dead (Reach Skyrest Bridge)', type: 'trophy', area: 'defsep', missable: false },
 { id: 'defsep-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (statue hand)', type: 'upgrade', area: 'defsep', missable: false },
-
 // ================= ABANDONED REDCOPSE PART 1 =================
 { id: 'abared1-col-01', name: 'Collectible: Tacitus\' Journal', type: 'collectible', area: 'abared1', missable: false },
 { id: 'abared1-boss-01', name: 'Boss: The Lightreaper (NG+ only)', type: 'boss', area: 'abared1', missable: true },
@@ -429,11 +381,21 @@ const collectibles = [
 { id: 'abared1-arm-19', name: 'Armour: Pieta\'s Sleeves (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
 { id: 'abared1-arm-20', name: 'Armour: Pieta\'s Armour (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
 { id: 'abared1-arm-21', name: 'Armour: Pieta\'s Helm (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
-{ id: 'abared1-arm-22', name: 'Armour: Pieta\'s Leggings (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
-{ id: 'abared1-weap-06', name: 'Weapon: Pieta\'s Sword (Molhu exchange)', type: 'weapon', area: 'abared1', missable: false },
-{ id: 'abared1-spel-02', name: 'Spell: Blessed Reflections (Molhu exchange)', type: 'spell', area: 'abared1', missable: false },
-
+ { id: 'abared1-arm-22', name: 'Armour: Pieta\'s Leggings (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
+  { id: 'abared1-weap-06', name: 'Weapon: Pieta\'s Sword (Molhu exchange)', type: 'weapon', area: 'abared1', missable: false },
+  { id: 'abared1-spel-02', name: 'Spell: Blessed Reflections (Molhu exchange)', type: 'spell', area: 'abared1', missable: false },
 // ================= SKYREST BRIDGE PART 1 =================
+  { id: 'skyb1-weap-23', name: 'Weapon: Right-hand Lightreaper Sword (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
+  { id: 'skyb1-weap-24', name: 'Weapon: Left-hand Lightreaper Sword (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
+  { id: 'skyb1-weap-25', name: 'Weapon: Right-hand Lightreaper Dagger (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
+  { id: 'skyb1-weap-26', name: 'Weapon: Left-hand Lightreaper Dagger (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
+  { id: 'skyb1-weap-27', name: 'Weapon: Lightreaper\'s Spear (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
+  { id: 'skyb1-weap-28', name: 'Weapon: Lightreaper\'s Shield (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
+  { id: 'skyb1-arm-25', name: 'Armour: Lightreaper\'s Helm (Molhu exchange)', type: 'armor', area: 'skyb1', missable: false },
+  { id: 'skyb1-arm-26', name: 'Armour: Lightreaper\'s Armour (Molhu exchange)', type: 'armor', area: 'skyb1', missable: false },
+  { id: 'skyb1-arm-27', name: 'Armour: Lightreaper\'s Gauntlets (Molhu exchange)', type: 'armor', area: 'skyb1', missable: false },
+  { id: 'skyb1-arm-28', name: 'Armour: Lightreaper\'s Leggings (Molhu exchange)', type: 'armor', area: 'skyb1', missable: false },
+  { id: 'skyb1-spel-07', name: 'Spell: Severing Blades (Molhu exchange)', type: 'spell', area: 'skyb1', missable: false },
 { id: 'skyb1-npc-01', name: 'NPC: Exacter Dunmire', type: 'npc', area: 'skyb1', missable: false },
 { id: 'skyb1-gest-01', name: 'Gesture: Dark Crusader\'s Challenge (from Dunmire)', type: 'gesture', area: 'skyb1', missable: false },
 { id: 'skyb1-weap-01', name: 'Weapon: Neophyte Dagger (from Dunmire)', type: 'weapon', area: 'skyb1', missable: false },
@@ -480,7 +442,6 @@ const collectibles = [
 { id: 'skyb1-arm-20', name: 'Armour: Mournstead Infantry Armour (from Stomund)', type: 'armor', area: 'skyb1', missable: false },
 { id: 'skyb1-npc-05', name: 'NPC: Eustace & Nathaniel', type: 'npc', area: 'skyb1', missable: false },
 { id: 'skyb1-gest-03', name: 'Gesture: Orian Vow of Protection (statue)', type: 'gesture', area: 'skyb1', missable: false },
-{ id: 'skyb1-spel-07', name: 'Spell: Aura of Tenacity (book)', type: 'spell', area: 'skyb1', missable: false },
 { id: 'skyb1-npc-06', name: 'NPC: Andreas of Ebb', type: 'npc', area: 'skyb1', missable: false },
 { id: 'skyb1-weap-12', name: 'Weapon: Old Mournstead Spear (downstairs)', type: 'weapon', area: 'skyb1', missable: false },
 { id: 'skyb1-npc-07', name: 'NPC: Thehk-Ihir (climb ladder)', type: 'npc', area: 'skyb1', missable: false },
@@ -501,10 +462,6 @@ const collectibles = [
 { id: 'skyb1-weap-19', name: 'Weapon: Crimson Rector Sword', type: 'weapon', area: 'skyb1', missable: false },
 { id: 'skyb1-key-01', name: 'Quest Item: Skyrest Bridge Key (Soulflay sack)', type: 'collectible', area: 'skyb1', missable: false },
 { id: 'skyb1-weap-20', name: 'Weapon: Crimson Rector Shield', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-25', name: 'Armour: Descrier Guide Wrappings', type: 'armor', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-26', name: 'Armour: Descrier Guide Leggings', type: 'armor', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-27', name: 'Armour: Descrier Guide Garb', type: 'armor', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-28', name: 'Armour: Descrier Guide Mask', type: 'armor', area: 'skyb1', missable: false },
 { id: 'skyb1-pend-01', name: 'Pendant: Princess\' Sting', type: 'pendant', area: 'skyb1', missable: false },
 { id: 'skyb1-weap-21', name: 'Weapon/Throwable: Searing Accusation', type: 'weapon', area: 'skyb1', missable: false },
 { id: 'skyb1-stig-02', name: 'Umbral Stigma #5 (up stairs)', type: 'stigma', area: 'skyb1', missable: false },
@@ -524,76 +481,9 @@ const collectibles = [
   { id: 'skyb1-arm-34', name: 'Armour: Scourged Sister Leg Wrappings', type: 'armor', area: 'skyb1', missable: false, farm: 'Scourged Sister Delyth' },
 { id: 'skyb1-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (alcove)', type: 'upgrade', area: 'skyb1', missable: false },
 { id: 'skyb1-troph-02', name: 'Trophy: Thriving in Darkness (use Vestige Seed)', type: 'trophy', area: 'skyb1', missable: false },
-
 // ================= ABANDONED REDCOPSE PART 1 =================
-{ id: 'abared1-col-01', name: 'Collectible: Tacitus\' Journal', type: 'collectible', area: 'abared1', missable: false },
-{ id: 'abared1-boss-01', name: 'Boss: The Lightreaper (NG+ only)', type: 'boss', area: 'abared1', missable: true, note: 'Patch 1.6 - now only in NG+' },
-{ id: 'abared1-col-02', name: 'Remembrance: Lightreaper', type: 'collectible', area: 'abared1', missable: false },
-{ id: 'abared1-col-03', name: 'Collectible: Flayed Skin', type: 'collectible', area: 'abared1', missable: false },
-{ id: 'abared1-npc-01', name: 'NPC: Iron Wayfarer (first encounter)', type: 'npc', area: 'abared1', missable: false },
-{ id: 'abared1-stig-01', name: 'Umbral Stigma (after Iron Wayfarer)', type: 'stigma', area: 'abared1', missable: false },
-{ id: 'abared1-stig-02', name: 'Umbral Stigma (inside hut)', type: 'stigma', area: 'abared1', missable: false },
-{ id: 'abared1-weap-01', name: 'Weapon: Pointed Stick', type: 'weapon', area: 'abared1', missable: false },
-{ id: 'abared1-weap-02', name: 'Weapon: Broken Sword', type: 'weapon', area: 'abared1', missable: false },
-{ id: 'abared1-weap-03', name: 'Weapon: Hallowed Condemnation', type: 'weapon', area: 'abared1', missable: false },
-{ id: 'abared1-arm-01', name: 'Armour: Pilgrim Garb + Pilgrim Skirt', type: 'armor', area: 'abared1', missable: false },
-{ id: 'abared1-arm-02', name: 'Armour: Crown of Nails (windmill)', type: 'armor', area: 'abared1', missable: false },
-{ id: 'abared1-ring-01', name: 'Ring: Mineowner\'s Ring', type: 'ring', area: 'abared1', missable: false },
-{ id: 'abared1-arm-03', name: 'Armour: Pilgrim Bandages + Pilgrim Hood', type: 'armor', area: 'abared1', missable: false },
 { id: 'abared1-eye-01', name: 'Umbral Eye: Umbral Eye of Betrayed Eliard', type: 'eye', area: 'abared1', missable: false },
-{ id: 'abared1-arm-04', name: 'Armour: Marksman Armour + Gloves + Trousers', type: 'armor', area: 'abared1', missable: false },
-{ id: 'abared1-weap-04', name: 'Weapon: Rusty Cutter', type: 'weapon', area: 'abared1', missable: false },
-{ id: 'abared1-weap-05', name: 'Weapon: Raw Mangler Axe', type: 'weapon', area: 'abared1', missable: false },
-{ id: 'abared1-boss-02', name: 'Boss: Pieta, She of Blessed Renewal', type: 'boss', area: 'abared1', missable: false },
-{ id: 'abared1-troph-01', name: 'Trophy: Rise and Fall (Defeat Pieta)', type: 'trophy', area: 'abared1', missable: false },
-{ id: 'abared1-col-04', name: 'Remembrance: Pieta', type: 'collectible', area: 'abared1', missable: false },
-{ id: 'abared1-stig-03', name: 'Umbral Stigma (boss arena)', type: 'stigma', area: 'abared1', missable: false },
-{ id: 'abared1-spel-01', name: 'Spell: Sanctify (left tower)', type: 'spell', area: 'abared1', missable: false },
-{ id: 'abared1-arm-05', name: 'Armour: Pieta\'s Sleeves + Armour + Helm + Leggings (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
-{ id: 'abared1-weap-06', name: 'Weapon: Pieta\'s Sword (Molhu exchange)', type: 'weapon', area: 'abared1', missable: false },
-{ id: 'abared1-spel-02', name: 'Spell: Blessed Reflections (Molhu exchange)', type: 'spell', area: 'abared1', missable: false },
-
 // ================= SKYREST BRIDGE PART 1 =================
-{ id: 'skyb1-npc-01', name: 'NPC: Exacter Dunmire', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-gest-01', name: 'Gesture: Dark Crusader\'s Challenge (from Dunmire)', type: 'gesture', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-02', name: 'NPC: Pieta (after rest)', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-gest-02', name: 'Gesture: Putrid Mother\'s Embrace (shrine)', type: 'gesture', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-03', name: 'NPC: Molhu (Umbral)', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-04', name: 'NPC: Stomund, Captain of the Fidelis', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-05', name: 'NPC: Eustace & Nathaniel', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-gest-03', name: 'Gesture: Orian Vow of Protection (statue)', type: 'gesture', area: 'skyb1', missable: false },
-{ id: 'skyb1-spel-01', name: 'Spell: Aura of Tenacity (book)', type: 'spell', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-06', name: 'NPC: Andreas of Ebb', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-07', name: 'NPC: Thehk-Ihir (climb ladder)', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-ammo-01', name: 'Ammo: Bloody Hatchet', type: 'ammo', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-01', name: 'Weapon: Reject\'s Blade', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-02', name: 'Weapon: Pale Eye Shield', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-03', name: 'Weapon: Bell Staff', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-tinct-01', name: 'Tinct: Icegrip', type: 'collectible', area: 'skyb1', missable: false },
-{ id: 'skyb1-troph-01', name: 'Trophy: Shades of Violence (use Icegrip tinct)', type: 'trophy', area: 'skyb1', missable: false },
-{ id: 'skyb1-stig-01', name: 'Umbral Stigma (bridge)', type: 'stigma', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-04', name: 'Weapon: Faithful Bludgeon', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-05', name: 'Weapon: Crimson Rector Sword', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-key-01', name: 'Quest Item: Skyrest Bridge Key', type: 'collectible', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-06', name: 'Weapon: Crimson Rector Shield', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-01', name: 'Armour: Descrier Guide Wrappings + Leggings + Garb + Mask', type: 'armor', area: 'skyb1', missable: false },
-{ id: 'skyb1-pend-01', name: 'Pendant: Princess\' Sting', type: 'pendant', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-07', name: 'Weapon/Throwable: Searing Accusation', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-stig-02', name: 'Umbral Stigma (up stairs)', type: 'stigma', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-08', name: 'NPC: Tortured Prisoner', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-02', name: 'Armour: Tortured Prisoner\'s Head Cage (reload area)', type: 'armor', area: 'skyb1', missable: false },
-{ id: 'skyb1-ammo-02', name: 'Ammo: Short Javelin', type: 'ammo', area: 'skyb1', missable: false },
-{ id: 'skyb1-stig-03', name: 'Umbral Stigma (Sanctuary of Baptism)', type: 'stigma', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-03', name: 'Armour: Condemned Manacles + Head Cage + Garb + Fetters', type: 'armor', area: 'skyb1', missable: false },
-{ id: 'skyb1-ammo-03', name: 'Ammo: Empyrean Grenade', type: 'ammo', area: 'skyb1', missable: false },
-{ id: 'skyb1-npc-09', name: 'NPC: Hooded Figure', type: 'npc', area: 'skyb1', missable: false },
-{ id: 'skyb1-quest-01', name: 'Quest Item: Bloody Aspergillum', type: 'collectible', area: 'skyb1', missable: false },
-{ id: 'skyb1-boss-01', name: 'Boss: Scourged Sister Delyth', type: 'boss', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-08', name: 'Weapon: Scourged Sister Flail', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-04', name: 'Armour: Scourged Sister Leg Wrappings', type: 'armor', area: 'skyb1', missable: false },
-{ id: 'skyb1-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (alcove)', type: 'upgrade', area: 'skyb1', missable: false },
-{ id: 'skyb1-troph-02', name: 'Trophy: Thriving in Darkness (use Vestige Seed)', type: 'trophy', area: 'skyb1', missable: false },
-
 // ================= PILGRIM'S PERCH PART 1 =================
 { id: 'pilgr1-ammo-01', name: 'Ammo: Lacerating Knife', type: 'ammo', area: 'pilgr1', missable: false },
 { id: 'pilgr1-weap-01', name: 'Weapon: Hallowed Bow', type: 'weapon', area: 'pilgr1', missable: false },
@@ -602,7 +492,8 @@ const collectibles = [
 { id: 'pilgr1-gest-01', name: 'Gesture: Common Orian Prayer', type: 'gesture', area: 'pilgr1', missable: false },
 { id: 'pilgr1-ring-01', name: 'Ring: Defaced Ring', type: 'ring', area: 'pilgr1', missable: false },
 { id: 'pilgr1-weap-03', name: 'Weapon: Hallowed Praise', type: 'weapon', area: 'pilgr1', missable: false },
-{ id: 'pilgr1-ring-02', name: 'Ring: Holy Blood Ring', type: 'ring', area: 'pilgr1', missable: false },
+ { id: 'pilgr1-ring-02', name: 'Ring: Holy Blood Ring', type: 'ring', area: 'pilgr1', missable: false },
+  { id: 'pilgr1-ring-03', name: 'Ring: Defiance Ring', type: 'ring', area: 'pilgr1', missable: false },
  { id: 'pilgr1-weap-04', name: 'Weapon: Perdam Falchion', type: 'weapon', area: 'pilgr1', missable: false },
   { id: 'pilgr1-weap-05', name: 'Weapon: Thorned Crimson Rector Sword', type: 'weapon', area: 'pilgr1', missable: false },
   { id: 'pilgr1-weap-06', name: 'Weapon: Agony\'s Light', type: 'weapon', area: 'pilgr1', missable: false, farm: 'Ardent the Penitent' },
@@ -615,7 +506,15 @@ const collectibles = [
 { id: 'pilgr1-tinct-01', name: 'Tinct: Pridebound', type: 'collectible', area: 'pilgr1', missable: false },
 { id: 'pilgr1-quest-01', name: 'Quest Item: Hallowed Sentinel Scripture', type: 'collectible', area: 'pilgr1', missable: false },
 { id: 'pilgr1-stig-01', name: 'Umbral Stigma (hanging cage)', type: 'stigma', area: 'pilgr1', missable: false },
-{ id: 'pilgr1-arm-02', name: 'Armour: Ardent Penitent Head Cage', type: 'armor', area: 'pilgr1', missable: false },
+ { id: 'pilgr1-arm-02', name: 'Armour: Ardent Penitent Head Cage', type: 'armor', area: 'pilgr1', missable: false, farm: 'Ardent the Penitent' },
+  { id: 'pilgr1-arm-02b', name: 'Armour: Ardent Penitent Loincloth', type: 'armor', area: 'pilgr1', missable: false, farm: 'Ardent the Penitent' },
+  { id: 'pilgr1-arm-02c', name: 'Armour: Ardent Penitent Torso Chains', type: 'armor', area: 'pilgr1', missable: false, farm: 'Ardent the Penitent' },
+  { id: 'pilgr1-arm-02d', name: 'Armour: Ardent Penitent Arm Chains', type: 'armor', area: 'pilgr1', missable: false, farm: 'Ardent the Penitent' },
+  { id: 'pilgr1-arm-02e', name: 'Armour: Stillness Hood', type: 'armor', area: 'pilgr1', missable: false, farm: 'Stillness' },
+  { id: 'pilgr1-arm-02f', name: 'Armour: Stillness Robes', type: 'armor', area: 'pilgr1', missable: false, farm: 'Stillness' },
+  { id: 'pilgr1-arm-02g', name: 'Armour: Despair\'s Cocoon', type: 'armor', area: 'pilgr1', missable: false, farm: 'Womb of Despair' },
+  { id: 'pilgr1-arm-02h', name: 'Armour: Despair\'s Countenance', type: 'armor', area: 'pilgr1', missable: false, farm: 'Womb of Despair' },
+  { id: 'pilgr1-arm-02i', name: 'Armour: Despair\'s Grasp', type: 'armor', area: 'pilgr1', missable: false, farm: 'Womb of Despair' },
 { id: 'pilgr1-pend-01', name: 'Pendant: Relic of Perpetuation', type: 'pendant', area: 'pilgr1', missable: false },
 { id: 'pilgr1-quest-02', name: 'Quest Item: Bowl of Revelations', type: 'collectible', area: 'pilgr1', missable: false },
 { id: 'pilgr1-troph-01', name: 'Trophy: The Past Shapes the Present (give Bowl to Molhu)', type: 'trophy', area: 'pilgr1', missable: false },
@@ -631,7 +530,6 @@ const collectibles = [
   { id: 'pilgr1-weap-10', name: 'Weapon: Sin-Piercer Sword', type: 'weapon', area: 'pilgr1', missable: false, farm: 'Sin-Piercer' },
 { id: 'pilgr1-arm-04', name: 'Armour: Sin-Piercer Armour + Boots', type: 'armor', area: 'pilgr1', missable: false },
 { id: 'pilgr1-ammo-04', name: 'Ammo Satchel', type: 'ammo', area: 'pilgr1', missable: false },
-
 // ================= SKYREST BRIDGE PART 2 =================
 { id: 'skyb2-quest-01', name: 'Turn in: Bloody Aspergillum to Exacter Dunmire', type: 'collectible', area: 'skyb2', missable: false },
 { id: 'skyb2-quest-02', name: 'Turn in: Hallowed Sentinel Scripture to Exacter Dunmire', type: 'collectible', area: 'skyb2', missable: false },
@@ -640,7 +538,6 @@ const collectibles = [
 { id: 'skyb2-spel-02', name: 'Spell: Umbral Guardian (Molhu)', type: 'spell', area: 'skyb2', missable: false },
 { id: 'skyb2-ring-01', name: 'Ring: Mother\'s Watch (Molhu)', type: 'ring', area: 'skyb2', missable: false },
 { id: 'skyb2-npc-01', name: 'NPC: Gerlinde (at Skyrest Bridge after unlock)', type: 'npc', area: 'skyb2', missable: false },
-
 // ================= FORSAKEN FEN PART 1 =================
 { id: 'forsf1-gest-01', name: 'Gesture: Beckoning (from Thehk-Ihir)', type: 'gesture', area: 'forsf1', missable: false },
 { id: 'forsf1-npc-01', name: 'NPC: Thehk-Ihir', type: 'npc', area: 'forsf1', missable: false },
@@ -648,11 +545,9 @@ const collectibles = [
 { id: 'forsf1-troph-01', name: 'Trophy: Together in Death (defeat Congregator)', type: 'trophy', area: 'forsf1', missable: false },
 { id: 'forsf1-stig-01', name: 'Umbral Stigma (boss arena)', type: 'stigma', area: 'forsf1', missable: false },
 { id: 'forsf1-col-01', name: 'Remembrance: Congregator of Flesh', type: 'collectible', area: 'forsf1', missable: false },
-
 // ================= SKYREST BRIDGE PART 3 =================
 { id: 'skyb3-spel-01', name: 'Spell: Flesh Tide (Molhu exchange)', type: 'spell', area: 'skyb3', missable: false },
 { id: 'skyb3-weap-01', name: 'Weapon: Saint Latimer\'s Relic Spear (Molhu exchange)', type: 'weapon', area: 'skyb3', missable: false },
-
 // ================= FORSAKEN FEN PART 2 =================
 { id: 'forsf2-npc-01', name: 'NPC: Byron (Umbral)', type: 'npc', area: 'forsf2', missable: true },
 { id: 'forsf2-ammo-01', name: 'Ammo: Poison Arrows', type: 'ammo', area: 'forsf2', missable: false },
@@ -683,7 +578,6 @@ const collectibles = [
 { id: 'forsf2-arm-08', name: 'Armour: Mask of Wrath', type: 'armor', area: 'forsf2', missable: false },
 { id: 'forsf2-col-01', name: 'Quest Item: Vanguard Barros\' Rosary', type: 'collectible', area: 'forsf2', missable: false },
 { id: 'forsf2-upgr-02', name: 'Sanguinarix Upgrade: Saintly Quintessence (tree)', type: 'upgrade', area: 'forsf2', missable: false },
-
 // ================= FORSAKEN FEN PART 3 =================
 { id: 'forsf3-ammo-01', name: 'Ammo: Forsaken Grenade', type: 'ammo', area: 'forsf3', missable: false },
 { id: 'forsf3-eye-01', name: 'Umbral Eye: Umbral Eye of the Pale Butcher', type: 'eye', area: 'forsf3', missable: false },
@@ -695,13 +589,11 @@ const collectibles = [
 { id: 'forsf3-troph-01', name: 'Trophy: Burying the Past (defeat Hushed Saint)', type: 'trophy', area: 'forsf3', missable: false },
 { id: 'forsf3-stig-01', name: 'Umbral Stigma (arena)', type: 'stigma', area: 'forsf3', missable: false },
 { id: 'forsf3-col-02', name: 'Remembrance: The Hushed Saint', type: 'collectible', area: 'forsf3', missable: false },
-
 // ================= SKYREST BRIDGE PART 4 =================
 { id: 'skyb4-quest-01', name: 'Quest Item: Fief Key (from Andreas of Ebb)', type: 'collectible', area: 'skyb4', missable: false },
 { id: 'skyb4-quest-02', name: 'Turn in: Vanguard Barros\' Rosary to Exacter Dunmire', type: 'collectible', area: 'skyb4', missable: false },
 { id: 'skyb4-spel-01', name: 'Spell: Cleansing Spring', type: 'spell', area: 'skyb4', missable: false },
 { id: 'skyb4-arm-01', name: 'Armour: Purger Helm + Gauntlets + Leggings + Armour', type: 'armor', area: 'skyb4', missable: false },
-
 // ================= LOWER CALRATH =================
 { id: 'lowcal-boss-01', name: 'Boss: Soul-Lash', type: 'boss', area: 'lowcal', missable: false },
 { id: 'lowcal-boss-02', name: 'Boss: Aoede', type: 'boss', area: 'lowcal', missable: false },
@@ -712,7 +604,6 @@ const collectibles = [
 { id: 'lowcal-gest-01', name: 'Gesture: Radiant Beacon', type: 'gesture', area: 'lowcal', missable: false },
 { id: 'lowcal-spel-01', name: 'Spell: Luminance', type: 'spell', area: 'lowcal', missable: false },
 { id: 'lowcal-arm-01', name: 'Armour: Orian Preacher Wrappings', type: 'armor', area: 'lowcal', missable: false },
-
 // ================= SUNLESS SKEIN =================
 { id: 'sunske-npc-01', name: 'NPC: Harval', type: 'npc', area: 'sunske', missable: false },
 { id: 'sunske-quest-01', name: 'Quest Item: Harval\'s Stone', type: 'collectible', area: 'sunske', missable: false },
@@ -720,23 +611,19 @@ const collectibles = [
 { id: 'sunske-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'sunske', missable: false },
 { id: 'sunske-weap-01', name: 'Weapon: Briar\'s Spine', type: 'weapon', area: 'sunske', missable: false },
 { id: 'sunske-arm-01', name: 'Armour: Briar\'s Nightwear', type: 'armor', area: 'sunske', missable: false },
-
 // ================= CISTERN =================
 { id: 'cistern-boss-01', name: 'Boss: Mother of Snows', type: 'boss', area: 'cistern', missable: false },
 { id: 'cistern-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'cistern', missable: false },
 { id: 'cistern-weap-01', name: 'Weapon: Frozen Fangs', type: 'weapon', area: 'cistern', missable: false },
-
 // ================= REVELATION DEPTHS =================
 { id: 'revdep-boss-01', name: 'Boss: Revenant, The Chancel Keeper', type: 'boss', area: 'revdep', missable: false },
 { id: 'revdep-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'revdep', missable: false },
-
 // ================= ABBEY OF THE HALLOWED SISTERS =================
 { id: 'abbey-npc-01', name: 'NPC: Motherly Moore', type: 'npc', area: 'abbey', missable: false },
 { id: 'abbey-npc-02', name: 'NPC: Sister Gwendolin', type: 'npc', area: 'abbey', missable: false },
 { id: 'abbey-boss-01', name: 'Boss: Mother of Dark Flourish', type: 'boss', area: 'abbey', missable: false },
 { id: 'abbey-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'abbey', missable: false },
 { id: 'abbey-arm-01', name: 'Armour: Sister\'s Habit + Sandals', type: 'armor', area: 'abbey', missable: false },
-
 // ================= THE EMPYREAN =================
 { id: 'empy-npc-01', name: 'NPC: Judge Cleric', type: 'npc', area: 'empy', missable: false },
 { id: 'empy-quest-01', name: 'Complete Faithful quest (Cleric of the Radiant)', type: 'collectible', area: 'empy', missable: true },
@@ -745,12 +632,10 @@ const collectibles = [
 { id: 'empy-troph-02', name: 'Trophy: Fallen (complete Elianne quest)', type: 'trophy', area: 'empy', missable: true },
 { id: 'empy-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'empy', missable: false },
 { id: 'empy-boss-02', name: 'Boss: Ravenna, Heretic Purveyor', type: 'boss', area: 'empy', missable: false },
-
 // ================= UPPER CALRATH =================
 { id: 'uppcal-boss-01', name: 'Boss: Ink-Ghoul King', type: 'boss', area: 'uppcal', missable: false },
 { id: 'uppcal-boss-02', name: 'Boss: Spiteful Shepherd', type: 'boss', area: 'uppcal', missable: false },
 { id: 'uppcal-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'uppcal', missable: false },
-
 // ================= BRAMIS CASTLE =================
 { id: 'bramis-boss-01', name: 'Boss: Hushed Saint (Second encounter)', type: 'boss', area: 'bramis', missable: false },
 { id: 'bramis-boss-02', name: 'Boss: Adyr, Lord of the Seven Crosses', type: 'boss', area: 'bramis', missable: false },
@@ -760,16 +645,13 @@ const collectibles = [
 { id: 'bramis-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'bramis', missable: false },
 { id: 'bramis-col-01', name: 'Collect: Adyr soul-bound items (after Adyr ending)', type: 'collectible', area: 'bramis', missable: true },
 { id: 'bramis-col-02', name: 'Collect: Radiant soul-bound items (after Radiant ending)', type: 'collectible', area: 'bramis', missable: true },
-
 // ================= MOTHER'S LULL =================
 { id: 'mothlu-boss-01', name: 'Boss: Infinite Knight', type: 'boss', area: 'mothlu', missable: false },
 { id: 'mothlu-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'mothlu', missable: false },
-
 // ================= ADDITIONAL MISSING TROPHIES =================
 { id: 'troph-silv-01', name: 'Trophy: Seasoned (Reach Level 100)', type: 'trophy', area: 'general', missable: false },
 { id: 'troph-silv-02', name: 'Trophy: Wayfarer (Visit all areas)', type: 'trophy', area: 'general', missable: false },
 { id: 'troph-bronze-01', name: 'Trophy: A Shadow Dispelled (Defeat Scarlet Shadow)', type: 'trophy', area: 'general', missable: false },
-
 // ================= ONLINE/COOP TROPHIES =================
 { id: 'online-troph-01', name: 'Trophy: Comrades (Help others defeat boss)', type: 'trophy', area: 'online', missable: false },
 { id: 'online-troph-02', name: 'Trophy: No Mercy (Invade and defeat player)', type: 'trophy', area: 'online', missable: false },
@@ -777,7 +659,6 @@ const collectibles = [
 { id: 'online-troph-04', name: 'Trophy: Infernal Offerings (Donate to Infernal shrine)', type: 'trophy', area: 'online', missable: true },
 { id: 'online-troph-05', name: 'Trophy: Radiant Offerings (Donate to Radiant shrine)', type: 'trophy', area: 'online', missable: true },
 { id: 'online-troph-06', name: 'Trophy: Umbral Offerings (Donate to Umbral shrine)', type: 'trophy', area: 'online', missable: true },
-
 // ================= COLLECTOR TROPHIES =================
 { id: 'collect-troph-01', name: 'Trophy: Weapon Collector (Collect all weapons)', type: 'trophy', area: 'collect', missable: false },
 { id: 'collect-troph-02', name: 'Trophy: Ironclad (Collect all armor)', type: 'trophy', area: 'collect', missable: false },
@@ -796,7 +677,6 @@ const collectibles = [
 { id: 'collect-troph-15', name: 'Trophy: Rune Novice (Place rune in socket)', type: 'trophy', area: 'collect', missable: false },
 { id: 'collect-troph-16', name: 'Trophy: Carving Out Victory (Defeat 100 enemies)', type: 'trophy', area: 'collect', missable: false },
 { id: 'collect-troph-17', name: 'Trophy: Utmost Insight (Reach Level 10)', type: 'trophy', area: 'collect', missable: false },
-
 // ================= FITZROY'S GORGE =================
 { id: 'fitg-weap-01', name: 'Weapon: Fitzroy\'s Sword', type: 'weapon', area: 'fitg', missable: false },
 { id: 'fitg-weap-02', name: 'Weapon: Ruiner Axe', type: 'weapon', area: 'fitg', missable: false, farm: 'Ruiner' },
@@ -807,16 +687,18 @@ const collectibles = [
 { id: 'fitg-weap-07', name: 'Weapon: Axe of the Flayed', type: 'weapon', area: 'fitg', missable: false },
 { id: 'fitg-weap-08', name: 'Weapon: Proselyte Sword', type: 'weapon', area: 'fitg', missable: false },
 { id: 'fitg-weap-09', name: 'Weapon: Taxidermist\'s Hammer', type: 'weapon', area: 'fitg', missable: false },
-{ id: 'fitg-ring-01', name: 'Ring: Ring of Radiant Preeminence', type: 'ring', area: 'fitg', missable: false },
+ { id: 'fitg-ring-01', name: 'Ring: Ring of Radiant Preeminence', type: 'ring', area: 'fitg', missable: false },
+  { id: 'fitg-ring-02', name: 'Ring: Ring of Night\'s Fire', type: 'ring', area: 'fitg', missable: false },
 { id: 'fitg-arm-01', name: 'Armour: Ruiner Sleeves', type: 'armor', area: 'fitg', missable: false, farm: 'Ruiner' },
 { id: 'fitg-boss-01', name: 'Boss: Duskmaster', type: 'boss', area: 'fitg', missable: false },
 { id: 'fitg-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'fitg', missable: false },
-
 // ================= SHRINE OF ADYR =================
 { id: 'shrad-weap-01', name: 'Weapon: Rhogar\'s Reach', type: 'weapon', area: 'shrad', missable: false },
+{ id: 'shrad-ring-01', name: 'Ring: Executioner\'s Ring', type: 'ring', area: 'shrad', missable: false },
+{ id: 'shrad-ring-02', name: 'Ring: Adyrqamar Ring', type: 'ring', area: 'shrad', missable: false },
+{ id: 'shrad-ring-03', name: 'Ring: Grayson\'s Ring', type: 'ring', area: 'shrad', missable: false },
 { id: 'shrad-boss-01', name: 'Boss: Spurned Progeny', type: 'boss', area: 'shrad', missable: false },
 { id: 'shrad-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'shrad', missable: false },
-
 // ================= LOWER CALRATH =================
 { id: 'lowcal-weap-01', name: 'Weapon: Infernal Enchantress Flail', type: 'weapon', area: 'lowcal', missable: false, farm: 'Infernal Enchantress' },
 { id: 'lowcal-weap-02', name: 'Weapon: Pyric Cultist Flail', type: 'weapon', area: 'lowcal', missable: false },
@@ -839,8 +721,6 @@ const collectibles = [
 { id: 'lowcal-ring-03', name: 'Ring: Adyr\'s Mark Ring', type: 'ring', area: 'lowcal', missable: false },
 { id: 'lowcal-ring-04', name: 'Ring: Ring of Nourishment', type: 'ring', area: 'lowcal', missable: false },
 { id: 'lowcal-pend-01', name: 'Pendant: Pendant of Parting', type: 'pendant', area: 'lowcal', missable: false },
-{ id: 'lowcal-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'lowcal', missable: false },
-{ id: 'lowcal-arm-01', name: 'Armour: Infernal Enchantress Helm', type: 'armor', area: 'lowcal', missable: false },
 { id: 'lowcal-arm-02', name: 'Armour: Raw Mangler Cape', type: 'armor', area: 'lowcal', missable: false },
 { id: 'lowcal-arm-03', name: 'Armour: Raw Mangler Trousers', type: 'armor', area: 'lowcal', missable: false },
 { id: 'lowcal-arm-04', name: 'Armour: Prole Hat', type: 'armor', area: 'lowcal', missable: false },
@@ -851,18 +731,17 @@ const collectibles = [
 { id: 'lowcal-arm-09', name: 'Armour: Overseer Garb', type: 'armor', area: 'lowcal', missable: false },
 { id: 'lowcal-arm-10', name: 'Armour: Overseer Gloves', type: 'armor', area: 'lowcal', missable: false },
 { id: 'lowcal-arm-11', name: 'Armour: Overseer Mask', type: 'armor', area: 'lowcal', missable: false },
-{ id: 'lowcal-arm-12', name: 'Armour: Penitent Shackles', type: 'armor', area: 'lowcal', missable: false },
-{ id: 'lowcal-arm-13', name: 'Armour: Penitent Garb', type: 'armor', area: 'lowcal', missable: false },
-{ id: 'lowcal-arm-14', name: 'Armour: Penitent Trousers', type: 'armor', area: 'lowcal', missable: false },
-{ id: 'lowcal-arm-15', name: 'Armour: Thorned Penitent Mask', type: 'armor', area: 'lowcal', missable: false },
-{ id: 'lowcal-col-01', name: 'Remembrance: Soul-Lash', type: 'collectible', area: 'lowcal', missable: false },
-{ id: 'lowcal-col-02', name: 'Remembrance: Aoede', type: 'collectible', area: 'lowcal', missable: false },
-
+ { id: 'lowcal-arm-12', name: 'Armour: Penitent Shackles', type: 'armor', area: 'lowcal', missable: false, farm: 'Penitent' },
+  { id: 'lowcal-arm-13', name: 'Armour: Penitent Garb', type: 'armor', area: 'lowcal', missable: false, farm: 'Penitent' },
+  { id: 'lowcal-arm-14', name: 'Armour: Penitent Trousers', type: 'armor', area: 'lowcal', missable: false, farm: 'Penitent' },
+   { id: 'lowcal-arm-15', name: 'Armour: Thorned Penitent Mask', type: 'armor', area: 'lowcal', missable: false, farm: 'Penitent' },
+  { id: 'lowcal-ring-05', name: 'Ring: Scornful Effigy', type: 'ring', area: 'lowcal', missable: false },
+  { id: 'lowcal-pend-02', name: 'Pendant: Pendant of Parting', type: 'pendant', area: 'lowcal', missable: false },
+  { id: 'lowcal-ring-06', name: 'Ring: Vessel Root', type: 'ring', area: 'lowcal', missable: false },
 // ================= SUNLESS SKEIN =================
-{ id: 'sunske-weap-01', name: 'Weapon: Devoted Chopper', type: 'weapon', area: 'sunske', missable: false },
 { id: 'sunske-weap-02', name: 'Weapon: Edict\'s Aim', type: 'weapon', area: 'sunske', missable: false },
 { id: 'sunske-weap-03', name: 'Weapon: Fulvirano Shield', type: 'weapon', area: 'sunske', missable: false },
-{ id: 'sunske-weap-04', name: 'Weapon: Fungus-Encrusted Pickaxe', type: 'weapon', area: 'sunske', missable: false },
+ { id: 'sunske-weap-04', name: 'Weapon: Fungus-Encrusted Pickaxe', type: 'weapon', area: 'sunske', missable: false, farm: 'Enslaved Miner' },
 { id: 'sunske-weap-05', name: 'Weapon: Veil-Piercer', type: 'weapon', area: 'sunske', missable: false },
 { id: 'sunske-weap-06', name: 'Weapon: Shield of Whispers', type: 'weapon', area: 'sunske', missable: false },
 { id: 'sunske-weap-07', name: 'Weapon: Skinstealer Cleaver', type: 'weapon', area: 'sunske', missable: false },
@@ -870,7 +749,6 @@ const collectibles = [
 { id: 'sunske-pend-01', name: 'Pendant: Miner\'s Pendant', type: 'pendant', area: 'sunske', missable: false },
 { id: 'sunske-ring-02', name: 'Ring: Ring of Bones', type: 'ring', area: 'sunske', missable: false },
 { id: 'sunske-ring-03', name: 'Ring: Berinon\'s Ring', type: 'ring', area: 'sunske', missable: false },
-{ id: 'sunske-arm-01', name: 'Armour: Enslaved Miner Shackle', type: 'armor', area: 'sunske', missable: false },
 { id: 'sunske-arm-02', name: 'Armour: Arm Fungus', type: 'armor', area: 'sunske', missable: false },
 { id: 'sunske-arm-03', name: 'Armour: Torso Fungus', type: 'armor', area: 'sunske', missable: false },
 { id: 'sunske-arm-04', name: 'Armour: Enslaved Miner Collar', type: 'armor', area: 'sunske', missable: false },
@@ -879,29 +757,21 @@ const collectibles = [
 { id: 'sunske-arm-07', name: 'Armour: Sovereign Protector Armour', type: 'armor', area: 'sunske', missable: false },
 { id: 'sunske-arm-08', name: 'Armour: Sovereign Protector Helm', type: 'armor', area: 'sunske', missable: false },
 { id: 'sunske-arm-09', name: 'Armour: Skinstealer Leggings', type: 'armor', area: 'sunske', missable: false },
-{ id: 'sunske-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'sunske', missable: false },
-{ id: 'sunske-boss-01', name: 'Boss: Briar, Mistress of Thorns', type: 'boss', area: 'sunske', missable: false },
-{ id: 'sunske-npc-01', name: 'NPC: Harval', type: 'npc', area: 'sunske', missable: false },
-
 // ================= CISTERN =================
-{ id: 'cistern-weap-01', name: 'Weapon: Marco\'s Axe', type: 'weapon', area: 'cistern', missable: false },
 { id: 'cistern-weap-02', name: 'Weapon: Pickaxe', type: 'weapon', area: 'cistern', missable: false },
 { id: 'cistern-weap-03', name: 'Weapon: Miner\'s Desperation', type: 'weapon', area: 'cistern', missable: false },
 { id: 'cistern-weap-04', name: 'Weapon: Nohuta Polearm', type: 'weapon', area: 'cistern', missable: false },
 { id: 'cistern-weap-05', name: 'Weapon: Nohuta Effigy', type: 'weapon', area: 'cistern', missable: false },
-{ id: 'cistern-weap-06', name: 'Weapon: Fungal Bowman Bow', type: 'weapon', area: 'cistern', missable: false },
+ { id: 'cistern-weap-06', name: 'Weapon: Fungal Bowman Bow', type: 'weapon', area: 'cistern', missable: false, farm: 'Fungal Bowman' },
 { id: 'cistern-ring-01', name: 'Ring: Unblinking Root', type: 'ring', area: 'cistern', missable: false },
 { id: 'cistern-arm-01', name: 'Armour: Fungal Bowman Collar', type: 'armor', area: 'cistern', missable: false },
 { id: 'cistern-arm-02', name: 'Armour: Fungal Bowman Trousers', type: 'armor', area: 'cistern', missable: false },
-{ id: 'cistern-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'cistern', missable: false },
-{ id: 'cistern-boss-01', name: 'Boss: Mother of Snows', type: 'boss', area: 'cistern', missable: false },
-
 // ================= REVELATION DEPTHS =================
 { id: 'revdep-weap-01', name: 'Weapon: Chipped Spear', type: 'weapon', area: 'revdep', missable: false },
 { id: 'revdep-weap-02', name: 'Weapon: Byron\'s Shovel', type: 'weapon', area: 'revdep', missable: false },
 { id: 'revdep-weap-03', name: 'Weapon: Shovel-Head', type: 'weapon', area: 'revdep', missable: false },
 { id: 'revdep-weap-04', name: 'Weapon: Justice', type: 'weapon', area: 'revdep', missable: false },
-{ id: 'revdep-weap-05', name: 'Weapon: Holy Bulwark Mace', type: 'weapon', area: 'revdep', missable: false },
+ { id: 'revdep-weap-05', name: 'Weapon: Holy Bulwark Mace', type: 'weapon', area: 'revdep', missable: false, farm: 'Holy Bulwark' },
 { id: 'revdep-weap-06', name: 'Weapon: Lost Berescu\'s Catalyst', type: 'weapon', area: 'revdep', missable: false },
 { id: 'revdep-weap-07', name: 'Weapon: Death\'s Finger', type: 'weapon', area: 'revdep', missable: false },
 { id: 'revdep-weap-08', name: 'Weapon: Exacter Dagger', type: 'weapon', area: 'revdep', missable: false },
@@ -915,9 +785,6 @@ const collectibles = [
 { id: 'revdep-ring-07', name: 'Ring: Dunmire\'s Ring', type: 'ring', area: 'revdep', missable: false },
 { id: 'revdep-arm-01', name: 'Armour: Enslaved Miner Chain', type: 'armor', area: 'revdep', missable: false },
 { id: 'revdep-arm-02', name: 'Armour: Enslaved Miner Trousers', type: 'armor', area: 'revdep', missable: false },
-{ id: 'revdep-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'revdep', missable: false },
-{ id: 'revdep-boss-01', name: 'Boss: Revenant, The Chancel Keeper', type: 'boss', area: 'revdep', missable: false },
-
 // ================= ABANDONED REDCOPSE PART 2 =================
 { id: 'abared2-weap-01', name: 'Weapon: Splitting Axe', type: 'weapon', area: 'abared2', missable: false },
 { id: 'abared2-weap-02', name: 'Weapon: Kinrangr Guardian Axe', type: 'weapon', area: 'abared2', missable: false },
@@ -926,7 +793,6 @@ const collectibles = [
 { id: 'abared2-arm-03', name: 'Armour: Kinrangr Guardian Gauntlets', type: 'armor', area: 'abared2', missable: false },
 { id: 'abared2-arm-04', name: 'Armour: Kinrangr Guardian Trousers', type: 'armor', area: 'abared2', missable: false },
 { id: 'abared2-boss-01', name: 'Boss: Hushed Saint (First encounter)', type: 'boss', area: 'abared2', missable: false },
-
 // ================= FIEF OF THE CHILL CURSE =================
 { id: 'fief-weap-01', name: 'Weapon: Udirangr Shaman Bow', type: 'weapon', area: 'fief', missable: false },
 { id: 'fief-weap-02', name: 'Weapon: Sunken Beseecher', type: 'weapon', area: 'fief', missable: false },
@@ -949,29 +815,27 @@ const collectibles = [
 { id: 'fief-arm-02', name: 'Armour: J\'deyl Bone Armour', type: 'armor', area: 'fief', missable: false },
 { id: 'fief-arm-03', name: 'Armour: J\'deyl Skull Helm', type: 'armor', area: 'fief', missable: false },
 { id: 'fief-arm-04', name: 'Armour: J\'deyl Trousers', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-05', name: 'Armour: Griefbound Dress', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-06', name: 'Armour: Kinrangr Hunter Gauntlets', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-07', name: 'Armour: Kinrangr Hunter Trousers', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-08', name: 'Armour: Kinrangr Hunter Armour', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-09', name: 'Armour: Kinrangr Hunter Helm', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-10', name: 'Armour: Kinrangr Guardian Helm', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-11', name: 'Armour: Kinrangr Guardian Gauntlets', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-12', name: 'Armour: Kinrangr Guardian Trousers', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-13', name: 'Armour: Accursed Wretch Cloak', type: 'armor', area: 'fief', missable: false },
-{ id: 'fief-arm-14', name: 'Armour: Accursed Wretch Trousers', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-05', name: 'Armour: Griefbound Dress', type: 'armor', area: 'fief', missable: false, farm: 'Griefbound' },
+  { id: 'fief-arm-06', name: 'Armour: Kinrangr Hunter Gauntlets', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
+  { id: 'fief-arm-07', name: 'Armour: Kinrangr Hunter Trousers', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
+  { id: 'fief-arm-08', name: 'Armour: Kinrangr Hunter Armour', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
+  { id: 'fief-arm-09', name: 'Armour: Kinrangr Hunter Helm', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
+  { id: 'fief-arm-10', name: 'Armour: Kinrangr Guardian Helm', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Guardian' },
+  { id: 'fief-arm-11', name: 'Armour: Kinrangr Guardian Gauntlets', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Guardian' },
+  { id: 'fief-arm-12', name: 'Armour: Kinrangr Guardian Trousers', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Guardian' },
+  { id: 'fief-arm-13', name: 'Armour: Accursed Wretch Cloak', type: 'armor', area: 'fief', missable: false, farm: 'Accursed Wretch' },
+  { id: 'fief-arm-14', name: 'Armour: Accursed Wretch Trousers', type: 'armor', area: 'fief', missable: false, farm: 'Accursed Wretch' },
 { id: 'fief-boss-01', name: 'Boss: Stump', type: 'boss', area: 'fief', missable: false },
 { id: 'fief-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'fief', missable: false },
-
 // ================= PILGRIM'S PERCH PART 2 =================
 { id: 'pilgr2-weap-01', name: 'Weapon: Devotion\'s Might', type: 'weapon', area: 'pilgr2', missable: false },
-{ id: 'pilgr2-weap-02', name: 'Weapon: Hammer of Holy Agony', type: 'weapon', area: 'pilgr2', missable: false },
+ { id: 'pilgr2-weap-02', name: 'Weapon: Hammer of Holy Agony', type: 'weapon', area: 'pilgr2', missable: false, farm: 'Ardent the Penitent' },
 { id: 'pilgr2-weap-03', name: 'Weapon: Bloody Glory', type: 'weapon', area: 'pilgr2', missable: false },
 { id: 'pilgr2-ring-01', name: 'Ring: Brawn Ring', type: 'ring', area: 'pilgr2', missable: false },
 { id: 'pilgr2-arm-01', name: 'Armour: Sacred Resonance Gauntlets', type: 'armor', area: 'pilgr2', missable: false },
 { id: 'pilgr2-arm-02', name: 'Armour: Sacred Resonance Garb', type: 'armor', area: 'pilgr2', missable: false },
 { id: 'pilgr2-arm-03', name: 'Armour: Sacred Resonance Bell', type: 'armor', area: 'pilgr2', missable: false },
 { id: 'pilgr2-arm-04', name: 'Armour: Sacred Resonance Leggings', type: 'armor', area: 'pilgr2', missable: false },
-
 // ================= PATH OF DEVOTION =================
 { id: 'patdev-weap-01', name: 'Weapon: Fungal Bowman Dagger', type: 'weapon', area: 'patdev', missable: false },
 { id: 'patdev-weap-02', name: 'Weapon: Righteous Pulveriser', type: 'weapon', area: 'patdev', missable: false },
@@ -986,11 +850,10 @@ const collectibles = [
 { id: 'patdev-pend-01', name: 'Pendant: Cleric\'s Benediction', type: 'pendant', area: 'patdev', missable: false },
 { id: 'patdev-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'patdev', missable: false },
 { id: 'patdev-boss-01', name: 'Boss: Poxwalkers', type: 'boss', area: 'patdev', missable: false },
-
 // ================= MANSE OF THE HALLOWED BROTHERS =================
 { id: 'manse-weap-01', name: 'Weapon: Duty\'s Chime', type: 'weapon', area: 'manse', missable: false },
 { id: 'manse-weap-02', name: 'Weapon: Trinity Shield', type: 'weapon', area: 'manse', missable: false },
-{ id: 'manse-weap-03', name: 'Weapon: Ebonlight Abiding Defender Sword', type: 'weapon', area: 'manse', missable: false },
+ { id: 'manse-weap-03', name: 'Weapon: Ebonlight Abiding Defender Sword', type: 'weapon', area: 'manse', missable: false, farm: 'Abiding Defender' },
 { id: 'manse-weap-04', name: 'Weapon: Flail of Wisdom', type: 'weapon', area: 'manse', missable: false },
 { id: 'manse-weap-05', name: 'Weapon: Final Whisper', type: 'weapon', area: 'manse', missable: false },
 { id: 'manse-weap-06', name: 'Weapon: Flail of Holy Agony', type: 'weapon', area: 'manse', missable: false },
@@ -1015,9 +878,8 @@ const collectibles = [
 { id: 'manse-arm-11', name: 'Armour: Crimson Rector Gauntlets', type: 'armor', area: 'manse', missable: false },
 { id: 'manse-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'manse', missable: false },
 { id: 'manse-boss-01', name: 'Boss: Hushed King', type: 'boss', area: 'manse', missable: false },
-
 // ================= TOWER OF PENANCE =================
-{ id: 'tower-weap-01', name: 'Weapon: Carrion Knight Staff', type: 'weapon', area: 'tower', missable: false },
+ { id: 'tower-weap-01', name: 'Weapon: Carrion Knight Staff', type: 'weapon', area: 'tower', missable: false, farm: 'Carrion Knight' },
 { id: 'tower-weap-02', name: 'Weapon: Jeffrey\'s Dagger', type: 'weapon', area: 'tower', missable: false },
 { id: 'tower-weap-03', name: 'Weapon: Assassin\'s Bow', type: 'weapon', area: 'tower', missable: false },
 { id: 'tower-weap-04', name: 'Weapon: Empowering Claw', type: 'weapon', area: 'tower', missable: false },
@@ -1040,7 +902,6 @@ const collectibles = [
 { id: 'tower-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'tower', missable: false },
 { id: 'tower-boss-01', name: 'Boss: Pain-Glider', type: 'boss', area: 'tower', missable: false },
 { id: 'tower-npc-01', name: 'NPC: Trina', type: 'npc', area: 'tower', missable: false },
-
 // ================= ABBEY OF THE HALLOWED SISTERS =================
 { id: 'abbey-weap-01', name: 'Weapon: Abbess Chalice', type: 'weapon', area: 'abbey', missable: false, farm: 'Abbess' },
 { id: 'abbey-weap-02', name: 'Weapon: Sin-Piercer Bow', type: 'weapon', area: 'abbey', missable: false, farm: 'Sin-Piercer' },
@@ -1058,7 +919,6 @@ const collectibles = [
 { id: 'abbey-ring-04', name: 'Ring: Orian Sorcerer\'s Ring', type: 'ring', area: 'abbey', missable: false },
 { id: 'abbey-ring-05', name: 'Ring: Impious Nohuta\'s Ring', type: 'ring', area: 'abbey', missable: false },
 { id: 'abbey-ring-06', name: 'Ring: Saint Salonor\'s Ring', type: 'ring', area: 'abbey', missable: false },
- { id: 'abbey-arm-01', name: 'Armour: Abbes Skirt', type: 'armor', area: 'abbey', missable: false },
   { id: 'abbey-arm-02', name: 'Armour: Weeping Abbess Mitre', type: 'armor', area: 'abbey', missable: false },
   { id: 'abbey-arm-03', name: 'Armour: Scourged Sister Helm', type: 'armor', area: 'abbey', missable: false, farm: 'Scourged Sister Delyth' },
   { id: 'abbey-arm-04', name: 'Armour: Scourged Sister Arm Wrappings', type: 'armor', area: 'abbey', missable: false, farm: 'Scourged Sister Delyth' },
@@ -1071,11 +931,6 @@ const collectibles = [
 { id: 'abbey-arm-11', name: 'Armour: Putrid Child Robes', type: 'armor', area: 'abbey', missable: false },
 { id: 'abbey-arm-12', name: 'Armour: Putrid Child Leg Wrappings', type: 'armor', area: 'abbey', missable: false },
 { id: 'abbey-arm-13', name: 'Armour: Putrid Child Arm Wrappings', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'abbey', missable: false },
-{ id: 'abbey-boss-01', name: 'Boss: Mother of Dark Flourish', type: 'boss', area: 'abbey', missable: false },
-{ id: 'abbey-npc-01', name: 'NPC: Motherly Moore', type: 'npc', area: 'abbey', missable: false },
-{ id: 'abbey-npc-02', name: 'NPC: Sister Gwendolin', type: 'npc', area: 'abbey', missable: false },
-
 // ================= THE EMPYREAN =================
 { id: 'empy-weap-01', name: 'Weapon: Abbess Staff', type: 'weapon', area: 'empy', missable: false },
 { id: 'empy-weap-02', name: 'Weapon: Shield of the Moonlit Emissary', type: 'weapon', area: 'empy', missable: false },
@@ -1101,18 +956,9 @@ const collectibles = [
 { id: 'empy-arm-15', name: 'Armour: Stomund\'s Armour', type: 'armor', area: 'empy', missable: false },
 { id: 'empy-arm-16', name: 'Armour: Stomund\'s Helm', type: 'armor', area: 'empy', missable: false },
 { id: 'empy-arm-17', name: 'Armour: Stomund\'s Leggings', type: 'armor', area: 'empy', missable: false },
-{ id: 'empy-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'empy', missable: false },
-{ id: 'empy-boss-01', name: 'Boss: Elianne the Starved (Adyr ending)', type: 'boss', area: 'empy', missable: true },
-{ id: 'empy-boss-02', name: 'Boss: Ravenna, Heretic Purveyor', type: 'boss', area: 'empy', missable: false },
-{ id: 'empy-npc-01', name: 'NPC: Judge Cleric', type: 'npc', area: 'empy', missable: false },
-
 // ================= UPPER CALRATH =================
 { id: 'uppcal-weap-01', name: 'Weapon: Blacksmith\'s Pride', type: 'weapon', area: 'uppcal', missable: false },
 { id: 'uppcal-ring-01', name: 'Ring: Queen Verena II\'s Ring', type: 'ring', area: 'uppcal', missable: false },
-{ id: 'uppcal-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'uppcal', missable: false },
-{ id: 'uppcal-boss-01', name: 'Boss: Ink-Ghoul King', type: 'boss', area: 'uppcal', missable: false },
-{ id: 'uppcal-boss-02', name: 'Boss: Spiteful Shepherd', type: 'boss', area: 'uppcal', missable: false },
-
 // ================= BRAMIS CASTLE =================
 { id: 'bramis-weap-01', name: 'Weapon: Drustan\'s Hammer', type: 'weapon', area: 'bramis', missable: false },
 { id: 'bramis-weap-02', name: 'Weapon: Boar\'s Head Shield', type: 'weapon', area: 'bramis', missable: false },
@@ -1150,14 +996,13 @@ const collectibles = [
 { id: 'bramis-arm-23', name: 'Armour: Damarose\'s Garb', type: 'armor', area: 'bramis', missable: false },
 { id: 'bramis-arm-24', name: 'Armour: Damarose\'s Mask', type: 'armor', area: 'bramis', missable: false },
 { id: 'bramis-arm-25', name: 'Armour: Damarose\'s Trousers', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'bramis', missable: false },
-{ id: 'bramis-boss-01', name: 'Boss: Hushed Saint (Second encounter)', type: 'boss', area: 'bramis', missable: false },
-{ id: 'bramis-boss-02', name: 'Boss: Adyr, Lord of the Seven Crosses', type: 'boss', area: 'bramis', missable: false },
-
+  { id: 'bramis-ring-01', name: 'Ring: Melchior\'s Ring', type: 'ring', area: 'bramis', missable: false },
+  { id: 'bramis-ring-02', name: 'Ring: Ring of Infernal Devotion', type: 'ring', area: 'bramis', missable: false },
+  { id: 'bramis-ring-03', name: 'Ring: Smouldering Ring', type: 'ring', area: 'bramis', missable: false },
+  { id: 'bramis-pend-01', name: 'Pendant: Pendant of Infernal Oblation', type: 'pendant', area: 'bramis', missable: false },
+  { id: 'bramis-pend-02', name: 'Pendant: Paladin\'s Pendant', type: 'pendant', area: 'bramis', missable: false },
+  { id: 'bramis-pend-03', name: 'Pendant: Shrunken Skull Pendant', type: 'pendant', area: 'bramis', missable: false },
 // ================= MOTHER'S LULL =================
-{ id: 'mothlu-boss-01', name: 'Boss: Infinite Knight', type: 'boss', area: 'mothlu', missable: false },
-{ id: 'mothlu-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'mothlu', missable: false },
-
 // ================= ADDITIONAL MISSING ITEMS =================
 // Quest reward weapons
 { id: 'quest-weap-01', name: 'Weapon: Exacter Dunmire\'s Cane', type: 'weapon', area: 'general', missable: false },
@@ -1171,7 +1016,6 @@ const collectibles = [
 { id: 'quest-weap-09', name: 'Weapon: Gerlinde\'s Hammer', type: 'weapon', area: 'general', missable: false },
 { id: 'quest-weap-10', name: 'Weapon: Elianne the Starved\'s Sword', type: 'weapon', area: 'general', missable: false },
 { id: 'quest-weap-11', name: 'Weapon: Queen Sophesia\'s Catalyst', type: 'weapon', area: 'general', missable: true },
-
 // Quest reward armor
 { id: 'quest-arm-01', name: 'Armour: Exacter Hat', type: 'armor', area: 'general', missable: false },
 { id: 'quest-arm-02', name: 'Armour: Exacter Robes', type: 'armor', area: 'general', missable: false },
@@ -1181,12 +1025,10 @@ const collectibles = [
 { id: 'quest-arm-06', name: 'Armour: Kukajin\'s Armour', type: 'armor', area: 'general', missable: false },
 { id: 'quest-arm-07', name: 'Armour: Kukajin\'s Leggings', type: 'armor', area: 'general', missable: false },
 { id: 'quest-arm-08', name: 'Armour: Melted Crown', type: 'armor', area: 'general', missable: false },
-
 // Quest reward rings
 { id: 'quest-ring-01', name: 'Ring: Envenomed Ring', type: 'ring', area: 'general', missable: false },
 { id: 'quest-ring-02', name: 'Ring: Andreas of Ebb\'s Ring', type: 'ring', area: 'general', missable: false },
 { id: 'quest-ring-03', name: 'Ring: Queen Sophesia\'s Ring', type: 'ring', area: 'general', missable: false },
-
 // Additional Skyrest Bridge items
 { id: 'skyb5-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'skyb4', missable: false },
 { id: 'skyb5-arm-01', name: 'Armour: Hushed Saint\'s Gauntlets', type: 'armor', area: 'skyb4', missable: false },
@@ -1196,7 +1038,6 @@ const collectibles = [
 { id: 'skyb5-weap-02', name: 'Weapon: Hushed Saint\'s Halberd', type: 'weapon', area: 'skyb4', missable: false },
 { id: 'skyb5-ring-01', name: 'Ring: Empyrean Pendant', type: 'ring', area: 'skyb4', missable: false },
 { id: 'skyb5-ring-02', name: 'Ring: Blackfeather Ranger Ring', type: 'ring', area: 'skyb4', missable: false },
-
 // ================= SPELLS (All 59) =================
 // Spells already in file: Sanctify, Radiant Flare, Healing Radiance, Radiant Weapon, Umbral Orb, Lingering Despair, Blessed Reflections, Severing Blades, Aura of Tenacity
 { id: 'skyb1-spel-08', name: 'Spell: Blood Harvest', type: 'spell', area: 'skyb1', missable: false },
@@ -1204,14 +1045,14 @@ const collectibles = [
 { id: 'skyb1-spel-10', name: 'Spell: Barrage of Echoes', type: 'spell', area: 'skyb1', missable: false },
 { id: 'skyb1-spel-11', name: 'Spell: Martyrdom', type: 'spell', area: 'skyb1', missable: false },
 { id: 'pilgr1-spel-01', name: 'Spell: Adyr\'s Rage', type: 'spell', area: 'pilgr1', missable: false },
-{ id: 'skyb2-spel-01', name: 'Spell: Poison Weapon', type: 'spell', area: 'skyb2', missable: false },
-{ id: 'skyb3-spel-01', name: 'Spell: Flesh Tide', type: 'spell', area: 'skyb3', missable: false },
 { id: 'skyb4-spel-02', name: 'Spell: Cleansing Spring', type: 'spell', area: 'skyb4', missable: false },
-{ id: 'forsf3-spel-01', name: 'Spell: Putrefaction', type: 'spell', area: 'forsf3', missable: false },
 { id: 'skyb5-spel-01', name: 'Spell: Latimer\'s Javelin', type: 'spell', area: 'skyb4', missable: false },
 { id: 'skyb5-spel-02', name: 'Spell: Radiant Slash', type: 'spell', area: 'skyb4', missable: false },
-{ id: 'forsf4-spel-01', name: 'Spell: Piercing Light', type: 'spell', area: 'forsf4', missable: false },
-{ id: 'lowcal-spel-01', name: 'Spell: Lava Burst', type: 'spell', area: 'lowcal', missable: false },
+ { id: 'forsf4-spel-01', name: 'Spell: Piercing Light', type: 'spell', area: 'forsf4', missable: false },
+  { id: 'forsf4-ring-01', name: 'Ring: Panoptic Ring', type: 'ring', area: 'forsf4', missable: false },
+  { id: 'forsf4-ring-02', name: 'Ring: Bloodbane Ring', type: 'ring', area: 'forsf4', missable: false },
+  { id: 'forsf4-pend-01', name: 'Pendant: Pendant of Burden', type: 'pendant', area: 'forsf4', missable: false },
+  { id: 'forsf4-ring-03', name: 'Ring: Ring of Brilliant Protection', type: 'ring', area: 'forsf4', missable: false },
 { id: 'lowcal-spel-02', name: 'Spell: Adyr\'s Authority', type: 'spell', area: 'lowcal', missable: false },
 { id: 'skyb6-spel-01', name: 'Spell: Magma Surge', type: 'spell', area: 'skyb6', missable: false },
 { id: 'skyb6-spel-02', name: 'Spell: Cataclysm', type: 'spell', area: 'skyb6', missable: true },
@@ -1248,11 +1089,7 @@ const collectibles = [
 { id: 'skyb12-spel-01', name: 'Spell: Infernal Decree', type: 'spell', area: 'skyb12', missable: false },
 { id: 'ngp1-spel-01', name: 'Spell: Adyr\'s Vengeance (Radiant Ending)', type: 'spell', area: 'ngp1', missable: true },
 { id: 'ngp1-spel-02', name: 'Spell: Flame Funnel (Radiant Ending)', type: 'spell', area: 'ngp1', missable: true },
-
 // ================= UMBRAL EYES (15 total) =================
-{ id: 'abared1-eye-01', name: 'Umbral Eye: Umbral Eye of Betrayed Eliard', type: 'eye', area: 'abared1', missable: false },
-{ id: 'pilgr1-eye-01', name: 'Umbral Eye: Umbral Eye of Rosamund', type: 'eye', area: 'pilgr1', missable: false },
-{ id: 'forsf3-eye-01', name: 'Umbral Eye: Umbral Eye of the Pale Butcher', type: 'eye', area: 'forsf3', missable: false },
 { id: 'skyb8-eye-01', name: 'Umbral Eye', type: 'eye', area: 'skyb8', missable: false },
 { id: 'shrad-eye-01', name: 'Umbral Eye', type: 'eye', area: 'shrad', missable: false },
 { id: 'fief-eye-01', name: 'Umbral Eye', type: 'eye', area: 'fief', missable: false },
@@ -1265,22 +1102,14 @@ const collectibles = [
 { id: 'bramis-eye-01', name: 'Umbral Eye', type: 'eye', area: 'bramis', missable: false },
 { id: 'mothlu-eye-01', name: 'Umbral Eye', type: 'eye', area: 'mothlu', missable: false },
 { id: 'skyb13-eye-01', name: 'Umbral Eye', type: 'eye', area: 'skyb13', missable: false },
-
 // ================= AMMO TYPES (60 total) =================
 // Add all ammo types
 { id: 'defsep-ammo-01', name: 'Ammo: Throwing Rock', type: 'ammo', area: 'defsep', missable: false },
 { id: 'skyb1-ammo-04', name: 'Ammo: Bloody Hatchet', type: 'ammo', area: 'skyb1', missable: false },
 { id: 'skyb1-ammo-05', name: 'Ammo: Short Javelin', type: 'ammo', area: 'skyb1', missable: false },
 { id: 'skyb1-ammo-06', name: 'Ammo: Empyrean Grenade', type: 'ammo', area: 'skyb1', missable: false },
-{ id: 'pilgr1-ammo-01', name: 'Ammo: Lacerating Knife', type: 'ammo', area: 'pilgr1', missable: false },
-{ id: 'pilgr1-ammo-02', name: 'Ammo: Pulsing Arrows', type: 'ammo', area: 'pilgr1', missable: false },
-{ id: 'pilgr1-ammo-03', name: 'Ammo: Radiant Bolts', type: 'ammo', area: 'pilgr1', missable: false },
 { id: 'skyb2-ammo-01', name: 'Ammo: Oak Arrows', type: 'ammo', area: 'skyb2', missable: false },
 { id: 'skyb2-ammo-02', name: 'Ammo: Rived Bolts', type: 'ammo', area: 'skyb2', missable: false },
-{ id: 'forsf2-ammo-01', name: 'Ammo: Poison Arrows', type: 'ammo', area: 'forsf2', missable: false },
-{ id: 'forsf2-ammo-02', name: 'Ammo: Umbral Burrower', type: 'ammo', area: 'forsf2', missable: false },
-{ id: 'forsf2-ammo-03', name: 'Ammo: Poison Javelin', type: 'ammo', area: 'forsf2', missable: false },
-{ id: 'forsf3-ammo-01', name: 'Ammo: Forsaken Grenade', type: 'ammo', area: 'forsf3', missable: false },
 { id: 'skyb4-ammo-01', name: 'Ammo: Firebomb', type: 'ammo', area: 'skyb4', missable: false },
 { id: 'skyb4-ammo-02', name: 'Ammo: Lightning Bolt', type: 'ammo', area: 'skyb4', missable: false },
 { id: 'forsf4-ammo-01', name: 'Ammo: Frost Javelin', type: 'ammo', area: 'forsf4', missable: false },
@@ -1288,7 +1117,11 @@ const collectibles = [
 { id: 'lowcal-ammo-01', name: 'Ammo: Heavy Javelin', type: 'ammo', area: 'lowcal', missable: false },
 { id: 'lowcal-ammo-02', name: 'Ammo: Oil Pot', type: 'ammo', area: 'lowcal', missable: false },
 { id: 'skyb6-ammo-01', name: 'Ammo: Fetid Bomb', type: 'ammo', area: 'skyb6', missable: false },
-{ id: 'skyb6-ammo-02', name: 'Ammo: Shockwave', type: 'ammo', area: 'skyb6', missable: false },
+ { id: 'skyb6-ammo-02', name: 'Ammo: Shockwave', type: 'ammo', area: 'skyb6', missable: false },
+  { id: 'skyb6-ring-01', name: 'Ring: Charred Root', type: 'ring', area: 'skyb6', missable: false },
+  { id: 'skyb6-ring-02', name: 'Ring: Rhogar\'s Delight', type: 'ring', area: 'skyb6', missable: false },
+  { id: 'skyb6-ring-03', name: 'Ring: Manastone Ring', type: 'ring', area: 'skyb6', missable: false },
+  { id: 'skyb6-ring-04', name: 'Ring: Puissance Root', type: 'ring', area: 'skyb6', missable: false },
 { id: 'sunske-ammo-01', name: 'Ammo: Ignition Bomb', type: 'ammo', area: 'sunske', missable: false },
 { id: 'sunske-ammo-02', name: 'Ammo: Spore Cloud', type: 'ammo', area: 'sunske', missable: false },
 { id: 'cistern-ammo-01', name: 'Ammo: Ice Bomb', type: 'ammo', area: 'cistern', missable: false },
@@ -1304,16 +1137,13 @@ const collectibles = [
 { id: 'abbey-ammo-02', name: 'Ammo: Blessed Arrow', type: 'ammo', area: 'abbey', missable: false },
 { id: 'empy-ammo-01', name: 'Ammo: Mysterious Crystal', type: 'ammo', area: 'empy', missable: false },
 { id: 'skyb11-ammo-01', name: 'Ammo: Briar Dart', type: 'ammo', area: 'skyb11', missable: false },
-{ id: 'skyb11-ammo-02', name: 'Ammo: Ash Bomb', type: 'ammo', area: 'skyb11', missable: false },
+ { id: 'skyb11-ammo-02', name: 'Ammo: Ash Bomb', type: 'ammo', area: 'skyb11', missable: false },
+  { id: 'skyb11-pend-01', name: 'Pendant: Cavalry Pendant', type: 'pendant', area: 'skyb11', missable: false },
+  { id: 'skyb11-ring-01', name: 'Ring: Moth Ring', type: 'ring', area: 'skyb11', missable: false },
 { id: 'bramis-ammo-01', name: 'Ammo: Hellfire Bomb', type: 'ammo', area: 'bramis', missable: false },
 { id: 'bramis-ammo-02', name: 'Ammo: Brimstone Bolt', type: 'ammo', area: 'bramis', missable: false },
 { id: 'mothlu-ammo-01', name: 'Ammo: Void Bolt', type: 'ammo', area: 'mothlu', missable: false },
-
 // ================= SANGUINARIX UPGRADES (20 total) =================
-{ id: 'defsep-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'defsep', missable: false },
-{ id: 'skyb1-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'skyb1', missable: false },
-{ id: 'forsf2-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'forsf2', missable: false },
-{ id: 'forsf2-upgr-02', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'forsf2', missable: false },
 { id: 'forsf4-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'forsf4', missable: false },
 { id: 'lowcal-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'lowcal', missable: false },
 { id: 'sunske-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'sunske', missable: false },
@@ -1330,19 +1160,7 @@ const collectibles = [
 { id: 'skyb11-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'skyb11', missable: false },
 { id: 'skyb12-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'skyb12', missable: false },
 { id: 'mothlu-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'mothlu', missable: false },
-
 // ================= GESTURES (21 total) =================
-{ id: 'defsep-gest-01', name: 'Gesture: Greeting', type: 'gesture', area: 'defsep', missable: false },
-{ id: 'defsep-gest-02', name: 'Gesture: Agreeing', type: 'gesture', area: 'defsep', missable: false },
-{ id: 'defsep-gest-03', name: 'Gesture: Disagreeing', type: 'gesture', area: 'defsep', missable: false },
-{ id: 'defsep-gest-04', name: 'Gesture: Pointing Forward', type: 'gesture', area: 'defsep', missable: false },
-{ id: 'defsep-gest-05', name: 'Gesture: Pointing Upward', type: 'gesture', area: 'defsep', missable: false },
-{ id: 'defsep-gest-06', name: 'Gesture: Pointing Downward', type: 'gesture', area: 'defsep', missable: false },
-{ id: 'skyb1-gest-01', name: 'Gesture: Dark Crusader\'s Challenge', type: 'gesture', area: 'skyb1', missable: false },
-{ id: 'skyb1-gest-02', name: 'Gesture: Putrid Mother\'s Embrace', type: 'gesture', area: 'skyb1', missable: false },
-{ id: 'skyb1-gest-03', name: 'Gesture: Orian Vow of Protection', type: 'gesture', area: 'skyb1', missable: false },
-{ id: 'pilgr1-gest-01', name: 'Gesture: Common Orian Prayer', type: 'gesture', area: 'pilgr1', missable: false },
-{ id: 'forsf1-gest-01', name: 'Gesture: Beckoning', type: 'gesture', area: 'forsf1', missable: true },
 { id: 'skyb5-gest-01', name: 'Gesture: Radiant Beacon', type: 'gesture', area: 'skyb4', missable: false },
 { id: 'skyb6-gest-01', name: 'Gesture: Beckoning', type: 'gesture', area: 'skyb6', missable: false },
 { id: 'skyb9-gest-01', name: 'Gesture: Bow', type: 'gesture', area: 'skyb9', missable: false },
@@ -1353,9 +1171,7 @@ const collectibles = [
 { id: 'skyb10-gest-01', name: 'Gesture: Tancred\'s Command', type: 'gesture', area: 'skyb10', missable: false },
 { id: 'abbey-gest-01', name: 'Gesture: Sister\'s Mercy', type: 'gesture', area: 'abbey', missable: false },
 { id: 'empy-gest-01', name: 'Gesture: Final Farewell', type: 'gesture', area: 'empy', missable: false },
-
  // ================= ADDITIONAL MISSING ARMOR (PowerPix) =================
-
  // Fitzroy's Gorge - many Ruiner set pieces + Duskmaster
  { id: 'fitg-arm-02', name: 'Armour: Ruiner Helm', type: 'armor', area: 'fitg', missable: false },
  { id: 'fitg-arm-03', name: 'Armour: Ruiner Armour', type: 'armor', area: 'fitg', missable: false },
@@ -1365,7 +1181,6 @@ const collectibles = [
  { id: 'fitg-arm-07', name: 'Armour: Duskmaster Greaves', type: 'armor', area: 'fitg', missable: false },
  { id: 'fitg-arm-08', name: 'Armour: Duskmaster Gauntlets', type: 'armor', area: 'fitg', missable: false },
  { id: 'fitg-arm-09', name: 'Armour: Ruiner Greaves', type: 'armor', area: 'fitg', missable: false },
-
  // Lower Calrath - many enemy types
  { id: 'lowcal-arm-16', name: 'Armour: Infernal Enchantress Garb', type: 'armor', area: 'lowcal', missable: false },
  { id: 'lowcal-arm-17', name: 'Armour: Infernal Enchantress Sleeves', type: 'armor', area: 'lowcal', missable: false },
@@ -1381,20 +1196,10 @@ const collectibles = [
  { id: 'lowcal-arm-27', name: 'Armour: Raw Mangler Armour', type: 'armor', area: 'lowcal', missable: false },
  { id: 'lowcal-arm-28', name: 'Armour: Raw Mangler Gloves', type: 'armor', area: 'lowcal', missable: false },
  { id: 'lowcal-arm-29', name: 'Armour: Overseer Cape', type: 'armor', area: 'lowcal', missable: false },
-
  // Sunless Skein - mining/enslaved enemies + Briar
- { id: 'sunske-arm-02', name: 'Armour: Enslaved Miner Helm', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-03', name: 'Armour: Enslaved Miner Garb', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-04', name: 'Armour: Enslaved Miner Trousers', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-05', name: 'Armour: Harval\'s Robes', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-06', name: 'Armour: Harval\'s Hood', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-07', name: 'Armour: Briar\'s Hood', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-08', name: 'Armour: Briar\'s Sleeves', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-09', name: 'Armour: Briar\'s Trousers', type: 'armor', area: 'sunske', missable: false },
  { id: 'sunske-arm-10', name: 'Armour: Bloomkeeper Mask', type: 'armor', area: 'sunske', missable: false },
  { id: 'sunske-arm-11', name: 'Armour: Bloomkeeper Garb', type: 'armor', area: 'sunske', missable: false },
  { id: 'sunske-arm-12', name: 'Armour: Bloomkeeper Trousers', type: 'armor', area: 'sunske', missable: false },
-
  // Cistern - frozen miners + Mother of Snows
  { id: 'cistern-arm-03', name: 'Armour: Frozen Miner Hood', type: 'armor', area: 'cistern', missable: false },
  { id: 'cistern-arm-04', name: 'Armour: Frozen Miner Garb', type: 'armor', area: 'cistern', missable: false },
@@ -1407,7 +1212,6 @@ const collectibles = [
  { id: 'cistern-arm-11', name: 'Armour: Mother of Snows Robes', type: 'armor', area: 'cistern', missable: false },
  { id: 'cistern-arm-12', name: 'Armour: Mother of Snows Sleeves', type: 'armor', area: 'cistern', missable: false },
  { id: 'cistern-arm-13', name: 'Armour: Mother of Snows Leggings', type: 'armor', area: 'cistern', missable: false },
-
  // Revelation Depths - enemies + Revenant
  { id: 'revdep-arm-03', name: 'Armour: Enslaved Miner Chain', type: 'armor', area: 'revdep', missable: false },
  { id: 'revdep-arm-04', name: 'Armour: Enslaved Miner Shackle', type: 'armor', area: 'revdep', missable: false },
@@ -1419,7 +1223,6 @@ const collectibles = [
  { id: 'revdep-arm-10', name: 'Armour: Chancel Keeper Helm', type: 'armor', area: 'revdep', missable: false },
  { id: 'revdep-arm-11', name: 'Armour: Chancel Keeper Garb', type: 'armor', area: 'revdep', missable: false },
  { id: 'revdep-arm-12', name: 'Armour: Chancel Keeper Trousers', type: 'armor', area: 'revdep', missable: false },
-
  // Fief of the Chill Curse - Kinrangr enemies
  { id: 'fief-arm-15', name: 'Armour: Kinrangr Hunter Hood', type: 'armor', area: 'fief', missable: false },
  { id: 'fief-arm-16', name: 'Armour: Kinrangr Hunter Sleeves', type: 'armor', area: 'fief', missable: false },
@@ -1436,7 +1239,6 @@ const collectibles = [
  { id: 'fief-arm-27', name: 'Armour: Stump\'s Crown', type: 'armor', area: 'fief', missable: false },
  { id: 'fief-arm-28', name: 'Armour: Stump\'s Mantle', type: 'armor', area: 'fief', missable: false },
  { id: 'fief-arm-29', name: 'Armour: Stump\'s Greaves', type: 'armor', area: 'fief', missable: false },
-
  // Pilgrim's Perch Part 2 - Sacred Resonance + enemies
  { id: 'pilgr2-arm-05', name: 'Armour: Sacred Resonance Helm', type: 'armor', area: 'pilgr2', missable: false },
  { id: 'pilgr2-arm-06', name: 'Armour: Sacred Resonance Hood', type: 'armor', area: 'pilgr2', missable: false },
@@ -1444,7 +1246,6 @@ const collectibles = [
  { id: 'pilgr2-arm-08', name: 'Armour: Devoted Pilgrim Hood', type: 'armor', area: 'pilgr2', missable: false },
  { id: 'pilgr2-arm-09', name: 'Armour: Devoted Pilgrim Trousers', type: 'armor', area: 'pilgr2', missable: false },
  { id: 'pilgr2-arm-10', name: 'Armour: Devoted Pilgrim Gloves', type: 'armor', area: 'pilgr2', missable: false },
-
  // Path of Devotion - Pureblade + enemies
  { id: 'patdev-arm-01', name: 'Armour: Pureblade Helm', type: 'armor', area: 'patdev', missable: false },
  { id: 'patdev-arm-02', name: 'Armour: Pureblade Armour', type: 'armor', area: 'patdev', missable: false },
@@ -1456,7 +1257,6 @@ const collectibles = [
  { id: 'patdev-arm-08', name: 'Armour: Poxwalker Hood', type: 'armor', area: 'patdev', missable: false },
  { id: 'patdev-arm-09', name: 'Armour: Poxwalker Garb', type: 'armor', area: 'patdev', missable: false },
  { id: 'patdev-arm-10', name: 'Armour: Poxwalker Trousers', type: 'armor', area: 'patdev', missable: false },
-
  // Manse of the Hallowed Brothers - Cursed + Crimson Rector
  { id: 'manse-arm-12', name: 'Armour: Abiding Defender Helm', type: 'armor', area: 'manse', missable: false },
  { id: 'manse-arm-13', name: 'Armour: Abiding Defender Armour', type: 'armor', area: 'manse', missable: false },
@@ -1466,7 +1266,6 @@ const collectibles = [
  { id: 'manse-arm-17', name: 'Armour: Hushed King Garb', type: 'armor', area: 'manse', missable: false },
  { id: 'manse-arm-18', name: 'Armour: Hushed King Trousers', type: 'armor', area: 'manse', missable: false },
  { id: 'manse-arm-19', name: 'Armour: Hushed King Gauntlets', type: 'armor', area: 'manse', missable: false },
-
  // Tower of Penance - Carrion Knight + Radiant Purifier
  { id: 'tower-arm-11', name: 'Armour: Carrion Knight Gauntlets', type: 'armor', area: 'tower', missable: false },
  { id: 'tower-arm-12', name: 'Armour: Carrion Knight Greaves', type: 'armor', area: 'tower', missable: false },
@@ -1480,18 +1279,7 @@ const collectibles = [
  { id: 'tower-arm-20', name: 'Armour: Trina\'s Hood', type: 'armor', area: 'tower', missable: false },
  { id: 'tower-arm-21', name: 'Armour: Trina\'s Garb', type: 'armor', area: 'tower', missable: false },
  { id: 'tower-arm-22', name: 'Armour: Trina\'s Trousers', type: 'armor', area: 'tower', missable: false },
-
  // Abbey of the Hallowed Sisters
- { id: 'abbey-arm-02', name: 'Armour: Sister\'s Hood', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-03', name: 'Armour: Sister\'s Sleeves', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-04', name: 'Armour: Motherly Moore\'s Robes', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-05', name: 'Armour: Motherly Moore\'s Hood', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-06', name: 'Armour: Sister Gwendolin\'s Habit', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-07', name: 'Armour: Mother of Dark Flourish Mask', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-08', name: 'Armour: Mother of Dark Flourish Robes', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-09', name: 'Armour: Mother of Dark Flourish Trousers', type: 'armor', area: 'abbey', missable: false },
- { id: 'abbey-arm-10', name: 'Armour: Mother of Dark Flourish Sleeves', type: 'armor', area: 'abbey', missable: false },
-
  // The Empyrean - Abiding Defender + Failed Pilgrim + Stomund
  { id: 'empy-arm-18', name: 'Armour: Judge Cleric Helm', type: 'armor', area: 'empy', missable: false },
  { id: 'empy-arm-19', name: 'Armour: Judge Cleric Garb', type: 'armor', area: 'empy', missable: false },
@@ -1504,7 +1292,6 @@ const collectibles = [
  { id: 'empy-arm-26', name: 'Armour: Ravenna\'s Garb', type: 'armor', area: 'empy', missable: false },
  { id: 'empy-arm-27', name: 'Armour: Ravenna\'s Trousers', type: 'armor', area: 'empy', missable: false },
  { id: 'empy-arm-28', name: 'Armour: Ravenna\'s Gauntlets', type: 'armor', area: 'empy', missable: false },
-
  // Bramis Castle - Skinstealer + Lord + Damarose + more
  { id: 'bramis-arm-26', name: 'Armour: Lord Helm', type: 'armor', area: 'bramis', missable: false },
  { id: 'bramis-arm-27', name: 'Armour: Skinstealer Trousers', type: 'armor', area: 'bramis', missable: false },
@@ -1520,7 +1307,6 @@ const collectibles = [
  { id: 'bramis-arm-37', name: 'Armour: Radiant Queen\'s Crown', type: 'armor', area: 'bramis', missable: true },
  { id: 'bramis-arm-38', name: 'Armour: Radiant Queen\'s Robes', type: 'armor', area: 'bramis', missable: true },
  { id: 'bramis-arm-39', name: 'Armour: Radiant Queen\'s Trousers', type: 'armor', area: 'bramis', missable: true },
-
  // Upper Calrath
  { id: 'uppcal-arm-01', name: 'Armour: Ink-Ghoul Helm', type: 'armor', area: 'uppcal', missable: false },
  { id: 'uppcal-arm-02', name: 'Armour: Ink-Ghoul Garb', type: 'armor', area: 'uppcal', missable: false },
@@ -1530,21 +1316,17 @@ const collectibles = [
  { id: 'uppcal-arm-06', name: 'Armour: Spiteful Shepherd Garb', type: 'armor', area: 'uppcal', missable: false },
  { id: 'uppcal-arm-07', name: 'Armour: Spiteful Shepherd Trousers', type: 'armor', area: 'uppcal', missable: false },
  { id: 'uppcal-arm-08', name: 'Armour: Spiteful Shepherd Hook', type: 'armor', area: 'uppcal', missable: false },
-
  // Skyrest Bridge Part 5 - already has armor at lines 1179-1181
-
  // Skyrest Bridge Part 6 - Muni
  { id: 'skyb6-arm-01', name: 'Armour: Muni\'s Robes', type: 'armor', area: 'skyb6', missable: false },
  { id: 'skyb6-arm-02', name: 'Armour: Muni\'s Hood', type: 'armor', area: 'skyb6', missable: false },
  { id: 'skyb6-arm-03', name: 'Armour: Muni\'s Trousers', type: 'armor', area: 'skyb6', missable: false },
  { id: 'skyb6-arm-04', name: 'Armour: Muni\'s Gloves', type: 'armor', area: 'skyb6', missable: false },
-
  // Skyrest Bridge Part 8
  { id: 'skyb8-arm-01', name: 'Armour: Ladder Keeper Hood', type: 'armor', area: 'skyb8', missable: false },
  { id: 'skyb8-arm-02', name: 'Armour: Ladder Keeper Garb', type: 'armor', area: 'skyb8', missable: false },
  { id: 'skyb8-arm-03', name: 'Armour: Ladder Keeper Trousers', type: 'armor', area: 'skyb8', missable: false },
  { id: 'skyb8-arm-04', name: 'Armour: Ladder Keeper Gloves', type: 'armor', area: 'skyb8', missable: false },
-
  // Skyrest Bridge Part 9 - Skyrest Village
  { id: 'skyb9-arm-01', name: 'Armour: Vagrant Hood', type: 'armor', area: 'skyb9', missable: false },
  { id: 'skyb9-arm-02', name: 'Armour: Vagrant Garb', type: 'armor', area: 'skyb9', missable: false },
@@ -1553,127 +1335,99 @@ const collectibles = [
  { id: 'skyb9-arm-05', name: 'Armour: Skelemancer Hood', type: 'armor', area: 'skyb9', missable: false },
  { id: 'skyb9-arm-06', name: 'Armour: Skelemancer Robes', type: 'armor', area: 'skyb9', missable: false },
  { id: 'skyb9-arm-07', name: 'Armour: Skelemancer Trousers', type: 'armor', area: 'skyb9', missable: false },
-
  // Skyrest Bridge Part 10
  { id: 'skyb10-arm-01', name: 'Armour: Tancred\'s Helm', type: 'armor', area: 'skyb10', missable: false },
  { id: 'skyb10-arm-02', name: 'Armour: Tancred\'s Armour', type: 'armor', area: 'skyb10', missable: false },
  { id: 'skyb10-arm-03', name: 'Armour: Tancred\'s Gauntlets', type: 'armor', area: 'skyb10', missable: false },
- { id: 'skyb10-arm-04', name: 'Armour: Tancred\'s Trousers', type: 'armor', area: 'skyb10', missable: false },
-
+  { id: 'skyb10-arm-04', name: 'Armour: Tancred\'s Trousers', type: 'armor', area: 'skyb10', missable: false },
+  { id: 'skyb10-ring-01', name: 'Ring: Ring of Gnawing', type: 'ring', area: 'skyb10', missable: false },
  // Skyrest Bridge Part 11
  { id: 'skyb11-arm-01', name: 'Armour: Iron Wayfarer Helm', type: 'armor', area: 'skyb11', missable: false },
  { id: 'skyb11-arm-02', name: 'Armour: Iron Wayfarer Armour', type: 'armor', area: 'skyb11', missable: false },
  { id: 'skyb11-arm-03', name: 'Armour: Iron Wayfarer Gauntlets', type: 'armor', area: 'skyb11', missable: false },
  { id: 'skyb11-arm-04', name: 'Armour: Iron Wayfarer Trousers', type: 'armor', area: 'skyb11', missable: false },
  { id: 'skyb11-arm-05', name: 'Armour: Iron Wayfarer Cape', type: 'armor', area: 'skyb11', missable: false },
-
  // Skyrest Bridge Part 12
  { id: 'skyb12-arm-01', name: 'Armour: Mourner\'s Hood', type: 'armor', area: 'skyb12', missable: false },
  { id: 'skyb12-arm-02', name: 'Armour: Mourner\'s Garb', type: 'armor', area: 'skyb12', missable: false },
  { id: 'skyb12-arm-03', name: 'Armour: Mourner\'s Trousers', type: 'armor', area: 'skyb12', missable: false },
  { id: 'skyb12-arm-04', name: 'Armour: Mourner\'s Gloves', type: 'armor', area: 'skyb12', missable: false },
-
  // Forsaken Fen Part 1 - Congregator of Flesh
  { id: 'forsf1-arm-01', name: 'Armour: Congregator Flesh Wrap', type: 'armor', area: 'forsf1', missable: false },
  { id: 'forsf1-arm-02', name: 'Armour: Congregator Tendril', type: 'armor', area: 'forsf1', missable: false },
-
  // Forsaken Fen Part 3 - Hushed Saint
  { id: 'forsf3-arm-02', name: 'Armour: Hushed Saint Mask', type: 'armor', area: 'forsf3', missable: false },
  { id: 'forsf3-arm-03', name: 'Armour: Hushed Saint Robes', type: 'armor', area: 'forsf3', missable: false },
  { id: 'forsf3-arm-04', name: 'Armour: Hushed Saint Trousers', type: 'armor', area: 'forsf3', missable: false },
  { id: 'forsf3-arm-05', name: 'Armour: Hushed Saint Sleeves', type: 'armor', area: 'forsf3', missable: false },
-
  // Forsaken Fen Part 4
  { id: 'forsf4-arm-01', name: 'Armour: Shuja Shadow Hood', type: 'armor', area: 'forsf4', missable: false },
  { id: 'forsf4-arm-02', name: 'Armour: Shuja Shadow Garb', type: 'armor', area: 'forsf4', missable: false },
  { id: 'forsf4-arm-03', name: 'Armour: Shuja Shadow Trousers', type: 'armor', area: 'forsf4', missable: false },
  { id: 'forsf4-arm-04', name: 'Armour: Shuja Shadow Gloves', type: 'armor', area: 'forsf4', missable: false },
-
  // Mother's Lull
  { id: 'mothlu-arm-01', name: 'Armour: Infinite Knight Helm', type: 'armor', area: 'mothlu', missable: false },
  { id: 'mothlu-arm-02', name: 'Armour: Infinite Knight Armor', type: 'armor', area: 'mothlu', missable: false },
  { id: 'mothlu-arm-03', name: 'Armour: Infinite Knight Gauntlets', type: 'armor', area: 'mothlu', missable: false },
  { id: 'mothlu-arm-04', name: 'Armour: Infinite Knight Greaves', type: 'armor', area: 'mothlu', missable: false },
  { id: 'mothlu-arm-05', name: 'Armour: Infinite Knight Cape', type: 'armor', area: 'mothlu', missable: false },
-
  // Additional missing farmable armor sets
   // Farmable: Ruiner set (Fitzroy's Gorge)
   { id: 'fitg-arm-10', name: 'Armour: Ruiner Cape', type: 'armor', area: 'fitg', missable: false, farm: 'Ruiner' },
   { id: 'fitg-arm-11', name: 'Armour: Ruiner Pauldrons', type: 'armor', area: 'fitg', missable: false, farm: 'Ruiner' },
-
   // Farmable: Duskmaster set (Fitzroy's Gorge)
   { id: 'fitg-arm-12', name: 'Armour: Duskmaster Hood', type: 'armor', area: 'fitg', missable: false, farm: 'Duskmaster' },
-
   // Farmable: Orian Preacher set (Lower Calrath + others)
   { id: 'lowcal-arm-30', name: 'Armour: Orian Preacher Robes', type: 'armor', area: 'lowcal', missable: false, farm: 'Orian Preacher' },
   { id: 'lowcal-arm-31', name: 'Armour: Orian Preacher Trousers', type: 'armor', area: 'lowcal', missable: false, farm: 'Orian Preacher' },
-
   // Farmable: Enslaved Miner set (Sunless Skein)
   { id: 'sunske-arm-13', name: 'Armour: Enslaved Miner Gloves', type: 'armor', area: 'sunske', missable: false, farm: 'Enslaved Miner' },
   { id: 'sunske-arm-14', name: 'Armour: Enslaved Miner Boots', type: 'armor', area: 'sunske', missable: false, farm: 'Enslaved Miner' },
-
   // Farmable: Bloomkeeper set (Sunless Skein)
   { id: 'sunske-arm-15', name: 'Armour: Bloomkeeper Sleeves', type: 'armor', area: 'sunske', missable: false, farm: 'Bloomkeeper' },
   { id: 'sunske-arm-16', name: 'Armour: Bloomkeeper Boots', type: 'armor', area: 'sunske', missable: false, farm: 'Bloomkeeper' },
-
   // Farmable: Frozen Miner set (Cistern)
   { id: 'cistern-arm-14', name: 'Armour: Frozen Miner Boots', type: 'armor', area: 'cistern', missable: false, farm: 'Frozen Miner' },
   { id: 'cistern-arm-15', name: 'Armour: Frozen Miner Cape', type: 'armor', area: 'cistern', missable: false, farm: 'Frozen Miner' },
-
   // Farmable: Fungal Bowman set (Cistern + Path of Devotion)
   { id: 'cistern-arm-16', name: 'Armour: Fungal Bowman Cape', type: 'armor', area: 'cistern', missable: false, farm: 'Fungal Bowman' },
-
   // Farmable: Kinrangr sets (Fief)
   { id: 'fief-arm-30', name: 'Armour: Kinrangr Rebel Armor', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
   { id: 'fief-arm-31', name: 'Armour: Kinrangr Rebel Trousers', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
-
   // Farmable: Devoted Pilgrim set (Pilgrim's Perch 2)
   { id: 'pilgr2-arm-11', name: 'Armour: Devoted Pilgrim Cape', type: 'armor', area: 'pilgr2', missable: false, farm: 'Devoted Pilgrim' },
-
   // Farmable: Pureblade set (Path of Devotion + Pilgrim's Perch)
   { id: 'patdev-arm-11', name: 'Armour: Pureblade Boots', type: 'armor', area: 'patdev', missable: false, farm: 'Pureblade' },
   { id: 'patdev-arm-12', name: 'Armour: Pureblade Cape', type: 'armor', area: 'patdev', missable: false, farm: 'Pureblade' },
-
   // Farmable: Carrion Knight set (Tower of Penance)
   { id: 'tower-arm-23', name: 'Armour: Carrion Knight Cape', type: 'armor', area: 'tower', missable: false, farm: 'Carrion Knight' },
-
   // Farmable: Radiant Purifier set (Tower of Penance)
   { id: 'tower-arm-24', name: 'Armour: Radiant Purifier Cape', type: 'armor', area: 'tower', missable: false, farm: 'Radiant Purifier' },
-
   // Farmable: Skinstealer set (Bramis Castle)
   { id: 'bramis-arm-40', name: 'Armour: Skinstealer Gauntlets', type: 'armor', area: 'bramis', missable: false, farm: 'Skinstealer' },
-
   // Farmable: Lord set (Bramis Castle)
   { id: 'bramis-arm-41', name: 'Armour: Lord Shoulder Guards', type: 'armor', area: 'bramis', missable: false, farm: 'Lord' },
-
   // Farmable: Grace of Adyr set (Bramis Castle)
   { id: 'bramis-arm-42', name: 'Armour: Grace of Adyr Pauldrons', type: 'armor', area: 'bramis', missable: false, farm: 'Grace of Adyr' },
   { id: 'bramis-arm-43', name: 'Armour: Grace of Adyr Gloves', type: 'armor', area: 'bramis', missable: false, farm: 'Grace of Adyr' },
-
   // Farmable: Abiding Defender set (Manse + Empyrean)
   { id: 'empy-arm-29', name: 'Armour: Abiding Defender Cape', type: 'armor', area: 'empy', missable: false, farm: 'Abiding Defender' },
   { id: 'empy-arm-30', name: 'Armour: Abiding Defender Shoulder Guards', type: 'armor', area: 'empy', missable: false, farm: 'Abiding Defender' },
-
   // Farmable: Ink-Ghoul set (Upper Calrath)
   { id: 'uppcal-arm-09', name: 'Armour: Ink-Ghoul Cape', type: 'armor', area: 'uppcal', missable: false, farm: 'Ink-Ghoul' },
-
   // Additional enemy armor from Forsaken Fen
   { id: 'forsf2-arm-09', name: 'Armour: Shuja Strider Boots', type: 'armor', area: 'forsf2', missable: false, farm: 'Shuja Strider' },
   { id: 'forsf2-arm-10', name: 'Armour: Holy Bulwark Cape', type: 'armor', area: 'forsf2', missable: false, farm: 'Holy Bulwark' },
-
   // Additional Skyrest Village items
   { id: 'skyb9-arm-08', name: 'Armour: Vagrant Boots', type: 'armor', area: 'skyb9', missable: false, farm: 'Vagrant' },
   { id: 'skyb9-arm-09', name: 'Armour: Skelemancer Boots', type: 'armor', area: 'skyb9', missable: false, farm: 'Skelemancer' },
-
  // NG+ AREAS
  { id: 'skyb13-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'skyb13', missable: false },
  { id: 'skyb13-boss-01', name: 'Boss: Lightreaper (NG+)', type: 'boss', area: 'skyb13', missable: true },
  { id: 'revdep2-boss-01', name: 'Boss: Void Knight', type: 'boss', area: 'revdep2', missable: false },
  { id: 'ngp1-boss-01', name: 'Boss: Radiant Queen (Radiance Ending)', type: 'boss', area: 'ngp1', missable: true },
  { id: 'ngp2-boss-01', name: 'Boss: Umbral Knight (Umbral Ending)', type: 'boss', area: 'ngp2', missable: true },
-
 ];
-
 // ============ AREA NAMES ============
 const areaNames = {
   'defsep': 'Defiled Sepulchre',
@@ -1721,16 +1475,13 @@ const areaNames = {
   'online': 'Online Trophies',
   'collect': 'Collector Trophies'
 };
-
 // ============ CURRENT FILTER ============
 let currentFilter = 'all';
-
 // ============ INITIALIZE ============
 function init() {
   renderCollectibles();
   updateStats();
 }
-
 // ============ RENDER COLLECTIBLES ============
 function renderCollectibles() {
   const container = document.getElementById('collectibles-list');
@@ -1762,7 +1513,6 @@ function renderCollectibles() {
   // Apply current filter
   applyFilter();
 }
-
 function renderItem(item) {
   const checked = isChecked(item.id);
   const hidden = currentFilter !== 'all' && getItemCategory(item.type) !== currentFilter;
@@ -1782,13 +1532,11 @@ function renderItem(item) {
     </div>
   `;
 }
-
 // ============ TOGGLE FUNCTIONS ============
 function toggleArea(header) {
   const area = header.parentElement;
   area.classList.toggle('collapsed');
 }
-
 function toggleItem(id) {
   const key = 'lotf-coll-' + id;
   const current = localStorage.getItem(key) === 'true';
@@ -1798,11 +1546,9 @@ function toggleItem(id) {
   updateStats();
   syncWithMainPage();
 }
-
 function isChecked(id) {
   return localStorage.getItem('lotf-coll-' + id) === 'true';
 }
-
 // ============ FILTERING ============
 function filterCategory(cat) {
   currentFilter = cat;
@@ -1814,7 +1560,6 @@ function filterCategory(cat) {
   
   applyFilter();
 }
-
 function applyFilter() {
   document.querySelectorAll('.item').forEach(item => {
     const type = item.dataset.type;
@@ -1822,7 +1567,6 @@ function applyFilter() {
     item.style.display = (currentFilter === 'all' || cat === currentFilter) ? 'flex' : 'none';
   });
 }
-
 function getItemCategory(type) {
   const map = {
     'weapon': 'weapon',
@@ -1842,7 +1586,6 @@ function getItemCategory(type) {
   };
   return map[type] || 'other';
 }
-
 // ============ STATS ============
 function updateStats() {
   const total = collectibles.length;
@@ -1864,7 +1607,6 @@ function updateStats() {
     }
   });
 }
-
 // ============ SYNC WITH MAIN PAGE ============
 function syncWithMainPage() {
   // Count by category
@@ -1877,10 +1619,8 @@ function syncWithMainPage() {
   // Store for main page to read
   localStorage.setItem('lotf-collectibles-stats', JSON.stringify(counts));
 }
-
 // Initialize on load
 init();
 </script>
-
 </body>
 </html>
