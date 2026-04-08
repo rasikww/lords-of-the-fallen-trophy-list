@@ -337,14 +337,12 @@ const collectibles = [
 { id: 'defsep-gest-04', name: 'Gesture: Pointing Forward', type: 'gesture', area: 'defsep', missable: false },
 { id: 'defsep-gest-05', name: 'Gesture: Pointing Upward', type: 'gesture', area: 'defsep', missable: false },
 { id: 'defsep-gest-06', name: 'Gesture: Pointing Downward', type: 'gesture', area: 'defsep', missable: false },
+{ id: 'defsep-ammo-01', name: 'Ammo: Throwing Rock', type: 'ammo', area: 'defsep', missable: false },
 { id: 'defsep-weap-01', name: 'Weapon: Wooden Cross', type: 'weapon', area: 'defsep', missable: false },
 { id: 'defsep-troph-01', name: 'Trophy: Essence of Death (Soulflay + Backstab)', type: 'trophy', area: 'defsep', missable: false },
-{ id: 'defsep-troph-02', name: 'Trophy: A Rest Among the Dead (Reach Skyrest Bridge)', type: 'trophy', area: 'defsep', missable: false },
 { id: 'defsep-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (statue hand)', type: 'upgrade', area: 'defsep', missable: false },
 // ================= ABANDONED REDCOPSE PART 1 =================
 { id: 'abared1-col-01', name: 'Collectible: Tacitus\' Journal', type: 'collectible', area: 'abared1', missable: false },
-{ id: 'abared1-boss-01', name: 'Boss: The Lightreaper (NG+ only)', type: 'boss', area: 'abared1', missable: true },
-{ id: 'abared1-col-02', name: 'Remembrance: Lightreaper', type: 'collectible', area: 'abared1', missable: false },
 { id: 'abared1-col-03', name: 'Collectible: Flayed Skin', type: 'collectible', area: 'abared1', missable: false },
 { id: 'abared1-npc-01', name: 'NPC: Iron Wayfarer (first encounter)', type: 'npc', area: 'abared1', missable: false },
 { id: 'abared1-stig-01', name: 'Umbral Stigma #1 (after Iron Wayfarer)', type: 'stigma', area: 'abared1', missable: false },
@@ -384,6 +382,7 @@ const collectibles = [
  { id: 'abared1-arm-22', name: 'Armour: Pieta\'s Leggings (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
   { id: 'abared1-weap-06', name: 'Weapon: Pieta\'s Sword (Molhu exchange)', type: 'weapon', area: 'abared1', missable: false },
   { id: 'abared1-spel-02', name: 'Spell: Blessed Reflections (Molhu exchange)', type: 'spell', area: 'abared1', missable: false },
+  { id: 'abared1-troph-02', name: 'Trophy: A Rest Among the Dead (Reach Skyrest Bridge)', type: 'trophy', area: 'defsep', missable: false },
 // ================= SKYREST BRIDGE PART 1 =================
   { id: 'skyb1-weap-23', name: 'Weapon: Right-hand Lightreaper Sword (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
   { id: 'skyb1-weap-24', name: 'Weapon: Left-hand Lightreaper Sword (Molhu exchange)', type: 'weapon', area: 'skyb1', missable: false },
@@ -1114,7 +1113,6 @@ const collectibles = [
 { id: 'skyb13-eye-01', name: 'Umbral Eye', type: 'eye', area: 'skyb13', missable: false },
 // ================= AMMO TYPES (60 total) =================
 // Add all ammo types
-{ id: 'defsep-ammo-01', name: 'Ammo: Throwing Rock', type: 'ammo', area: 'defsep', missable: false },
 { id: 'skyb1-ammo-04', name: 'Ammo: Bloody Hatchet', type: 'ammo', area: 'skyb1', missable: false },
 { id: 'skyb1-ammo-05', name: 'Ammo: Short Javelin', type: 'ammo', area: 'skyb1', missable: false },
 { id: 'skyb1-ammo-06', name: 'Ammo: Empyrean Grenade', type: 'ammo', area: 'skyb1', missable: false },
@@ -1421,6 +1419,8 @@ const collectibles = [
   { id: 'skyb9-arm-08', name: 'Armour: Vagrant Boots', type: 'armor', area: 'skyb9', missable: false, farm: 'Vagrant' },
   { id: 'skyb9-arm-09', name: 'Armour: Skelemancer Boots', type: 'armor', area: 'skyb9', missable: false, farm: 'Skelemancer' },
  // NG+ AREAS
+{ id: 'abared1-boss-01', name: 'Boss: The Lightreaper (NG+ only)', type: 'boss', area: 'abared1', missable: true },
+{ id: 'abared1-col-02', name: 'Remembrance: Lightreaper', type: 'collectible', area: 'abared1', missable: false },
  { id: 'skyb13-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'skyb13', missable: false },
  { id: 'skyb13-boss-01', name: 'Boss: Lightreaper (NG+)', type: 'boss', area: 'skyb13', missable: true },
  { id: 'revdep2-boss-01', name: 'Boss: Void Knight', type: 'boss', area: 'revdep2', missable: false },
