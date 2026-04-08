@@ -301,6 +301,19 @@
     font-size: 0.75rem;
   }
 
+  .item-farm {
+    font-family: 'Cinzel', serif;
+    font-size: 0.45rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+    background: rgba(139,26,26,0.25);
+    color: #e08080;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+  }
+
   .tips-section {
     margin: 1rem;
     padding: 0.75rem 1rem;
@@ -1341,12 +1354,323 @@ const collectibles = [
 { id: 'abbey-gest-01', name: 'Gesture: Sister\'s Mercy', type: 'gesture', area: 'abbey', missable: false },
 { id: 'empy-gest-01', name: 'Gesture: Final Farewell', type: 'gesture', area: 'empy', missable: false },
 
-// ================= NG+ AREAS =================
-{ id: 'skyb13-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'skyb13', missable: false },
-{ id: 'skyb13-boss-01', name: 'Boss: Lightreaper (NG+)', type: 'boss', area: 'skyb13', missable: true },
-{ id: 'revdep2-boss-01', name: 'Boss: Void Knight', type: 'boss', area: 'revdep2', missable: false },
-{ id: 'ngp1-boss-01', name: 'Boss: Radiant Queen (Radiance Ending)', type: 'boss', area: 'ngp1', missable: true },
-{ id: 'ngp2-boss-01', name: 'Boss: Umbral Knight (Umbral Ending)', type: 'boss', area: 'ngp2', missable: true },
+ // ================= ADDITIONAL MISSING ARMOR (PowerPix) =================
+
+ // Fitzroy's Gorge - many Ruiner set pieces + Duskmaster
+ { id: 'fitg-arm-02', name: 'Armour: Ruiner Helm', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-03', name: 'Armour: Ruiner Armour', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-04', name: 'Armour: Ruiner Trousers', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-05', name: 'Armour: Duskmaster Mask', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-06', name: 'Armour: Duskmaster Cloak', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-07', name: 'Armour: Duskmaster Greaves', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-08', name: 'Armour: Duskmaster Gauntlets', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-09', name: 'Armour: Ruiner Greaves', type: 'armor', area: 'fitg', missable: false },
+
+ // Lower Calrath - many enemy types
+ { id: 'lowcal-arm-16', name: 'Armour: Infernal Enchantress Garb', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-17', name: 'Armour: Infernal Enchantress Sleeves', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-18', name: 'Armour: Pyric Cultist Hood', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-19', name: 'Armour: Pyric Cultist Robes', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-20', name: 'Armour: Pyric Cultist Trousers', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-21', name: 'Armour: Defiled Infantry Helm', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-22', name: 'Armour: Defiled Infantry Armour', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-23', name: 'Armour: Defiled Infantry Gloves', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-24', name: 'Armour: Defiled Infantry Trousers', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-25', name: 'Armour: Overseer Helm', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-26', name: 'Armour: Raw Mangler Helm', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-27', name: 'Armour: Raw Mangler Armour', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-28', name: 'Armour: Raw Mangler Gloves', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-29', name: 'Armour: Overseer Cape', type: 'armor', area: 'lowcal', missable: false },
+
+ // Sunless Skein - mining/enslaved enemies + Briar
+ { id: 'sunske-arm-02', name: 'Armour: Enslaved Miner Helm', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-03', name: 'Armour: Enslaved Miner Garb', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-04', name: 'Armour: Enslaved Miner Trousers', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-05', name: 'Armour: Harval\'s Robes', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-06', name: 'Armour: Harval\'s Hood', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-07', name: 'Armour: Briar\'s Hood', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-08', name: 'Armour: Briar\'s Sleeves', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-09', name: 'Armour: Briar\'s Trousers', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-10', name: 'Armour: Bloomkeeper Mask', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-11', name: 'Armour: Bloomkeeper Garb', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-12', name: 'Armour: Bloomkeeper Trousers', type: 'armor', area: 'sunske', missable: false },
+
+ // Cistern - frozen miners + Mother of Snows
+ { id: 'cistern-arm-03', name: 'Armour: Frozen Miner Hood', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-04', name: 'Armour: Frozen Miner Garb', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-05', name: 'Armour: Frozen Miner Trousers', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-06', name: 'Armour: Frozen Miner Gloves', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-07', name: 'Armour: Fungal Bowman Hood', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-08', name: 'Armour: Fungal Bowman Garb', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-09', name: 'Armour: Fungal Bowman Boots', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-10', name: 'Armour: Mother of Snows Crown', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-11', name: 'Armour: Mother of Snows Robes', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-12', name: 'Armour: Mother of Snows Sleeves', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-13', name: 'Armour: Mother of Snows Leggings', type: 'armor', area: 'cistern', missable: false },
+
+ // Revelation Depths - enemies + Revenant
+ { id: 'revdep-arm-03', name: 'Armour: Enslaved Miner Chain', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-04', name: 'Armour: Enslaved Miner Shackle', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-05', name: 'Armour: Revenant Helm', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-06', name: 'Armour: Revenant Breastplate', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-07', name: 'Armour: Revenant Gauntlets', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-08', name: 'Armour: Revenant Greaves', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-09', name: 'Armour: Revenant Cape', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-10', name: 'Armour: Chancel Keeper Helm', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-11', name: 'Armour: Chancel Keeper Garb', type: 'armor', area: 'revdep', missable: false },
+ { id: 'revdep-arm-12', name: 'Armour: Chancel Keeper Trousers', type: 'armor', area: 'revdep', missable: false },
+
+ // Fief of the Chill Curse - Kinrangr enemies
+ { id: 'fief-arm-15', name: 'Armour: Kinrangr Hunter Hood', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-16', name: 'Armour: Kinrangr Hunter Sleeves', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-17', name: 'Armour: Kinrangr Guardian Armour', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-18', name: 'Armour: Kinrangr Guardian Greaves', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-19', name: 'Armour: Kinrangr Leader Helm', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-20', name: 'Armour: Kinrangr Leader Armour', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-21', name: 'Armour: Kinrangr Leader Trousers', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-22', name: 'Armour: Accursed Wretch Hood', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-23', name: 'Armour: Accursed Wretch Sleeves', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-24', name: 'Armour: Griefbound Hood', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-25', name: 'Armour: Griefbound Trousers', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-26', name: 'Armour: Griefbound Sleeves', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-27', name: 'Armour: Stump\'s Crown', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-28', name: 'Armour: Stump\'s Mantle', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-29', name: 'Armour: Stump\'s Greaves', type: 'armor', area: 'fief', missable: false },
+
+ // Pilgrim's Perch Part 2 - Sacred Resonance + enemies
+ { id: 'pilgr2-arm-05', name: 'Armour: Sacred Resonance Helm', type: 'armor', area: 'pilgr2', missable: false },
+ { id: 'pilgr2-arm-06', name: 'Armour: Sacred Resonance Hood', type: 'armor', area: 'pilgr2', missable: false },
+ { id: 'pilgr2-arm-07', name: 'Armour: Devoted Pilgrim Garb', type: 'armor', area: 'pilgr2', missable: false },
+ { id: 'pilgr2-arm-08', name: 'Armour: Devoted Pilgrim Hood', type: 'armor', area: 'pilgr2', missable: false },
+ { id: 'pilgr2-arm-09', name: 'Armour: Devoted Pilgrim Trousers', type: 'armor', area: 'pilgr2', missable: false },
+ { id: 'pilgr2-arm-10', name: 'Armour: Devoted Pilgrim Gloves', type: 'armor', area: 'pilgr2', missable: false },
+
+ // Path of Devotion - Pureblade + enemies
+ { id: 'patdev-arm-01', name: 'Armour: Pureblade Helm', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-02', name: 'Armour: Pureblade Armour', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-03', name: 'Armour: Pureblade Gauntlets', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-04', name: 'Armour: Pureblade Trousers', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-05', name: 'Armour: Fungal Bowman Hood', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-06', name: 'Armour: Fungal Bowman Garb', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-07', name: 'Armour: Fungal Bowman Gloves', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-08', name: 'Armour: Poxwalker Hood', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-09', name: 'Armour: Poxwalker Garb', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-10', name: 'Armour: Poxwalker Trousers', type: 'armor', area: 'patdev', missable: false },
+
+ // Manse of the Hallowed Brothers - Cursed + Crimson Rector
+ { id: 'manse-arm-12', name: 'Armour: Abiding Defender Helm', type: 'armor', area: 'manse', missable: false },
+ { id: 'manse-arm-13', name: 'Armour: Abiding Defender Armour', type: 'armor', area: 'manse', missable: false },
+ { id: 'manse-arm-14', name: 'Armour: Abiding Defender Gauntlets', type: 'armor', area: 'manse', missable: false },
+ { id: 'manse-arm-15', name: 'Armour: Abiding Defender Greaves', type: 'armor', area: 'manse', missable: false },
+ { id: 'manse-arm-16', name: 'Armour: Hushed King Crown', type: 'armor', area: 'manse', missable: false },
+ { id: 'manse-arm-17', name: 'Armour: Hushed King Garb', type: 'armor', area: 'manse', missable: false },
+ { id: 'manse-arm-18', name: 'Armour: Hushed King Trousers', type: 'armor', area: 'manse', missable: false },
+ { id: 'manse-arm-19', name: 'Armour: Hushed King Gauntlets', type: 'armor', area: 'manse', missable: false },
+
+ // Tower of Penance - Carrion Knight + Radiant Purifier
+ { id: 'tower-arm-11', name: 'Armour: Carrion Knight Gauntlets', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-12', name: 'Armour: Carrion Knight Greaves', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-13', name: 'Armour: Radiant Purifier Hood', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-14', name: 'Armour: Radiant Purifier Sleeves', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-15', name: 'Armour: Radiant Purifier Boots', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-16', name: 'Armour: Pain-Glider Mask', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-17', name: 'Armour: Pain-Glider Cloak', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-18', name: 'Armour: Pain-Glider Greaves', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-19', name: 'Armour: Pain-Glider Gauntlets', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-20', name: 'Armour: Trina\'s Hood', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-21', name: 'Armour: Trina\'s Garb', type: 'armor', area: 'tower', missable: false },
+ { id: 'tower-arm-22', name: 'Armour: Trina\'s Trousers', type: 'armor', area: 'tower', missable: false },
+
+ // Abbey of the Hallowed Sisters
+ { id: 'abbey-arm-02', name: 'Armour: Sister\'s Hood', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-03', name: 'Armour: Sister\'s Sleeves', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-04', name: 'Armour: Motherly Moore\'s Robes', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-05', name: 'Armour: Motherly Moore\'s Hood', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-06', name: 'Armour: Sister Gwendolin\'s Habit', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-07', name: 'Armour: Mother of Dark Flourish Mask', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-08', name: 'Armour: Mother of Dark Flourish Robes', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-09', name: 'Armour: Mother of Dark Flourish Trousers', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-10', name: 'Armour: Mother of Dark Flourish Sleeves', type: 'armor', area: 'abbey', missable: false },
+
+ // The Empyrean - Abiding Defender + Failed Pilgrim + Stomund
+ { id: 'empy-arm-18', name: 'Armour: Judge Cleric Helm', type: 'armor', area: 'empy', missable: false },
+ { id: 'empy-arm-19', name: 'Armour: Judge Cleric Garb', type: 'armor', area: 'empy', missable: false },
+ { id: 'empy-arm-20', name: 'Armour: Judge Cleric Trousers', type: 'armor', area: 'empy', missable: false },
+ { id: 'empy-arm-21', name: 'Armour: Elianne\'s Hood', type: 'armor', area: 'empy', missable: true },
+ { id: 'empy-arm-22', name: 'Armour: Elianne\'s Garb', type: 'armor', area: 'empy', missable: true },
+ { id: 'empy-arm-23', name: 'Armour: Elianne\'s Trousers', type: 'armor', area: 'empy', missable: true },
+ { id: 'empy-arm-24', name: 'Armour: Elianne\'s Sleeves', type: 'armor', area: 'empy', missable: true },
+ { id: 'empy-arm-25', name: 'Armour: Ravenna\'s Helm', type: 'armor', area: 'empy', missable: false },
+ { id: 'empy-arm-26', name: 'Armour: Ravenna\'s Garb', type: 'armor', area: 'empy', missable: false },
+ { id: 'empy-arm-27', name: 'Armour: Ravenna\'s Trousers', type: 'armor', area: 'empy', missable: false },
+ { id: 'empy-arm-28', name: 'Armour: Ravenna\'s Gauntlets', type: 'armor', area: 'empy', missable: false },
+
+ // Bramis Castle - Skinstealer + Lord + Damarose + more
+ { id: 'bramis-arm-26', name: 'Armour: Lord Helm', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-27', name: 'Armour: Skinstealer Trousers', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-28', name: 'Armour: Skinstealer Greaves', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-29', name: 'Armour: Hushed Saint Helm', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-30', name: 'Armour: Hushed Saint Armor', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-31', name: 'Armour: Hushed Saint Trousers', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-32', name: 'Armour: Hushed Saint Gauntlets', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-33', name: 'Armour: Adyr\'s Chestpiece', type: 'armor', area: 'bramis', missable: true },
+ { id: 'bramis-arm-34', name: 'Armour: Adyr\'s Helm', type: 'armor', area: 'bramis', missable: true },
+ { id: 'bramis-arm-35', name: 'Armour: Adyr\'s Greaves', type: 'armor', area: 'bramis', missable: true },
+ { id: 'bramis-arm-36', name: 'Armour: Adyr\'s Gauntlets', type: 'armor', area: 'bramis', missable: true },
+ { id: 'bramis-arm-37', name: 'Armour: Radiant Queen\'s Crown', type: 'armor', area: 'bramis', missable: true },
+ { id: 'bramis-arm-38', name: 'Armour: Radiant Queen\'s Robes', type: 'armor', area: 'bramis', missable: true },
+ { id: 'bramis-arm-39', name: 'Armour: Radiant Queen\'s Trousers', type: 'armor', area: 'bramis', missable: true },
+
+ // Upper Calrath
+ { id: 'uppcal-arm-01', name: 'Armour: Ink-Ghoul Helm', type: 'armor', area: 'uppcal', missable: false },
+ { id: 'uppcal-arm-02', name: 'Armour: Ink-Ghoul Garb', type: 'armor', area: 'uppcal', missable: false },
+ { id: 'uppcal-arm-03', name: 'Armour: Ink-Ghoul Trousers', type: 'armor', area: 'uppcal', missable: false },
+ { id: 'uppcal-arm-04', name: 'Armour: Ink-Ghoul Gloves', type: 'armor', area: 'uppcal', missable: false },
+ { id: 'uppcal-arm-05', name: 'Armour: Spiteful Shepherd Mask', type: 'armor', area: 'uppcal', missable: false },
+ { id: 'uppcal-arm-06', name: 'Armour: Spiteful Shepherd Garb', type: 'armor', area: 'uppcal', missable: false },
+ { id: 'uppcal-arm-07', name: 'Armour: Spiteful Shepherd Trousers', type: 'armor', area: 'uppcal', missable: false },
+ { id: 'uppcal-arm-08', name: 'Armour: Spiteful Shepherd Hook', type: 'armor', area: 'uppcal', missable: false },
+
+ // Skyrest Bridge Part 5 - already has armor at lines 1179-1181
+
+ // Skyrest Bridge Part 6 - Muni
+ { id: 'skyb6-arm-01', name: 'Armour: Muni\'s Robes', type: 'armor', area: 'skyb6', missable: false },
+ { id: 'skyb6-arm-02', name: 'Armour: Muni\'s Hood', type: 'armor', area: 'skyb6', missable: false },
+ { id: 'skyb6-arm-03', name: 'Armour: Muni\'s Trousers', type: 'armor', area: 'skyb6', missable: false },
+ { id: 'skyb6-arm-04', name: 'Armour: Muni\'s Gloves', type: 'armor', area: 'skyb6', missable: false },
+
+ // Skyrest Bridge Part 8
+ { id: 'skyb8-arm-01', name: 'Armour: Ladder Keeper Hood', type: 'armor', area: 'skyb8', missable: false },
+ { id: 'skyb8-arm-02', name: 'Armour: Ladder Keeper Garb', type: 'armor', area: 'skyb8', missable: false },
+ { id: 'skyb8-arm-03', name: 'Armour: Ladder Keeper Trousers', type: 'armor', area: 'skyb8', missable: false },
+ { id: 'skyb8-arm-04', name: 'Armour: Ladder Keeper Gloves', type: 'armor', area: 'skyb8', missable: false },
+
+ // Skyrest Bridge Part 9 - Skyrest Village
+ { id: 'skyb9-arm-01', name: 'Armour: Vagrant Hood', type: 'armor', area: 'skyb9', missable: false },
+ { id: 'skyb9-arm-02', name: 'Armour: Vagrant Garb', type: 'armor', area: 'skyb9', missable: false },
+ { id: 'skyb9-arm-03', name: 'Armour: Vagrant Trousers', type: 'armor', area: 'skyb9', missable: false },
+ { id: 'skyb9-arm-04', name: 'Armour: Vagrant Gloves', type: 'armor', area: 'skyb9', missable: false },
+ { id: 'skyb9-arm-05', name: 'Armour: Skelemancer Hood', type: 'armor', area: 'skyb9', missable: false },
+ { id: 'skyb9-arm-06', name: 'Armour: Skelemancer Robes', type: 'armor', area: 'skyb9', missable: false },
+ { id: 'skyb9-arm-07', name: 'Armour: Skelemancer Trousers', type: 'armor', area: 'skyb9', missable: false },
+
+ // Skyrest Bridge Part 10
+ { id: 'skyb10-arm-01', name: 'Armour: Tancred\'s Helm', type: 'armor', area: 'skyb10', missable: false },
+ { id: 'skyb10-arm-02', name: 'Armour: Tancred\'s Armour', type: 'armor', area: 'skyb10', missable: false },
+ { id: 'skyb10-arm-03', name: 'Armour: Tancred\'s Gauntlets', type: 'armor', area: 'skyb10', missable: false },
+ { id: 'skyb10-arm-04', name: 'Armour: Tancred\'s Trousers', type: 'armor', area: 'skyb10', missable: false },
+
+ // Skyrest Bridge Part 11
+ { id: 'skyb11-arm-01', name: 'Armour: Iron Wayfarer Helm', type: 'armor', area: 'skyb11', missable: false },
+ { id: 'skyb11-arm-02', name: 'Armour: Iron Wayfarer Armour', type: 'armor', area: 'skyb11', missable: false },
+ { id: 'skyb11-arm-03', name: 'Armour: Iron Wayfarer Gauntlets', type: 'armor', area: 'skyb11', missable: false },
+ { id: 'skyb11-arm-04', name: 'Armour: Iron Wayfarer Trousers', type: 'armor', area: 'skyb11', missable: false },
+ { id: 'skyb11-arm-05', name: 'Armour: Iron Wayfarer Cape', type: 'armor', area: 'skyb11', missable: false },
+
+ // Skyrest Bridge Part 12
+ { id: 'skyb12-arm-01', name: 'Armour: Mourner\'s Hood', type: 'armor', area: 'skyb12', missable: false },
+ { id: 'skyb12-arm-02', name: 'Armour: Mourner\'s Garb', type: 'armor', area: 'skyb12', missable: false },
+ { id: 'skyb12-arm-03', name: 'Armour: Mourner\'s Trousers', type: 'armor', area: 'skyb12', missable: false },
+ { id: 'skyb12-arm-04', name: 'Armour: Mourner\'s Gloves', type: 'armor', area: 'skyb12', missable: false },
+
+ // Forsaken Fen Part 1 - Congregator of Flesh
+ { id: 'forsf1-arm-01', name: 'Armour: Congregator Flesh Wrap', type: 'armor', area: 'forsf1', missable: false },
+ { id: 'forsf1-arm-02', name: 'Armour: Congregator Tendril', type: 'armor', area: 'forsf1', missable: false },
+
+ // Forsaken Fen Part 3 - Hushed Saint
+ { id: 'forsf3-arm-02', name: 'Armour: Hushed Saint Mask', type: 'armor', area: 'forsf3', missable: false },
+ { id: 'forsf3-arm-03', name: 'Armour: Hushed Saint Robes', type: 'armor', area: 'forsf3', missable: false },
+ { id: 'forsf3-arm-04', name: 'Armour: Hushed Saint Trousers', type: 'armor', area: 'forsf3', missable: false },
+ { id: 'forsf3-arm-05', name: 'Armour: Hushed Saint Sleeves', type: 'armor', area: 'forsf3', missable: false },
+
+ // Forsaken Fen Part 4
+ { id: 'forsf4-arm-01', name: 'Armour: Shuja Shadow Hood', type: 'armor', area: 'forsf4', missable: false },
+ { id: 'forsf4-arm-02', name: 'Armour: Shuja Shadow Garb', type: 'armor', area: 'forsf4', missable: false },
+ { id: 'forsf4-arm-03', name: 'Armour: Shuja Shadow Trousers', type: 'armor', area: 'forsf4', missable: false },
+ { id: 'forsf4-arm-04', name: 'Armour: Shuja Shadow Gloves', type: 'armor', area: 'forsf4', missable: false },
+
+ // Mother's Lull
+ { id: 'mothlu-arm-01', name: 'Armour: Infinite Knight Helm', type: 'armor', area: 'mothlu', missable: false },
+ { id: 'mothlu-arm-02', name: 'Armour: Infinite Knight Armor', type: 'armor', area: 'mothlu', missable: false },
+ { id: 'mothlu-arm-03', name: 'Armour: Infinite Knight Gauntlets', type: 'armor', area: 'mothlu', missable: false },
+ { id: 'mothlu-arm-04', name: 'Armour: Infinite Knight Greaves', type: 'armor', area: 'mothlu', missable: false },
+ { id: 'mothlu-arm-05', name: 'Armour: Infinite Knight Cape', type: 'armor', area: 'mothlu', missable: false },
+
+ // Additional missing farmable armor sets
+ // Farmable: Ruiner set (Fitzroy's Gorge)
+ { id: 'fitg-arm-10', name: 'Armour: Ruiner Cape', type: 'armor', area: 'fitg', missable: false },
+ { id: 'fitg-arm-11', name: 'Armour: Ruiner Pauldrons', type: 'armor', area: 'fitg', missable: false },
+
+ // Farmable: Duskmaster set (Fitzroy's Gorge)
+ { id: 'fitg-arm-12', name: 'Armour: Duskmaster Hood', type: 'armor', area: 'fitg', missable: false },
+
+ // Farmable: Orian Preacher set (Lower Calrath + others)
+ { id: 'lowcal-arm-30', name: 'Armour: Orian Preacher Robes', type: 'armor', area: 'lowcal', missable: false },
+ { id: 'lowcal-arm-31', name: 'Armour: Orian Preacher Trousers', type: 'armor', area: 'lowcal', missable: false },
+
+ // Farmable: Enslaved Miner set (Sunless Skein)
+ { id: 'sunske-arm-13', name: 'Armour: Enslaved Miner Gloves', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-14', name: 'Armour: Enslaved Miner Boots', type: 'armor', area: 'sunske', missable: false },
+
+ // Farmable: Bloomkeeper set (Sunless Skein)
+ { id: 'sunske-arm-15', name: 'Armour: Bloomkeeper Sleeves', type: 'armor', area: 'sunske', missable: false },
+ { id: 'sunske-arm-16', name: 'Armour: Bloomkeeper Boots', type: 'armor', area: 'sunske', missable: false },
+
+ // Farmable: Frozen Miner set (Cistern)
+ { id: 'cistern-arm-14', name: 'Armour: Frozen Miner Boots', type: 'armor', area: 'cistern', missable: false },
+ { id: 'cistern-arm-15', name: 'Armour: Frozen Miner Cape', type: 'armor', area: 'cistern', missable: false },
+
+ // Farmable: Fungal Bowman set (Cistern + Path of Devotion)
+ { id: 'cistern-arm-16', name: 'Armour: Fungal Bowman Cape', type: 'armor', area: 'cistern', missable: false },
+
+ // Farmable: Kinrangr sets (Fief)
+ { id: 'fief-arm-30', name: 'Armour: Kinrangr Rebel Armor', type: 'armor', area: 'fief', missable: false },
+ { id: 'fief-arm-31', name: 'Armour: Kinrangr Rebel Trousers', type: 'armor', area: 'fief', missable: false },
+
+ // Farmable: Devoted Pilgrim set (Pilgrim's Perch 2)
+ { id: 'pilgr2-arm-11', name: 'Armour: Devoted Pilgrim Cape', type: 'armor', area: 'pilgr2', missable: false },
+
+ // Farmable: Pureblade set (Path of Devotion + Pilgrim's Perch)
+ { id: 'patdev-arm-11', name: 'Armour: Pureblade Boots', type: 'armor', area: 'patdev', missable: false },
+ { id: 'patdev-arm-12', name: 'Armour: Pureblade Cape', type: 'armor', area: 'patdev', missable: false },
+
+ // Farmable: Carrion Knight set (Tower of Penance)
+ { id: 'tower-arm-23', name: 'Armour: Carrion Knight Cape', type: 'armor', area: 'tower', missable: false },
+
+ // Farmable: Radiant Purifier set (Tower of Penance)
+ { id: 'tower-arm-24', name: 'Armour: Radiant Purifier Cape', type: 'armor', area: 'tower', missable: false },
+
+ // Farmable: Skinstealer set (Bramis Castle)
+ { id: 'bramis-arm-40', name: 'Armour: Skinstealer Gauntlets', type: 'armor', area: 'bramis', missable: false },
+
+ // Farmable: Lord set (Bramis Castle)
+ { id: 'bramis-arm-41', name: 'Armour: Lord Shoulder Guards', type: 'armor', area: 'bramis', missable: false },
+
+ // Farmable: Grace of Adyr set (Bramis Castle)
+ { id: 'bramis-arm-42', name: 'Armour: Grace of Adyr Pauldrons', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-arm-43', name: 'Armour: Grace of Adyr Gloves', type: 'armor', area: 'bramis', missable: false },
+
+ // Farmable: Abiding Defender set (Manse + Empyrean)
+ { id: 'empy-arm-29', name: 'Armour: Abiding Defender Cape', type: 'armor', area: 'empy', missable: false },
+ { id: 'empy-arm-30', name: 'Armour: Abiding Defender Shoulder Guards', type: 'armor', area: 'empy', missable: false },
+
+ // Farmable: Ink-Ghoul set (Upper Calrath)
+ { id: 'uppcal-arm-09', name: 'Armour: Ink-Ghoul Cape', type: 'armor', area: 'uppcal', missable: false },
+
+ // Additional enemy armor from Forsaken Fen
+ { id: 'forsf2-arm-09', name: 'Armour: Shuja Strider Boots', type: 'armor', area: 'forsf2', missable: false },
+ { id: 'forsf2-arm-10', name: 'Armour: Holy Bulwark Cape', type: 'armor', area: 'forsf2', missable: false },
+
+ // Additional Skyrest Village items
+ { id: 'skyb9-arm-08', name: 'Armour: Vagrant Boots', type: 'armor', area: 'skyb9', missable: false },
+ { id: 'skyb9-arm-09', name: 'Armour: Skelemancer Boots', type: 'armor', area: 'skyb9', missable: false },
+
+ // NG+ AREAS
+ { id: 'skyb13-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'skyb13', missable: false },
+ { id: 'skyb13-boss-01', name: 'Boss: Lightreaper (NG+)', type: 'boss', area: 'skyb13', missable: true },
+ { id: 'revdep2-boss-01', name: 'Boss: Void Knight', type: 'boss', area: 'revdep2', missable: false },
+ { id: 'ngp1-boss-01', name: 'Boss: Radiant Queen (Radiance Ending)', type: 'boss', area: 'ngp1', missable: true },
+ { id: 'ngp2-boss-01', name: 'Boss: Umbral Knight (Umbral Ending)', type: 'boss', area: 'ngp2', missable: true },
 
 ];
 
@@ -1453,6 +1777,7 @@ function renderItem(item) {
         <svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <span class="item-name">${item.name}</span>
+      ${item.farm ? `<span class="item-farm">Farm: ${item.farm}</span>` : ''}
       <span class="item-type ${item.type}">${item.type}</span>
     </div>
   `;
