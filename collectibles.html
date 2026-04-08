@@ -601,14 +601,15 @@ const collectibles = [
 { id: 'lowcal-col-01', name: 'Remembrance: Soul-Lash', type: 'collectible', area: 'lowcal', missable: false },
 { id: 'lowcal-col-02', name: 'Remembrance: Aoede', type: 'collectible', area: 'lowcal', missable: false },
 { id: 'lowcal-npc-01', name: 'NPC: Orian Preacher', type: 'npc', area: 'lowcal', missable: false },
-{ id: 'lowcal-gest-01', name: 'Gesture: Radiant Beacon', type: 'gesture', area: 'lowcal', missable: false },
+ { id: 'lowcal-gest-01', name: 'Gesture: Wheezing', type: 'gesture', area: 'lowcal', missable: true },
 { id: 'lowcal-spel-01', name: 'Spell: Luminance', type: 'spell', area: 'lowcal', missable: false },
 { id: 'lowcal-arm-01', name: 'Armour: Orian Preacher Wrappings', type: 'armor', area: 'lowcal', missable: false },
 // ================= SUNLESS SKEIN =================
 { id: 'sunske-npc-01', name: 'NPC: Harval', type: 'npc', area: 'sunske', missable: false },
 { id: 'sunske-quest-01', name: 'Quest Item: Harval\'s Stone', type: 'collectible', area: 'sunske', missable: false },
 { id: 'sunske-boss-01', name: 'Boss: Briar, Mistress of Thorns', type: 'boss', area: 'sunske', missable: false },
-{ id: 'sunske-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'sunske', missable: false },
+ { id: 'sunske-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'sunske', missable: false },
+  { id: 'sunske-gest-01', name: 'Gesture: Bemoaning', type: 'gesture', area: 'sunske', missable: false },
 { id: 'sunske-weap-01', name: 'Weapon: Briar\'s Spine', type: 'weapon', area: 'sunske', missable: false },
 { id: 'sunske-arm-01', name: 'Armour: Briar\'s Nightwear', type: 'armor', area: 'sunske', missable: false },
 // ================= CISTERN =================
@@ -622,7 +623,8 @@ const collectibles = [
 { id: 'abbey-npc-01', name: 'NPC: Motherly Moore', type: 'npc', area: 'abbey', missable: false },
 { id: 'abbey-npc-02', name: 'NPC: Sister Gwendolin', type: 'npc', area: 'abbey', missable: false },
 { id: 'abbey-boss-01', name: 'Boss: Mother of Dark Flourish', type: 'boss', area: 'abbey', missable: false },
-{ id: 'abbey-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'abbey', missable: false },
+ { id: 'abbey-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'abbey', missable: false },
+  { id: 'abbey-gest-01', name: 'Gesture: Hallowed Sentinel Prayer', type: 'gesture', area: 'abbey', missable: false },
 { id: 'abbey-arm-01', name: 'Armour: Sister\'s Habit + Sandals', type: 'armor', area: 'abbey', missable: false },
 // ================= THE EMPYREAN =================
 { id: 'empy-npc-01', name: 'NPC: Judge Cleric', type: 'npc', area: 'empy', missable: false },
@@ -698,7 +700,9 @@ const collectibles = [
 { id: 'shrad-ring-02', name: 'Ring: Adyrqamar Ring', type: 'ring', area: 'shrad', missable: false },
 { id: 'shrad-ring-03', name: 'Ring: Grayson\'s Ring', type: 'ring', area: 'shrad', missable: false },
 { id: 'shrad-boss-01', name: 'Boss: Spurned Progeny', type: 'boss', area: 'shrad', missable: false },
-{ id: 'shrad-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'shrad', missable: false },
+ { id: 'shrad-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'shrad', missable: false },
+  { id: 'shrad-gest-01', name: 'Gesture: Crimson Ritual Fervour (Online Shrine)', type: 'gesture', area: 'shrad', missable: false },
+  { id: 'shrad-gest-02', name: 'Gesture: Laughter', type: 'gesture', area: 'shrad', missable: true },
 // ================= LOWER CALRATH =================
 { id: 'lowcal-weap-01', name: 'Weapon: Infernal Enchantress Flail', type: 'weapon', area: 'lowcal', missable: false, farm: 'Infernal Enchantress' },
 { id: 'lowcal-weap-02', name: 'Weapon: Pyric Cultist Flail', type: 'weapon', area: 'lowcal', missable: false },
@@ -737,7 +741,8 @@ const collectibles = [
    { id: 'lowcal-arm-15', name: 'Armour: Thorned Penitent Mask', type: 'armor', area: 'lowcal', missable: false, farm: 'Penitent' },
   { id: 'lowcal-ring-05', name: 'Ring: Scornful Effigy', type: 'ring', area: 'lowcal', missable: false },
   { id: 'lowcal-pend-02', name: 'Pendant: Pendant of Parting', type: 'pendant', area: 'lowcal', missable: false },
-  { id: 'lowcal-ring-06', name: 'Ring: Vessel Root', type: 'ring', area: 'lowcal', missable: false },
+   { id: 'lowcal-ring-06', name: 'Ring: Vessel Root', type: 'ring', area: 'lowcal', missable: false },
+  { id: 'lowcal-gest-02', name: 'Gesture: Pledge to Adyr', type: 'gesture', area: 'lowcal', missable: false },
 // ================= SUNLESS SKEIN =================
 { id: 'sunske-weap-02', name: 'Weapon: Edict\'s Aim', type: 'weapon', area: 'sunske', missable: false },
 { id: 'sunske-weap-03', name: 'Weapon: Fulvirano Shield', type: 'weapon', area: 'sunske', missable: false },
@@ -826,7 +831,9 @@ const collectibles = [
   { id: 'fief-arm-13', name: 'Armour: Accursed Wretch Cloak', type: 'armor', area: 'fief', missable: false, farm: 'Accursed Wretch' },
   { id: 'fief-arm-14', name: 'Armour: Accursed Wretch Trousers', type: 'armor', area: 'fief', missable: false, farm: 'Accursed Wretch' },
 { id: 'fief-boss-01', name: 'Boss: Stump', type: 'boss', area: 'fief', missable: false },
-{ id: 'fief-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'fief', missable: false },
+ { id: 'fief-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'fief', missable: false },
+  { id: 'fief-gest-01', name: 'Gesture: Halting', type: 'gesture', area: 'fief', missable: false },
+  { id: 'fief-gest-02', name: 'Gesture: Surrender', type: 'gesture', area: 'fief', missable: true },
 // ================= PILGRIM'S PERCH PART 2 =================
 { id: 'pilgr2-weap-01', name: 'Weapon: Devotion\'s Might', type: 'weapon', area: 'pilgr2', missable: false },
  { id: 'pilgr2-weap-02', name: 'Weapon: Hammer of Holy Agony', type: 'weapon', area: 'pilgr2', missable: false, farm: 'Ardent the Penitent' },
@@ -900,6 +907,7 @@ const collectibles = [
 { id: 'tower-arm-09', name: 'Armour: Radiant Purifier Trousers', type: 'armor', area: 'tower', missable: false },
 { id: 'tower-arm-10', name: 'Armour: Radiant Purifier Robes', type: 'armor', area: 'tower', missable: false },
 { id: 'tower-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'tower', missable: false },
+  { id: 'pilgr2-gest-01', name: 'Gesture: Calrath Noble\'s Bow', type: 'gesture', area: 'pilgr2', missable: false },
 { id: 'tower-boss-01', name: 'Boss: Pain-Glider', type: 'boss', area: 'tower', missable: false },
 { id: 'tower-npc-01', name: 'NPC: Trina', type: 'npc', area: 'tower', missable: false },
 // ================= ABBEY OF THE HALLOWED SISTERS =================
@@ -1028,7 +1036,9 @@ const collectibles = [
 // Quest reward rings
 { id: 'quest-ring-01', name: 'Ring: Envenomed Ring', type: 'ring', area: 'general', missable: false },
 { id: 'quest-ring-02', name: 'Ring: Andreas of Ebb\'s Ring', type: 'ring', area: 'general', missable: false },
-{ id: 'quest-ring-03', name: 'Ring: Queen Sophesia\'s Ring', type: 'ring', area: 'general', missable: false },
+ { id: 'quest-ring-03', name: 'Ring: Queen Sophesia\'s Ring', type: 'ring', area: 'general', missable: false },
+// Quest reward gestures
+{ id: 'quest-gest-01', name: 'Gesture: Celebration (Byron quest reward)', type: 'gesture', area: 'general', missable: true },
 // Additional Skyrest Bridge items
 { id: 'skyb5-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'skyb4', missable: false },
 { id: 'skyb5-arm-01', name: 'Armour: Hushed Saint\'s Gauntlets', type: 'armor', area: 'skyb4', missable: false },
@@ -1160,18 +1170,7 @@ const collectibles = [
 { id: 'skyb11-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'skyb11', missable: false },
 { id: 'skyb12-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'skyb12', missable: false },
 { id: 'mothlu-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence', type: 'upgrade', area: 'mothlu', missable: false },
-// ================= GESTURES (21 total) =================
-{ id: 'skyb5-gest-01', name: 'Gesture: Radiant Beacon', type: 'gesture', area: 'skyb4', missable: false },
-{ id: 'skyb6-gest-01', name: 'Gesture: Beckoning', type: 'gesture', area: 'skyb6', missable: false },
-{ id: 'skyb9-gest-01', name: 'Gesture: Bow', type: 'gesture', area: 'skyb9', missable: false },
-{ id: 'pilgr2-gest-01', name: 'Gesture: Cleric\'s Devotion', type: 'gesture', area: 'pilgr2', missable: false },
-{ id: 'patdev-gest-01', name: 'Gesture: Umbral Salute', type: 'gesture', area: 'patdev', missable: false },
-{ id: 'manse-gest-01', name: 'Gesture: Hallowed Oath', type: 'gesture', area: 'manse', missable: false },
-{ id: 'tower-gest-01', name: 'Gesture: Penitent Prayer', type: 'gesture', area: 'tower', missable: false },
-{ id: 'skyb10-gest-01', name: 'Gesture: Tancred\'s Command', type: 'gesture', area: 'skyb10', missable: false },
-{ id: 'abbey-gest-01', name: 'Gesture: Sister\'s Mercy', type: 'gesture', area: 'abbey', missable: false },
-{ id: 'empy-gest-01', name: 'Gesture: Final Farewell', type: 'gesture', area: 'empy', missable: false },
- // ================= ADDITIONAL MISSING ARMOR (PowerPix) =================
+// ================= ADDITIONAL MISSING ARMOR (PowerPix) =================
  // Fitzroy's Gorge - many Ruiner set pieces + Duskmaster
  { id: 'fitg-arm-02', name: 'Armour: Ruiner Helm', type: 'armor', area: 'fitg', missable: false },
  { id: 'fitg-arm-03', name: 'Armour: Ruiner Armour', type: 'armor', area: 'fitg', missable: false },
@@ -1340,7 +1339,7 @@ const collectibles = [
  { id: 'skyb10-arm-02', name: 'Armour: Tancred\'s Armour', type: 'armor', area: 'skyb10', missable: false },
  { id: 'skyb10-arm-03', name: 'Armour: Tancred\'s Gauntlets', type: 'armor', area: 'skyb10', missable: false },
   { id: 'skyb10-arm-04', name: 'Armour: Tancred\'s Trousers', type: 'armor', area: 'skyb10', missable: false },
-  { id: 'skyb10-ring-01', name: 'Ring: Ring of Gnawing', type: 'ring', area: 'skyb10', missable: false },
+   { id: 'skyb10-ring-01', name: 'Ring: Ring of Gnawing', type: 'ring', area: 'skyb10', missable: false },
  // Skyrest Bridge Part 11
  { id: 'skyb11-arm-01', name: 'Armour: Iron Wayfarer Helm', type: 'armor', area: 'skyb11', missable: false },
  { id: 'skyb11-arm-02', name: 'Armour: Iron Wayfarer Armour', type: 'armor', area: 'skyb11', missable: false },
