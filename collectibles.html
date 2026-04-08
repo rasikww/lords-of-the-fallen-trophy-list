@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lords of the Fallen — Collectible Checklist</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --gold: #c8a84b;
+    --gold-light: #e8c96a;
+    --gold-dim: #7a6228;
+    --blood: #8b1a1a;
+    --blood-dark: #5a0f0f;
+    --umbral: #2a1a3e;
+    --umbral-mid: #3d2a5a;
+    --umbral-light: #6b4e9c;
+    --surface: #12100e;
+    --surface-2: #1a1714;
+    --surface-3: #221f1c;
+    --surface-4: #2d2925;
+    --text: #e8e0d0;
+    --text-muted: #9a8e7a;
+    --text-dim: #5a5248;
+    --silver: #b0b8c8;
+    --bronze: #c8834b;
+    --platinum: #e0e8f0;
+    --green: #4a8a5a;
+    --green-light: #6ab87e;
+    --border: rgba(200,168,75,0.18);
+    --border-light: rgba(200,168,75,0.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--surface);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .header {
+    background: linear-gradient(180deg, #0a0806 0%, var(--surface) 100%);
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.5rem 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .header .subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .back-link:hover { color: var(--gold-light); }
+
+  .progress-section {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .progress-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .progress-count {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .progress-pct {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .progress-bar-bg {
+    height: 6px;
+    background: var(--surface-4);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .category-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .cat-tab {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.6rem;
+    border-radius: 3px;
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .cat-tab:hover, .cat-tab.active {
+    background: var(--gold-dim);
+    color: var(--text);
+    border-color: var(--gold);
+  }
+
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1rem 4rem;
+  }
+
+  .area {
+    margin-bottom: 1.5rem;
+  }
+
+  .area-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .area-header:hover { background: var(--surface-3); }
+
+  .area-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--gold-dim);
+    background: rgba(200,168,75,0.1);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .area-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    flex: 1;
+  }
+
+  .area-progress {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .area-chevron {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    transition: transform 0.25s;
+  }
+
+  .area.collapsed .area-chevron { transform: rotate(-90deg); }
+
+  .area-body {
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+  }
+
+  .area.collapsed .area-body { display: none; }
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    background: var(--surface-2);
+    border-bottom: 1px solid rgba(200,168,75,0.05);
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+
+  .item:hover { background: var(--surface-3); }
+  .item.checked { background: rgba(74,138,90,0.08); }
+
+  .item-check {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1.5px solid var(--text-dim);
+    background: transparent;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    pointer-events: none;
+  }
+
+  .item.checked .item-check {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .check-svg { display: none; width: 9px; height: 9px; }
+  .item.checked .check-svg { display: block; }
+
+  .item-name {
+    font-size: 0.85rem;
+    color: var(--text);
+    flex: 1;
+    min-width: 0;
+  }
+
+  .item.checked .item-name {
+    color: var(--text-dim);
+    text-decoration: line-through;
+    text-decoration-color: var(--text-dim);
+  }
+
+  .item-type {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    background: var(--surface-3);
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .item-type.trophy { background: rgba(200,131,75,0.2); color: var(--bronze); }
+  .item-type.weapon { background: rgba(139,26,26,0.2); color: #e07070; }
+  .item-type.armor { background: rgba(107,78,156,0.2); color: #b08eea; }
+  .item-type.ring { background: rgba(74,138,90,0.2); color: var(--green-light); }
+  .item-type.pendant { background: rgba(74,138,90,0.2); color: var(--green-light); }
+  .item-type.spell { background: rgba(200,168,75,0.15); color: var(--gold); }
+  .item-type.ammo { background: rgba(176,184,200,0.15); color: var(--silver); }
+  .item-type.stigma { background: rgba(42,26,62,0.4); color: var(--umbral-light); }
+  .item-type.eye { background: rgba(42,26,62,0.4); color: var(--umbral-light); }
+  .item-type.gesture { background: rgba(176,184,200,0.15); color: var(--silver); }
+  .item-type.npc { background: rgba(200,168,75,0.15); color: var(--gold); }
+  .item-type.boss { background: rgba(139,26,26,0.3); color: #e06060; }
+  .item-type.upgrade { background: rgba(200,131,75,0.2); color: #e8a060; }
+  .item-type.collectible { background: var(--surface-3); color: var(--text-muted); }
+
+  .item.missable > .item-name::after {
+    content: ' ⚠';
+    color: #e06060;
+    font-size: 0.75rem;
+  }
+
+  .tips-section {
+    margin: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(200,168,75,0.06);
+    border-left: 3px solid var(--gold-dim);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .tips-section strong { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .main { padding: 0.75rem 0.5rem 4rem; }
+    .category-tabs { gap: 0.35rem; }
+    .cat-tab { font-size: 0.55rem; padding: 0.25rem 0.45rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Lords of the Fallen</h1>
+  <p class="subtitle">Collectible Checklist</p>
+  <a href="index.html" class="back-link">← Back to Roadmap</a>
+</div>
+
+<div class="progress-section">
+  <div class="progress-stats">
+    <span class="progress-label">Overall Progress</span>
+    <span class="progress-count" id="total-count">0 / 0 items</span>
+    <span class="progress-pct" id="total-pct">0%</span>
+  </div>
+  <div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="main-bar" style="width:0%"></div>
+  </div>
+  <div class="category-tabs">
+    <button class="cat-tab active" onclick="filterCategory('all')">All</button>
+    <button class="cat-tab" onclick="filterCategory('weapon')">Weapons (0)</button>
+    <button class="cat-tab" onclick="filterCategory('armor')">Armor (0)</button>
+    <button class="cat-tab" onclick="filterCategory('ring')">Rings (0)</button>
+    <button class="cat-tab" onclick="filterCategory('pendant')">Pendants (0)</button>
+    <button class="cat-tab" onclick="filterCategory('spell')">Spells (0)</button>
+    <button class="cat-tab" onclick="filterCategory('ammo')">Ammo (0)</button>
+    <button class="cat-tab" onclick="filterCategory('stigma')">Stigmas (0)</button>
+    <button class="cat-tab" onclick="filterCategory('eye')">Eyes (0)</button>
+    <button class="cat-tab" onclick="filterCategory('gesture')">Gestures (0)</button>
+    <button class="cat-tab" onclick="filterCategory('trophy')">Trophies (0)</button>
+  </div>
+</div>
+
+<div class="main" id="collectibles-list">
+  <!-- Generated by JavaScript -->
+</div>
+
+<div class="tips-section">
+  <strong>Tip:</strong> Check off items as you collect them. Your progress syncs with the main roadmap. 
+  Missable items are marked with ⚠ — complete them in the correct playthrough!
+</div>
+
+<script>
+// ============ COLLECTIBLES DATA ============
+const collectibles = [
+// ================= DEFILED SEPULCHRE =================
+{ id: 'defsep-gest-01', name: 'Gesture: Greeting', type: 'gesture', area: 'defsep', missable: false },
+{ id: 'defsep-gest-02', name: 'Gesture: Agreeing', type: 'gesture', area: 'defsep', missable: false },
+{ id: 'defsep-gest-03', name: 'Gesture: Disagreeing', type: 'gesture', area: 'defsep', missable: false },
+{ id: 'defsep-gest-04', name: 'Gesture: Pointing Forward', type: 'gesture', area: 'defsep', missable: false },
+{ id: 'defsep-gest-05', name: 'Gesture: Pointing Upward', type: 'gesture', area: 'defsep', missable: false },
+{ id: 'defsep-gest-06', name: 'Gesture: Pointing Downward', type: 'gesture', area: 'defsep', missable: false },
+{ id: 'defsep-weap-01', name: 'Weapon: Wooden Cross', type: 'weapon', area: 'defsep', missable: false },
+{ id: 'defsep-troph-01', name: 'Trophy: Essence of Death', type: 'trophy', area: 'defsep', missable: false },
+{ id: 'defsep-troph-02', name: 'Trophy: A Rest Among the Dead', type: 'trophy', area: 'defsep', missable: false },
+{ id: 'defsep-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (statue hand)', type: 'upgrade', area: 'defsep', missable: false },
+
+// ================= ABANDONED REDCOPSE PART 1 =================
+{ id: 'abared1-col-01', name: 'Collectible: Tacitus\' Journal', type: 'collectible', area: 'abared1', missable: false },
+{ id: 'abared1-boss-01', name: 'Boss: The Lightreaper (NG+ only)', type: 'boss', area: 'abared1', missable: true, note: 'Patch 1.6 - now only in NG+' },
+{ id: 'abared1-col-02', name: 'Remembrance: Lightreaper', type: 'collectible', area: 'abared1', missable: false },
+{ id: 'abared1-col-03', name: 'Collectible: Flayed Skin', type: 'collectible', area: 'abared1', missable: false },
+{ id: 'abared1-npc-01', name: 'NPC: Iron Wayfarer (first encounter)', type: 'npc', area: 'abared1', missable: false },
+{ id: 'abared1-stig-01', name: 'Umbral Stigma (after Iron Wayfarer)', type: 'stigma', area: 'abared1', missable: false },
+{ id: 'abared1-stig-02', name: 'Umbral Stigma (inside hut)', type: 'stigma', area: 'abared1', missable: false },
+{ id: 'abared1-weap-01', name: 'Weapon: Pointed Stick', type: 'weapon', area: 'abared1', missable: false },
+{ id: 'abared1-weap-02', name: 'Weapon: Broken Sword', type: 'weapon', area: 'abared1', missable: false },
+{ id: 'abared1-weap-03', name: 'Weapon: Hallowed Condemnation', type: 'weapon', area: 'abared1', missable: false },
+{ id: 'abared1-arm-01', name: 'Armour: Pilgrim Garb + Pilgrim Skirt', type: 'armor', area: 'abared1', missable: false },
+{ id: 'abared1-arm-02', name: 'Armour: Crown of Nails (windmill)', type: 'armor', area: 'abared1', missable: false },
+{ id: 'abared1-ring-01', name: 'Ring: Mineowner\'s Ring', type: 'ring', area: 'abared1', missable: false },
+{ id: 'abared1-arm-03', name: 'Armour: Pilgrim Bandages + Pilgrim Hood', type: 'armor', area: 'abared1', missable: false },
+{ id: 'abared1-eye-01', name: 'Umbral Eye: Umbral Eye of Betrayed Eliard', type: 'eye', area: 'abared1', missable: false },
+{ id: 'abared1-arm-04', name: 'Armour: Marksman Armour + Gloves + Trousers', type: 'armor', area: 'abared1', missable: false },
+{ id: 'abared1-weap-04', name: 'Weapon: Rusty Cutter', type: 'weapon', area: 'abared1', missable: false },
+{ id: 'abared1-weap-05', name: 'Weapon: Raw Mangler Axe', type: 'weapon', area: 'abared1', missable: false },
+{ id: 'abared1-boss-02', name: 'Boss: Pieta, She of Blessed Renewal', type: 'boss', area: 'abared1', missable: false },
+{ id: 'abared1-troph-01', name: 'Trophy: Rise and Fall (Defeat Pieta)', type: 'trophy', area: 'abared1', missable: false },
+{ id: 'abared1-col-04', name: 'Remembrance: Pieta', type: 'collectible', area: 'abared1', missable: false },
+{ id: 'abared1-stig-03', name: 'Umbral Stigma (boss arena)', type: 'stigma', area: 'abared1', missable: false },
+{ id: 'abared1-spel-01', name: 'Spell: Sanctify (left tower)', type: 'spell', area: 'abared1', missable: false },
+{ id: 'abared1-arm-05', name: 'Armour: Pieta\'s Sleeves + Armour + Helm + Leggings (Molhu exchange)', type: 'armor', area: 'abared1', missable: false },
+{ id: 'abared1-weap-06', name: 'Weapon: Pieta\'s Sword (Molhu exchange)', type: 'weapon', area: 'abared1', missable: false },
+{ id: 'abared1-spel-02', name: 'Spell: Blessed Reflections (Molhu exchange)', type: 'spell', area: 'abared1', missable: false },
+
+// ================= SKYREST BRIDGE PART 1 =================
+{ id: 'skyb1-npc-01', name: 'NPC: Exacter Dunmire', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-gest-01', name: 'Gesture: Dark Crusader\'s Challenge (from Dunmire)', type: 'gesture', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-02', name: 'NPC: Pieta (after rest)', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-gest-02', name: 'Gesture: Putrid Mother\'s Embrace (shrine)', type: 'gesture', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-03', name: 'NPC: Molhu (Umbral)', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-04', name: 'NPC: Stomund, Captain of the Fidelis', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-05', name: 'NPC: Eustace & Nathaniel', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-gest-03', name: 'Gesture: Orian Vow of Protection (statue)', type: 'gesture', area: 'skyb1', missable: false },
+{ id: 'skyb1-spel-01', name: 'Spell: Aura of Tenacity (book)', type: 'spell', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-06', name: 'NPC: Andreas of Ebb', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-07', name: 'NPC: Thehk-Ihir (climb ladder)', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-ammo-01', name: 'Ammo: Bloody Hatchet', type: 'ammo', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-01', name: 'Weapon: Reject\'s Blade', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-02', name: 'Weapon: Pale Eye Shield', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-03', name: 'Weapon: Bell Staff', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-tinct-01', name: 'Tinct: Icegrip', type: 'collectible', area: 'skyb1', missable: false },
+{ id: 'skyb1-troph-01', name: 'Trophy: Shades of Violence (use Icegrip tinct)', type: 'trophy', area: 'skyb1', missable: false },
+{ id: 'skyb1-stig-01', name: 'Umbral Stigma (bridge)', type: 'stigma', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-04', name: 'Weapon: Faithful Bludgeon', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-05', name: 'Weapon: Crimson Rector Sword', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-key-01', name: 'Quest Item: Skyrest Bridge Key', type: 'collectible', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-06', name: 'Weapon: Crimson Rector Shield', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-arm-01', name: 'Armour: Descrier Guide Wrappings + Leggings + Garb + Mask', type: 'armor', area: 'skyb1', missable: false },
+{ id: 'skyb1-pend-01', name: 'Pendant: Princess\' Sting', type: 'pendant', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-07', name: 'Weapon/Throwable: Searing Accusation', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-stig-02', name: 'Umbral Stigma (up stairs)', type: 'stigma', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-08', name: 'NPC: Tortured Prisoner', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-arm-02', name: 'Armour: Tortured Prisoner\'s Head Cage (reload area)', type: 'armor', area: 'skyb1', missable: false },
+{ id: 'skyb1-ammo-02', name: 'Ammo: Short Javelin', type: 'ammo', area: 'skyb1', missable: false },
+{ id: 'skyb1-stig-03', name: 'Umbral Stigma (Sanctuary of Baptism)', type: 'stigma', area: 'skyb1', missable: false },
+{ id: 'skyb1-arm-03', name: 'Armour: Condemned Manacles + Head Cage + Garb + Fetters', type: 'armor', area: 'skyb1', missable: false },
+{ id: 'skyb1-ammo-03', name: 'Ammo: Empyrean Grenade', type: 'ammo', area: 'skyb1', missable: false },
+{ id: 'skyb1-npc-09', name: 'NPC: Hooded Figure', type: 'npc', area: 'skyb1', missable: false },
+{ id: 'skyb1-quest-01', name: 'Quest Item: Bloody Aspergillum', type: 'collectible', area: 'skyb1', missable: false },
+{ id: 'skyb1-boss-01', name: 'Boss: Scourged Sister Delyth', type: 'boss', area: 'skyb1', missable: false },
+{ id: 'skyb1-weap-08', name: 'Weapon: Scourged Sister Flail', type: 'weapon', area: 'skyb1', missable: false },
+{ id: 'skyb1-arm-04', name: 'Armour: Scourged Sister Leg Wrappings', type: 'armor', area: 'skyb1', missable: false },
+{ id: 'skyb1-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (alcove)', type: 'upgrade', area: 'skyb1', missable: false },
+{ id: 'skyb1-troph-02', name: 'Trophy: Thriving in Darkness (use Vestige Seed)', type: 'trophy', area: 'skyb1', missable: false },
+
+// ================= PILGRIM'S PERCH PART 1 =================
+{ id: 'pilgr1-ammo-01', name: 'Ammo: Lacerating Knife', type: 'ammo', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-weap-01', name: 'Weapon: Hallowed Bow', type: 'weapon', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-ammo-02', name: 'Ammo: Pulsing Arrows', type: 'ammo', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-weap-02', name: 'Weapon: Plain Shield', type: 'weapon', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-gest-01', name: 'Gesture: Common Orian Prayer', type: 'gesture', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-ring-01', name: 'Ring: Defaced Ring', type: 'ring', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-weap-03', name: 'Weapon: Hallowed Praise', type: 'weapon', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-ring-02', name: 'Ring: Holy Blood Ring', type: 'ring', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-weap-04', name: 'Weapon: Perdam Falchion', type: 'weapon', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-weap-05', name: 'Weapon: Thorned Crimson Rector Sword', type: 'weapon', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-npc-01', name: 'NPC: Byron (shovel-wielder) - Start quest', type: 'npc', area: 'pilgr1', missable: true, note: 'Moving On quest' },
+{ id: 'pilgr1-eye-01', name: 'Umbral Eye: Umbral Eye of Rosamund', type: 'eye', area: 'pilgr1', missable: true, note: 'Byron quest' },
+{ id: 'pilgr1-arm-01', name: 'Armour: Antique Hallowed Sentinel Helm + Sleeves + Armour', type: 'armor', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-tinct-01', name: 'Tinct: Pridebound', type: 'collectible', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-quest-01', name: 'Quest Item: Hallowed Sentinel Scripture', type: 'collectible', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-stig-01', name: 'Umbral Stigma (hanging cage)', type: 'stigma', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-arm-02', name: 'Armour: Ardent Penitent Head Cage', type: 'armor', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-pend-01', name: 'Pendant: Relic of Perpetuation', type: 'pendant', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-quest-02', name: 'Quest Item: Bowl of Revelations', type: 'collectible', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-troph-01', name: 'Trophy: The Past Shapes the Present (give Bowl to Molhu)', type: 'trophy', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-quest-03', name: 'Quest Item: Book of Sin', type: 'collectible', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-pend-02', name: 'Pendant: Warrior\'s Claw', type: 'pendant', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-ammo-03', name: 'Ammo: Radiant Bolts', type: 'ammo', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-quest-04', name: 'Quest Item: Prison Cell Key', type: 'collectible', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-arm-03', name: 'Armour: Pureblade Armour + Helm + Trousers + Gloves', type: 'armor', area: 'pilgr1', missable: false, note: 'Farm from Pureblade enemy' },
+{ id: 'pilgr1-npc-02', name: 'NPC: Gerlinde (behind bars)', type: 'npc', area: 'pilgr1', missable: true, note: 'Hero Worship quest' },
+{ id: 'pilgr1-npc-03', name: 'NPC: Damarose the Marked (after elevator)', type: 'npc', area: 'pilgr1', missable: true, note: 'A Hunger Sated quest' },
+{ id: 'pilgr1-boss-01', name: 'Boss: Gentle Gaverus, Mistress of Hounds', type: 'boss', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-weap-06', name: 'Weapon: Sin-Piercer Sword', type: 'weapon', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-arm-04', name: 'Armour: Sin-Piercer Armour + Boots', type: 'armor', area: 'pilgr1', missable: false },
+{ id: 'pilgr1-ammo-04', name: 'Ammo Satchel', type: 'ammo', area: 'pilgr1', missable: false },
+
+// ================= SKYREST BRIDGE PART 2 =================
+{ id: 'skyb2-quest-01', name: 'Turn in: Bloody Aspergillum to Exacter Dunmire', type: 'collectible', area: 'skyb2', missable: false },
+{ id: 'skyb2-quest-02', name: 'Turn in: Hallowed Sentinel Scripture to Exacter Dunmire', type: 'collectible', area: 'skyb2', missable: false },
+{ id: 'skyb2-quest-03', name: 'Turn in: Book of Sin to Exacter Dunmire', type: 'collectible', area: 'skyb2', missable: false },
+{ id: 'skyb2-spel-01', name: 'Spell: Poison Weapon (Molhu)', type: 'spell', area: 'skyb2', missable: false },
+{ id: 'skyb2-spel-02', name: 'Spell: Umbral Guardian (Molhu)', type: 'spell', area: 'skyb2', missable: false },
+{ id: 'skyb2-ring-01', name: 'Ring: Mother\'s Watch (Molhu)', type: 'ring', area: 'skyb2', missable: false },
+{ id: 'skyb2-npc-01', name: 'NPC: Gerlinde (at Skyrest Bridge after unlock)', type: 'npc', area: 'skyb2', missable: false },
+
+// ================= FORSAKEN FEN PART 1 =================
+{ id: 'forsf1-gest-01', name: 'Gesture: Beckoning (from Thehk-Ihir)', type: 'gesture', area: 'forsf1', missable: false },
+{ id: 'forsf1-npc-01', name: 'NPC: Thehk-Ihir', type: 'npc', area: 'forsf1', missable: false },
+{ id: 'forsf1-boss-01', name: 'Boss: Congregator of Flesh', type: 'boss', area: 'forsf1', missable: false },
+{ id: 'forsf1-troph-01', name: 'Trophy: Together in Death (defeat Congregator)', type: 'trophy', area: 'forsf1', missable: false },
+{ id: 'forsf1-stig-01', name: 'Umbral Stigma (boss arena)', type: 'stigma', area: 'forsf1', missable: false },
+{ id: 'forsf1-col-01', name: 'Remembrance: Congregator of Flesh', type: 'collectible', area: 'forsf1', missable: false },
+
+// ================= SKYREST BRIDGE PART 3 =================
+{ id: 'skyb3-spel-01', name: 'Spell: Flesh Tide (Molhu exchange)', type: 'spell', area: 'skyb3', missable: false },
+{ id: 'skyb3-weap-01', name: 'Weapon: Saint Latimer\'s Relic Spear (Molhu exchange)', type: 'weapon', area: 'skyb3', missable: false },
+
+// ================= FORSAKEN FEN PART 2 =================
+{ id: 'forsf2-npc-01', name: 'NPC: Byron (Umbral)', type: 'npc', area: 'forsf2', missable: true },
+{ id: 'forsf2-ammo-01', name: 'Ammo: Poison Arrows', type: 'ammo', area: 'forsf2', missable: false },
+{ id: 'forsf2-weap-01', name: 'Weapon: Angel\'s Axe', type: 'weapon', area: 'forsf2', missable: false },
+{ id: 'forsf2-arm-01', name: 'Armour: Despair\'s Burden', type: 'armor', area: 'forsf2', missable: false, note: 'Farm from enemies' },
+{ id: 'forsf2-arm-02', name: 'Armour: Fetid Sacrifice Armour + Boots + Sleeves', type: 'armor', area: 'forsf2', missable: false, note: 'Farm from Fetid Sacrifice' },
+{ id: 'forsf2-arm-03', name: 'Armour: Root Clump', type: 'armor', area: 'forsf2', missable: false },
+{ id: 'forsf2-arm-04', name: 'Armour: Shuja Strider Mask + Arm Wrappings + Garb + Leg Wrappings', type: 'armor', area: 'forsf2', missable: false },
+{ id: 'forsf2-ammo-02', name: 'Ammo: Umbral Burrower', type: 'ammo', area: 'forsf2', missable: false },
+{ id: 'forsf2-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (shrine)', type: 'upgrade', area: 'forsf2', missable: false },
+{ id: 'forsf2-weap-02', name: 'Weapon: Shuja Warrior Spear', type: 'weapon', area: 'forsf2', missable: false },
+{ id: 'forsf2-arm-05', name: 'Armour: Shuja Warrior Mask + Leg Wrappings + Arm Wrappings', type: 'armor', area: 'forsf2', missable: false },
+{ id: 'forsf2-arm-06', name: 'Armour: Holy Bulwark Helm + Armour + Trousers + Gauntlets', type: 'armor', area: 'forsf2', missable: false, note: 'Farm from Holy Bulwark' },
+{ id: 'forsf2-arm-07', name: 'Armour: Marksman Helm', type: 'armor', area: 'forsf2', missable: false },
+{ id: 'forsf2-weap-03', name: 'Weapon: Marksman Crossbow', type: 'weapon', area: 'forsf2', missable: false },
+{ id: 'forsf2-weap-04', name: 'Weapon: Resh-Mesah\'s Sword', type: 'weapon', area: 'forsf2', missable: false },
+{ id: 'forsf2-pend-01', name: 'Pendant: Shuja Harmony Hoop', type: 'pendant', area: 'forsf2', missable: false },
+{ id: 'forsf2-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'forsf2', missable: false },
+{ id: 'forsf2-ring-01', name: 'Ring: Cursewyrm Ring', type: 'ring', area: 'forsf2', missable: false },
+{ id: 'forsf2-tinct-01', name: 'Tinct: Exemplar', type: 'collectible', area: 'forsf2', missable: false },
+{ id: 'forsf2-npc-02', name: 'NPC: Kukajin', type: 'npc', area: 'forsf2', missable: true, note: 'Quest starts but DO NOT complete in Run 1' },
+{ id: 'forsf2-pend-02', name: 'Pendant: Pendant of Induration', type: 'pendant', area: 'forsf2', missable: false },
+{ id: 'forsf2-weap-05', name: 'Weapon: Wilmarc\'s Catalyst', type: 'weapon', area: 'forsf2', missable: false },
+{ id: 'forsf2-ammo-03', name: 'Ammo: Poison Javelin', type: 'ammo', area: 'forsf2', missable: false },
+{ id: 'forsf2-ring-02', name: 'Ring: Verdure Ring', type: 'ring', area: 'forsf2', missable: false },
+{ id: 'forsf2-boss-01', name: 'Boss: Mendacious Visage', type: 'boss', area: 'forsf2', missable: false },
+{ id: 'forsf2-weap-06', name: 'Weapon: Precision Hammer', type: 'weapon', area: 'forsf2', missable: false },
+{ id: 'forsf2-arm-08', name: 'Armour: Mask of Wrath', type: 'armor', area: 'forsf2', missable: false },
+{ id: 'forsf2-col-01', name: 'Quest Item: Vanguard Barros\' Rosary', type: 'collectible', area: 'forsf2', missable: false },
+{ id: 'forsf2-upgr-02', name: 'Sanguinarix Upgrade: Saintly Quintessence (tree)', type: 'upgrade', area: 'forsf2', missable: false },
+
+// ================= FORSAKEN FEN PART 3 =================
+{ id: 'forsf3-ammo-01', name: 'Ammo: Forsaken Grenade', type: 'ammo', area: 'forsf3', missable: false },
+{ id: 'forsf3-eye-01', name: 'Umbral Eye: Umbral Eye of the Pale Butcher', type: 'eye', area: 'forsf3', missable: false },
+{ id: 'forsf3-weap-01', name: 'Weapon: Pyric Cultist Staff', type: 'weapon', area: 'forsf3', missable: false },
+{ id: 'forsf3-weap-02', name: 'Weapon: Pale Butcher\'s Blade', type: 'weapon', area: 'forsf3', missable: false },
+{ id: 'forsf3-spel-01', name: 'Spell: Putrefaction', type: 'spell', area: 'forsf3', missable: false },
+{ id: 'forsf3-arm-01', name: 'Armour: Angel of the Void Mask + Armour + Gloves + Trousers', type: 'armor', area: 'forsf3', missable: false },
+{ id: 'forsf3-boss-01', name: 'Boss: The Hushed Saint', type: 'boss', area: 'forsf3', missable: false },
+{ id: 'forsf3-troph-01', name: 'Trophy: Burying the Past (defeat Hushed Saint)', type: 'trophy', area: 'forsf3', missable: false },
+{ id: 'forsf3-stig-01', name: 'Umbral Stigma (arena)', type: 'stigma', area: 'forsf3', missable: false },
+{ id: 'forsf3-col-02', name: 'Remembrance: The Hushed Saint', type: 'collectible', area: 'forsf3', missable: false },
+
+// ================= SKYREST BRIDGE PART 4 =================
+{ id: 'skyb4-quest-01', name: 'Quest Item: Fief Key (from Andreas of Ebb)', type: 'collectible', area: 'skyb4', missable: false },
+{ id: 'skyb4-quest-02', name: 'Turn in: Vanguard Barros\' Rosary to Exacter Dunmire', type: 'collectible', area: 'skyb4', missable: false },
+{ id: 'skyb4-spel-01', name: 'Spell: Cleansing Spring', type: 'spell', area: 'skyb4', missable: false },
+{ id: 'skyb4-arm-01', name: 'Armour: Purger Helm + Gauntlets + Leggings + Armour', type: 'armor', area: 'skyb4', missable: false },
+
+// ================= LOWER CALRATH =================
+{ id: 'lowcal-boss-01', name: 'Boss: Soul-Lash', type: 'boss', area: 'lowcal', missable: false },
+{ id: 'lowcal-boss-02', name: 'Boss: Aoede', type: 'boss', area: 'lowcal', missable: false },
+{ id: 'lowcal-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'lowcal', missable: false },
+{ id: 'lowcal-col-01', name: 'Remembrance: Soul-Lash', type: 'collectible', area: 'lowcal', missable: false },
+{ id: 'lowcal-col-02', name: 'Remembrance: Aoede', type: 'collectible', area: 'lowcal', missable: false },
+{ id: 'lowcal-npc-01', name: 'NPC: Orian Preacher', type: 'npc', area: 'lowcal', missable: false },
+{ id: 'lowcal-gest-01', name: 'Gesture: Radiant Beacon', type: 'gesture', area: 'lowcal', missable: false },
+{ id: 'lowcal-spel-01', name: 'Spell: Luminance', type: 'spell', area: 'lowcal', missable: false },
+{ id: 'lowcal-arm-01', name: 'Armour: Orian Preacher Wrappings', type: 'armor', area: 'lowcal', missable: false },
+
+// ================= SUNLESS SKEIN =================
+{ id: 'sunske-npc-01', name: 'NPC: Harval', type: 'npc', area: 'sunske', missable: false },
+{ id: 'sunske-quest-01', name: 'Quest Item: Harval\'s Stone', type: 'collectible', area: 'sunske', missable: false },
+{ id: 'sunske-boss-01', name: 'Boss: Briar, Mistress of Thorns', type: 'boss', area: 'sunske', missable: false },
+{ id: 'sunske-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'sunske', missable: false },
+{ id: 'sunske-weap-01', name: 'Weapon: Briar\'s Spine', type: 'weapon', area: 'sunske', missable: false },
+{ id: 'sunske-arm-01', name: 'Armour: Briar\'s Nightwear', type: 'armor', area: 'sunske', missable: false },
+
+// ================= CISTERN =================
+{ id: 'cistern-boss-01', name: 'Boss: Mother of Snows', type: 'boss', area: 'cistern', missable: false },
+{ id: 'cistern-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'cistern', missable: false },
+{ id: 'cistern-weap-01', name: 'Weapon: Frozen Fangs', type: 'weapon', area: 'cistern', missable: false },
+
+// ================= REVELATION DEPTHS =================
+{ id: 'revdep-boss-01', name: 'Boss: Revenant, The Chancel Keeper', type: 'boss', area: 'revdep', missable: false },
+{ id: 'revdep-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'revdep', missable: false },
+
+// ================= ABBEY OF THE HALLOWED SISTERS =================
+{ id: 'abbey-npc-01', name: 'NPC: Motherly Moore', type: 'npc', area: 'abbey', missable: false },
+{ id: 'abbey-npc-02', name: 'NPC: Sister Gwendolin', type: 'npc', area: 'abbey', missable: false },
+{ id: 'abbey-boss-01', name: 'Boss: Mother of Dark Flourish', type: 'boss', area: 'abbey', missable: false },
+{ id: 'abbey-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'abbey', missable: false },
+{ id: 'abbey-arm-01', name: 'Armour: Sister\'s Habit + Sandals', type: 'armor', area: 'abbey', missable: false },
+
+// ================= THE EMPYREAN =================
+{ id: 'empy-npc-01', name: 'NPC: Judge Cleric', type: 'npc', area: 'empy', missable: false },
+{ id: 'empy-quest-01', name: 'Complete Faithful quest (Cleric of the Radiant)', type: 'collectible', area: 'empy', missable: true },
+{ id: 'empy-troph-01', name: 'Trophy: Faithful (complete Cleric quest)', type: 'trophy', area: 'empy', missable: true },
+{ id: 'empy-boss-01', name: 'Boss: Elianne the Starved (Adyr ending)', type: 'boss', area: 'empy', missable: true },
+{ id: 'empy-troph-02', name: 'Trophy: Fallen (complete Elianne quest)', type: 'trophy', area: 'empy', missable: true },
+{ id: 'empy-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'empy', missable: false },
+{ id: 'empy-boss-02', name: 'Boss: Ravenna, Heretic Purveyor', type: 'boss', area: 'empy', missable: false },
+
+// ================= UPPER CALRATH =================
+{ id: 'uppcal-boss-01', name: 'Boss: Ink-Ghoul King', type: 'boss', area: 'uppcal', missable: false },
+{ id: 'uppcal-boss-02', name: 'Boss: Spiteful Shepherd', type: 'boss', area: 'uppcal', missable: false },
+{ id: 'uppcal-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'uppcal', missable: false },
+
+// ================= BRAMIS CASTLE =================
+{ id: 'bramis-boss-01', name: 'Boss: Hushed Saint (Second encounter)', type: 'boss', area: 'bramis', missable: false },
+{ id: 'bramis-boss-02', name: 'Boss: Adyr, Lord of the Seven Crosses', type: 'boss', area: 'bramis', missable: false },
+{ id: 'bramis-troph-01', name: 'Trophy: Lord of the Risen (Adyr ending)', type: 'trophy', area: 'bramis', missable: true },
+{ id: 'bramis-troph-02', name: 'Trophy: In Light We Walk (Radiant ending)', type: 'trophy', area: 'bramis', missable: true },
+{ id: 'bramis-troph-03', name: 'Trophy: Back to the Void (Umbral ending)', type: 'trophy', area: 'bramis', missable: true },
+{ id: 'bramis-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'bramis', missable: false },
+{ id: 'bramis-col-01', name: 'Collect: Adyr soul-bound items (after Adyr ending)', type: 'collectible', area: 'bramis', missable: true },
+{ id: 'bramis-col-02', name: 'Collect: Radiant soul-bound items (after Radiant ending)', type: 'collectible', area: 'bramis', missable: true },
+
+// ================= MOTHER'S LULL =================
+{ id: 'mothlu-boss-01', name: 'Boss: Infinite Knight', type: 'boss', area: 'mothlu', missable: false },
+{ id: 'mothlu-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'mothlu', missable: false },
+
+// ================= ADDITIONAL MISSING TROPHIES =================
+{ id: 'troph-silv-01', name: 'Trophy: Seasoned (Reach Level 100)', type: 'trophy', area: 'general', missable: false },
+{ id: 'troph-silv-02', name: 'Trophy: Wayfarer (Visit all areas)', type: 'trophy', area: 'general', missable: false },
+{ id: 'troph-bronze-01', name: 'Trophy: A Shadow Dispelled (Defeat Scarlet Shadow)', type: 'trophy', area: 'general', missable: false },
+
+// ================= ONLINE/COOP TROPHIES =================
+{ id: 'online-troph-01', name: 'Trophy: Comrades (Help others defeat boss)', type: 'trophy', area: 'online', missable: false },
+{ id: 'online-troph-02', name: 'Trophy: No Mercy (Invade and defeat player)', type: 'trophy', area: 'online', missable: false },
+{ id: 'online-troph-03', name: 'Trophy: Shared Triumph (Defeat boss with co-op)', type: 'trophy', area: 'online', missable: false },
+{ id: 'online-troph-04', name: 'Trophy: Infernal Offerings (Donate to Infernal shrine)', type: 'trophy', area: 'online', missable: true },
+{ id: 'online-troph-05', name: 'Trophy: Radiant Offerings (Donate to Radiant shrine)', type: 'trophy', area: 'online', missable: true },
+{ id: 'online-troph-06', name: 'Trophy: Umbral Offerings (Donate to Umbral shrine)', type: 'trophy', area: 'online', missable: true },
+
+// ================= COLLECTOR TROPHIES =================
+{ id: 'collect-troph-01', name: 'Trophy: Weapon Collector (Collect all weapons)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-02', name: 'Trophy: Ironclad (Collect all armor)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-03', name: 'Trophy: Trinket Collector (All rings & pendants)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-04', name: 'Trophy: Ammunition Collector (All ammo types)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-05', name: 'Trophy: Throwable Collector (All throwables)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-06', name: 'Trophy: Lingering Moments (All 62 Umbral Stigmas)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-07', name: 'Trophy: What Sights Contained Within (All 15 Umbral Eyes)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-08', name: 'Trophy: Gesture Collector (All 21 gestures)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-09', name: 'Trophy: Inferno Adept (All Inferno spells)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-10', name: 'Trophy: Radiant Adept (All Radiance spells)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-11', name: 'Trophy: Umbral Adept (All Umbral spells)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-12', name: 'Trophy: None Shall be Spared (Defeat all 37 bosses)', type: 'trophy', area: 'collect', missable: true },
+{ id: 'collect-troph-13', name: 'Trophy: Salvation in Blood (Fully upgrade Sanguinarix)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-14', name: 'Trophy: Honed in Perfection (Fully upgrade weapon)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-15', name: 'Trophy: Rune Novice (Place rune in socket)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-16', name: 'Trophy: Carving Out Victory (Defeat 100 enemies)', type: 'trophy', area: 'collect', missable: false },
+{ id: 'collect-troph-17', name: 'Trophy: Utmost Insight (Reach Level 10)', type: 'trophy', area: 'collect', missable: false },
+
+];
+
+// ============ AREA NAMES ============
+const areaNames = {
+  'defsep': 'Defiled Sepulchre',
+  'abared1': 'Abandoned Redcopse (Part 1)',
+  'skyb1': 'Skyrest Bridge (Part 1)',
+  'pilgr1': 'Pilgrim\'s Perch (Part 1)',
+  'skyb2': 'Skyrest Bridge (Part 2)',
+  'forsf1': 'Forsaken Fen (Part 1)',
+  'skyb3': 'Skyrest Bridge (Part 3)',
+  'forsf2': 'Forsaken Fen (Part 2)',
+  'forsf3': 'Forsaken Fen (Part 3)',
+  'skyb4': 'Skyrest Bridge (Part 4)',
+  'lowcal': 'Lower Calrath',
+  'sunske': 'Sunless Skein',
+  'cistern': 'Cistern',
+  'revdep': 'Revelation Depths',
+  'abbey': 'Abbey of the Hallowed Sisters',
+  'empy': 'The Empyrean',
+  'uppcal': 'Upper Calrath',
+  'bramis': 'Bramis Castle',
+  'mothlu': 'Mother\'s Lull',
+  'general': 'General / Missables',
+  'online': 'Online Trophies',
+  'collect': 'Collector Trophies'
+};
+
+// ============ CURRENT FILTER ============
+let currentFilter = 'all';
+
+// ============ INITIALIZE ============
+function init() {
+  renderCollectibles();
+  updateStats();
+}
+
+// ============ RENDER COLLECTIBLES ============
+function renderCollectibles() {
+  const container = document.getElementById('collectibles-list');
+  container.innerHTML = '';
+  
+  const areas = [...new Set(collectibles.map(c => c.area))];
+  
+  areas.forEach((areaId, index) => {
+    const areaItems = collectibles.filter(c => c.area === areaId);
+    const checkedCount = areaItems.filter(i => isChecked(i.id)).length;
+    
+    const areaDiv = document.createElement('div');
+    areaDiv.className = 'area';
+    areaDiv.innerHTML = `
+      <div class="area-header" onclick="toggleArea(this)">
+        <span class="area-num">${index + 1}</span>
+        <span class="area-title">${areaNames[areaId] || areaId}</span>
+        <span class="area-progress">${checkedCount}/${areaItems.length}</span>
+        <span class="area-chevron">▼</span>
+      </div>
+      <div class="area-body">
+        ${areaItems.map(item => renderItem(item)).join('')}
+      </div>
+    `;
+    
+    container.appendChild(areaDiv);
+  });
+  
+  // Apply current filter
+  applyFilter();
+}
+
+function renderItem(item) {
+  const checked = isChecked(item.id);
+  const hidden = currentFilter !== 'all' && getItemCategory(item.type) !== currentFilter;
+  
+  return `
+    <div class="item ${checked ? 'checked' : ''} ${item.missable ? 'missable' : ''}" 
+         data-id="${item.id}" 
+         data-type="${item.type}"
+         style="display: ${hidden ? 'none' : 'flex'}"
+         onclick="toggleItem('${item.id}')">
+      <div class="item-check">
+        <svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span class="item-name">${item.name}</span>
+      <span class="item-type ${item.type}">${item.type}</span>
+    </div>
+  `;
+}
+
+// ============ TOGGLE FUNCTIONS ============
+function toggleArea(header) {
+  const area = header.parentElement;
+  area.classList.toggle('collapsed');
+}
+
+function toggleItem(id) {
+  const key = 'lotf-coll-' + id;
+  const current = localStorage.getItem(key) === 'true';
+  localStorage.setItem(key, !current);
+  
+  renderCollectibles();
+  updateStats();
+  syncWithMainPage();
+}
+
+function isChecked(id) {
+  return localStorage.getItem('lotf-coll-' + id) === 'true';
+}
+
+// ============ FILTERING ============
+function filterCategory(cat) {
+  currentFilter = cat;
+  
+  document.querySelectorAll('.cat-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  applyFilter();
+}
+
+function applyFilter() {
+  document.querySelectorAll('.item').forEach(item => {
+    const type = item.dataset.type;
+    const cat = getItemCategory(type);
+    item.style.display = (currentFilter === 'all' || cat === currentFilter) ? 'flex' : 'none';
+  });
+}
+
+function getItemCategory(type) {
+  const map = {
+    'weapon': 'weapon',
+    'armor': 'armor',
+    'ring': 'ring',
+    'pendant': 'pendant',
+    'spell': 'spell',
+    'ammo': 'ammo',
+    'stigma': 'stigma',
+    'eye': 'eye',
+    'gesture': 'gesture',
+    'trophy': 'trophy',
+    'npc': 'npc',
+    'boss': 'boss',
+    'upgrade': 'upgrade',
+    'collectible': 'collectible'
+  };
+  return map[type] || 'other';
+}
+
+// ============ STATS ============
+function updateStats() {
+  const total = collectibles.length;
+  const checked = collectibles.filter(i => isChecked(i.id)).length;
+  const pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+  
+  document.getElementById('total-count').textContent = `${checked} / ${total} items`;
+  document.getElementById('total-pct').textContent = `${pct}%`;
+  document.getElementById('main-bar').style.width = `${pct}%`;
+  
+  // Update category counts
+  const categories = ['weapon', 'armor', 'ring', 'pendant', 'spell', 'ammo', 'stigma', 'eye', 'gesture', 'trophy'];
+  categories.forEach(cat => {
+    const items = collectibles.filter(i => getItemCategory(i.type) === cat);
+    const count = items.filter(i => isChecked(i.id)).length;
+    const btn = document.querySelector(`button[onclick="filterCategory('${cat}')"]`);
+    if (btn) {
+      btn.textContent = `${cat.charAt(0).toUpperCase() + cat.slice(1)} (${count})`;
+    }
+  });
+}
+
+// ============ SYNC WITH MAIN PAGE ============
+function syncWithMainPage() {
+  // Count by category
+  const counts = {};
+  collectibles.forEach(item => {
+    const cat = getItemCategory(item.type);
+    counts[cat] = (counts[cat] || 0) + (isChecked(item.id) ? 1 : 0);
+  });
+  
+  // Store for main page to read
+  localStorage.setItem('lotf-collectibles-stats', JSON.stringify(counts));
+}
+
+// Initialize on load
+init();
+</script>
+
+</body>
+</html>

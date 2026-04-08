@@ -458,10 +458,106 @@
     margin: 0;
   }
 
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .tab:hover { color: var(--text); background: var(--surface-3); }
+
+  .tab.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+    background: var(--surface);
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ===== COLLECTIBLES SECTION IN MAIN PAGE ===== */
+  .collect-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: auto;
+    padding: 0.35rem 0.75rem;
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .collect-link:hover {
+    background: var(--gold-dim);
+    color: var(--text);
+  }
+
+  /* ===== AREA SUBHEADERS ===== */
+  .area-subheader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(90deg, var(--umbral) 0%, var(--surface-2) 100%);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+
+  .area-subheader:hover { background: linear-gradient(90deg, var(--umbral-mid) 0%, var(--surface-3) 100%); }
+
+  .area-sub-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--umbral-light);
+    background: rgba(107,78,156,0.3);
+    border: 1px solid var(--umbral-light);
+    border-radius: 2px;
+    padding: 0.1rem 0.35rem;
+  }
+
+  .area-sub-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .area-sub-progress {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+  }
+
   @media (max-width: 600px) {
     .header h1 { font-size: 1.25rem; }
     .phase-time { display: none; }
     .main { padding: 1rem 0.5rem 4rem; }
+    .tab { font-size: 0.65rem; padding: 0.5rem 0.5rem; }
   }
 </style>
 </head>
@@ -489,13 +585,35 @@
   </div>
   <div class="trophy-counts">
     <span class="tc-item"><span class="tc-dot plat"></span>1 Platinum</span>
-    <span class="tc-item"><span class="tc-dot silver"></span>7 Silver</span>
-    <span class="tc-item"><span class="tc-dot bronze"></span>55 Bronze</span>
+    <span class="tc-item"><span class="tc-dot silver"></span>9 Silver</span>
+    <span class="tc-item"><span class="tc-dot bronze"></span>53 Bronze</span>
     <span class="tc-item" style="margin-left:auto;font-size:0.7rem;color:var(--text-dim);font-style:italic;">~80–100 hours total</span>
   </div>
 </div>
 
-<div class="main">
+<div class="tabs">
+  <div class="tab active" id="tab-roadmap" onclick="switchTab('roadmap')">Roadmap</div>
+  <div class="tab" id="tab-collectibles" onclick="switchTab('collectibles')">Collectibles</div>
+</div>
+
+<div id="collectibles-view" class="tab-content">
+  <div class="tips-section" style="margin: 1rem;">
+    <strong>Detailed Collectibles:</strong> Click the button below to open the full collectible checklist in a new page. Track every weapon, armor, ring, spell, ammo, stigma, eye, and gesture.
+  </div>
+  <div style="text-align:center;padding: 2rem;">
+    <a href="collectibles.html" class="collect-link" style="font-size: 0.8rem; padding: 0.75rem 1.5rem;">
+      📋 Open Full Collectible Checklist
+    </a>
+  </div>
+  <div class="tips-section" style="margin: 1rem;">
+    <strong>Quick Stats from Collectibles Page:</strong>
+    <div id="coll-stats" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text);">
+      Loading...
+    </div>
+  </div>
+</div>
+
+<div class="main" id="roadmap-view">
 
   <div class="plat-banner" id="plat-banner">
     <h2>✦ Lord of the Fallen ✦</h2>
@@ -582,6 +700,45 @@
           <div class="task-name">Lost and Found — Retrieve vigor after death</div>
           <div class="task-desc">Automatic — collect dropped vigor from your death location. Beware enemies with purple eyes who will consume your vigor if not defeated first.</div>
           <div class="task-tags"><span class="tag auto">Automatic</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-02a">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Essence of Death — Perform an Umbral finisher</div>
+          <div class="task-desc">In Defiled Sepulchre, phase through bars using Umbral lamp, Soulflay an enemy, weaken them, then trigger a backstab attack.</div>
+          <div class="task-tags"><span class="tag auto">Early Game</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-02b">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">A Rest Among the Dead — Reach Skyrest Bridge interior</div>
+          <div class="task-desc">Automatic story progression — after defeating Scourged Sister Delyth, you'll enter Skyrest Bridge interior.</div>
+          <div class="task-tags"><span class="tag auto">Automatic</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-02c">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Thriving in Darkness — Use a Vestige Seed</div>
+          <div class="task-desc">Use any Vestige Seed to plant a vestige. You'll do this naturally throughout the game.</div>
+          <div class="task-tags"><span class="tag auto">Automatic</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-02d">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">The Past Shapes the Present — Give Bowl of Revelations to Molhu</div>
+          <div class="task-desc">In Pilgrim's Perch, find Bowl of Revelations in cocoon area. Return to Skyrest Bridge and give to Molhu in Umbral.</div>
+          <div class="task-tags"><span class="tag missable">Missable</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="p1-02e">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">A Shadow Dispelled — Defeat the Scarlet Shadow</div>
+          <div class="task-desc">Find and defeat the Scarlet Shadow enemy. Check the Boss Guide for its specific location.</div>
         </div>
       </div>
       <div class="task" onclick="tick(this)" data-id="p1-03">
@@ -1030,6 +1187,22 @@
     <div class="phase-body">
       <div class="tip-box"><strong>Free roam is available after completing the story.</strong> Fast travel works in NG but not NG+. Use the 100% Checklist to compare your inventory and find anything still missing.</div>
 
+      <div class="task" onclick="tick(this)" data-id="c-00">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Seasoned — Reach Level 100</div>
+          <div class="task-desc">Reach maximum character level. Use the duplication exploit or farm Vigor Skulls from co-op partners to speed this up. Can be done anytime but usually completed by end of Run 3.</div>
+          <div class="task-tags"><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
+      <div class="task" onclick="tick(this)" data-id="c-00b">
+        <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-content">
+          <div class="task-name">Wayfarer — Visit all areas in the game</div>
+          <div class="task-desc">Simply progress through all game areas across the 3 playthroughs. The trophy will unlock automatically as you explore each region.</div>
+          <div class="task-tags"><span class="tag silver">Silver</span></div>
+        </div>
+      </div>
       <div class="task" onclick="tick(this)" data-id="c-01">
         <div class="task-check"><svg class="check-svg" viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="task-content">
@@ -1102,10 +1275,10 @@
   const PHASES = ['phase-0','phase-1','phase-2','phase-3','phase-4'];
   const PHASE_COUNTS = {
     'phase-0': 4,
-    'phase-1': 28,
+    'phase-1': 34,
     'phase-2': 9,
     'phase-3': 13,
-    'phase-4': 8
+    'phase-4': 10
   };
 
   function loadState() {
@@ -1175,8 +1348,54 @@
   function resetAll() {
     if (!confirm('Reset all progress? This cannot be undone.')) return;
     localStorage.removeItem(STORE_KEY);
+    localStorage.removeItem('lotf-collectibles-stats');
     applyState();
   }
+
+  // ============ TAB SWITCHING ============
+  function switchTab(tabName) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+    document.getElementById(tabName + '-view').classList.add('active');
+    
+    if (tabName === 'collectibles') {
+      loadCollectiblesStats();
+    }
+  }
+
+  // ============ COLLECTIBLES SYNC ============
+  function loadCollectiblesStats() {
+    try {
+      const stats = JSON.parse(localStorage.getItem('lotf-collectibles-stats')) || {};
+      const total = Object.values(stats).reduce((a, b) => a + b, 0);
+      const statsHtml = `
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.5rem;margin-top:0.5rem;">
+        ${stats.weapon ? `<div>🗡️ Weapons: ${stats.weapon}</div>` : ''}
+        ${stats.armor ? `<div>🛡️ Armor: ${stats.armor}</div>` : ''}
+        ${stats.ring ? `<div>💍 Rings: ${stats.ring}</div>` : ''}
+        ${stats.pendant ? `<div>📿 Pendants: ${stats.pendant}</div>` : ''}
+        ${stats.spell ? `<div>✨ Spells: ${stats.spell}</div>` : ''}
+        ${stats.ammo ? `<div>🏹 Ammo: ${stats.ammo}</div>` : ''}
+        ${stats.stigma ? `<div>👁️ Stigmas: ${stats.stigma}</div>` : ''}
+        ${stats.eye ? `<div>👁️ Eyes: ${stats.eye}</div>` : ''}
+        ${stats.gesture ? `<div>👋 Gestures: ${stats.gesture}</div>` : ''}
+        ${stats.trophy ? `<div>🏆 Trophies: ${stats.trophy}</div>` : ''}
+        </div>
+        <div style="margin-top:0.75rem;font-style:italic;color:var(--text-dim);">
+          Total: ${total} items checked in collectibles checklist
+        </div>
+      `;
+      document.getElementById('coll-stats').innerHTML = statsHtml || 'No progress yet. Open the collectibles checklist to start tracking!';
+    } catch(e) {
+      document.getElementById('coll-stats').innerHTML = 'No progress yet. Open the collectibles checklist to start tracking!';
+    }
+  }
+
+  // Load collectibles stats on page load
+  window.addEventListener('load', function() {
+    setTimeout(loadCollectiblesStats, 500);
+  });
 
   applyState();
 </script>
