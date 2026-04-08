@@ -519,9 +519,9 @@ const collectibles = [
 { id: 'skyb1-ammo-03', name: 'Ammo: Empyrean Grenade', type: 'ammo', area: 'skyb1', missable: false },
 { id: 'skyb1-npc-09', name: 'NPC: Hooded Figure', type: 'npc', area: 'skyb1', missable: false },
 { id: 'skyb1-quest-01', name: 'Quest Item: Bloody Aspergillum', type: 'collectible', area: 'skyb1', missable: false },
-{ id: 'skyb1-boss-01', name: 'Boss: Scourged Sister Delyth', type: 'boss', area: 'skyb1', missable: false },
-{ id: 'skyb1-weap-22', name: 'Weapon: Scourged Sister Flail', type: 'weapon', area: 'skyb1', missable: false },
-{ id: 'skyb1-arm-34', name: 'Armour: Scourged Sister Leg Wrappings', type: 'armor', area: 'skyb1', missable: false },
+ { id: 'skyb1-boss-01', name: 'Boss: Scourged Sister Delyth', type: 'boss', area: 'skyb1', missable: false },
+  { id: 'skyb1-weap-22', name: 'Weapon: Scourged Sister Flail', type: 'weapon', area: 'skyb1', missable: false, farm: 'Scourged Sister Delyth' },
+  { id: 'skyb1-arm-34', name: 'Armour: Scourged Sister Leg Wrappings', type: 'armor', area: 'skyb1', missable: false, farm: 'Scourged Sister Delyth' },
 { id: 'skyb1-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (alcove)', type: 'upgrade', area: 'skyb1', missable: false },
 { id: 'skyb1-troph-02', name: 'Trophy: Thriving in Darkness (use Vestige Seed)', type: 'trophy', area: 'skyb1', missable: false },
 
@@ -619,7 +619,7 @@ const collectibles = [
 { id: 'pilgr1-pend-02', name: 'Pendant: Warrior\'s Claw', type: 'pendant', area: 'pilgr1', missable: false },
 { id: 'pilgr1-ammo-03', name: 'Ammo: Radiant Bolts', type: 'ammo', area: 'pilgr1', missable: false },
 { id: 'pilgr1-quest-04', name: 'Quest Item: Prison Cell Key', type: 'collectible', area: 'pilgr1', missable: false },
-{ id: 'pilgr1-arm-03', name: 'Armour: Pureblade Armour + Helm + Trousers + Gloves', type: 'armor', area: 'pilgr1', missable: false, note: 'Farm from Pureblade enemy' },
+ { id: 'pilgr1-arm-03', name: 'Armour: Pureblade Armour + Helm + Trousers + Gloves', type: 'armor', area: 'pilgr1', missable: false, farm: 'Pureblade' },
 { id: 'pilgr1-npc-02', name: 'NPC: Gerlinde (behind bars)', type: 'npc', area: 'pilgr1', missable: true, note: 'Hero Worship quest' },
 { id: 'pilgr1-npc-03', name: 'NPC: Damarose the Marked (after elevator)', type: 'npc', area: 'pilgr1', missable: true, note: 'A Hunger Sated quest' },
 { id: 'pilgr1-boss-01', name: 'Boss: Gentle Gaverus, Mistress of Hounds', type: 'boss', area: 'pilgr1', missable: false },
@@ -653,14 +653,14 @@ const collectibles = [
 { id: 'forsf2-ammo-01', name: 'Ammo: Poison Arrows', type: 'ammo', area: 'forsf2', missable: false },
 { id: 'forsf2-weap-01', name: 'Weapon: Angel\'s Axe', type: 'weapon', area: 'forsf2', missable: false },
 { id: 'forsf2-arm-01', name: 'Armour: Despair\'s Burden', type: 'armor', area: 'forsf2', missable: false, note: 'Farm from enemies' },
-{ id: 'forsf2-arm-02', name: 'Armour: Fetid Sacrifice Armour + Boots + Sleeves', type: 'armor', area: 'forsf2', missable: false, note: 'Farm from Fetid Sacrifice' },
+ { id: 'forsf2-arm-02', name: 'Armour: Fetid Sacrifice Armour + Boots + Sleeves', type: 'armor', area: 'forsf2', missable: false, farm: 'Fetid Sacrifice' },
 { id: 'forsf2-arm-03', name: 'Armour: Root Clump', type: 'armor', area: 'forsf2', missable: false },
 { id: 'forsf2-arm-04', name: 'Armour: Shuja Strider Mask + Arm Wrappings + Garb + Leg Wrappings', type: 'armor', area: 'forsf2', missable: false },
 { id: 'forsf2-ammo-02', name: 'Ammo: Umbral Burrower', type: 'ammo', area: 'forsf2', missable: false },
 { id: 'forsf2-upgr-01', name: 'Sanguinarix Upgrade: Saintly Quintessence (shrine)', type: 'upgrade', area: 'forsf2', missable: false },
 { id: 'forsf2-weap-02', name: 'Weapon: Shuja Warrior Spear', type: 'weapon', area: 'forsf2', missable: false },
 { id: 'forsf2-arm-05', name: 'Armour: Shuja Warrior Mask + Leg Wrappings + Arm Wrappings', type: 'armor', area: 'forsf2', missable: false },
-{ id: 'forsf2-arm-06', name: 'Armour: Holy Bulwark Helm + Armour + Trousers + Gauntlets', type: 'armor', area: 'forsf2', missable: false, note: 'Farm from Holy Bulwark' },
+ { id: 'forsf2-arm-06', name: 'Armour: Holy Bulwark Helm + Armour + Trousers + Gauntlets', type: 'armor', area: 'forsf2', missable: false, farm: 'Holy Bulwark' },
 { id: 'forsf2-arm-07', name: 'Armour: Marksman Helm', type: 'armor', area: 'forsf2', missable: false },
 { id: 'forsf2-weap-03', name: 'Weapon: Marksman Crossbow', type: 'weapon', area: 'forsf2', missable: false },
 { id: 'forsf2-weap-04', name: 'Weapon: Resh-Mesah\'s Sword', type: 'weapon', area: 'forsf2', missable: false },
@@ -1032,8 +1032,8 @@ const collectibles = [
 { id: 'tower-npc-01', name: 'NPC: Trina', type: 'npc', area: 'tower', missable: false },
 
 // ================= ABBEY OF THE HALLOWED SISTERS =================
-{ id: 'abbey-weap-01', name: 'Weapon: Abbess Chalice', type: 'weapon', area: 'abbey', missable: false },
-{ id: 'abbey-weap-02', name: 'Weapon: Sin-Piercer Bow', type: 'weapon', area: 'abbey', missable: false },
+{ id: 'abbey-weap-01', name: 'Weapon: Abbess Chalice', type: 'weapon', area: 'abbey', missable: false, farm: 'Abbess' },
+{ id: 'abbey-weap-02', name: 'Weapon: Sin-Piercer Bow', type: 'weapon', area: 'abbey', missable: false, farm: 'Sin-Piercer' },
 { id: 'abbey-weap-03', name: 'Weapon: Angel\'s Aegis', type: 'weapon', area: 'abbey', missable: false },
 { id: 'abbey-weap-04', name: 'Weapon: Heretical Sentinel\'s Hammer', type: 'weapon', area: 'abbey', missable: false },
 { id: 'abbey-weap-05', name: 'Weapon: Sanctified Huntress Spear', type: 'weapon', area: 'abbey', missable: false },
@@ -1048,15 +1048,15 @@ const collectibles = [
 { id: 'abbey-ring-04', name: 'Ring: Orian Sorcerer\'s Ring', type: 'ring', area: 'abbey', missable: false },
 { id: 'abbey-ring-05', name: 'Ring: Impious Nohuta\'s Ring', type: 'ring', area: 'abbey', missable: false },
 { id: 'abbey-ring-06', name: 'Ring: Saint Salonor\'s Ring', type: 'ring', area: 'abbey', missable: false },
-{ id: 'abbey-arm-01', name: 'Armour: Abbes Skirt', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-02', name: 'Armour: Weeping Abbess Mitre', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-03', name: 'Armour: Scourged Sister Helm', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-04', name: 'Armour: Scourged Sister Arm Wrappings', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-05', name: 'Armour: Scourged Sister Garb', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-06', name: 'Armour: Rapturous Huntress Helm', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-07', name: 'Armour: Rapturous Huntress Armour', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-08', name: 'Armour: Rapturous Huntress Sleeves', type: 'armor', area: 'abbey', missable: false },
-{ id: 'abbey-arm-09', name: 'Armour: Rapturous Huntress Trousers', type: 'armor', area: 'abbey', missable: false },
+ { id: 'abbey-arm-01', name: 'Armour: Abbes Skirt', type: 'armor', area: 'abbey', missable: false },
+  { id: 'abbey-arm-02', name: 'Armour: Weeping Abbess Mitre', type: 'armor', area: 'abbey', missable: false },
+  { id: 'abbey-arm-03', name: 'Armour: Scourged Sister Helm', type: 'armor', area: 'abbey', missable: false, farm: 'Scourged Sister Delyth' },
+  { id: 'abbey-arm-04', name: 'Armour: Scourged Sister Arm Wrappings', type: 'armor', area: 'abbey', missable: false, farm: 'Scourged Sister Delyth' },
+  { id: 'abbey-arm-05', name: 'Armour: Scourged Sister Garb', type: 'armor', area: 'abbey', missable: false, farm: 'Scourged Sister Delyth' },
+  { id: 'abbey-arm-06', name: 'Armour: Rapturous Huntress Helm', type: 'armor', area: 'abbey', missable: false, farm: 'Sanctified Huntress' },
+  { id: 'abbey-arm-07', name: 'Armour: Rapturous Huntress Armour', type: 'armor', area: 'abbey', missable: false, farm: 'Sanctified Huntress' },
+  { id: 'abbey-arm-08', name: 'Armour: Rapturous Huntress Sleeves', type: 'armor', area: 'abbey', missable: false, farm: 'Sanctified Huntress' },
+  { id: 'abbey-arm-09', name: 'Armour: Rapturous Huntress Trousers', type: 'armor', area: 'abbey', missable: false, farm: 'Sanctified Huntress' },
 { id: 'abbey-arm-10', name: 'Armour: Putrid Child Mask', type: 'armor', area: 'abbey', missable: false },
 { id: 'abbey-arm-11', name: 'Armour: Putrid Child Robes', type: 'armor', area: 'abbey', missable: false },
 { id: 'abbey-arm-12', name: 'Armour: Putrid Child Leg Wrappings', type: 'armor', area: 'abbey', missable: false },
@@ -1108,31 +1108,11 @@ const collectibles = [
 { id: 'bramis-weap-02', name: 'Weapon: Boar\'s Head Shield', type: 'weapon', area: 'bramis', missable: false },
 { id: 'bramis-weap-03', name: 'Weapon: Grinning Axe', type: 'weapon', area: 'bramis', missable: false },
 { id: 'bramis-weap-04', name: 'Weapon: Lord Axe', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-05', name: 'Weapon: Conflagrant Seer Staff', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-06', name: 'Weapon: Rhogar Heart', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-07', name: 'Weapon: Sword of the Flayed', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-08', name: 'Weapon: Skinstealer Knife', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-09', name: 'Weapon: Skinstealer Spear', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-10', name: 'Weapon: Skinstealer Shield', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-11', name: 'Weapon: Eviscerating Spear', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-12', name: 'Weapon: Lord\'s Bite', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-13', name: 'Weapon: Lord Catalyst', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-14', name: 'Weapon: Bartholomew\'s Hammer', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-weap-15', name: 'Weapon: Miranda\'s Touch', type: 'weapon', area: 'bramis', missable: false },
-{ id: 'bramis-ring-01', name: 'Ring: Melchior\'s Ring', type: 'ring', area: 'bramis', missable: false },
-{ id: 'bramis-pend-01', name: 'Pendant: Pendant of Infernal Oblation', type: 'pendant', area: 'bramis', missable: false },
-{ id: 'bramis-pend-02', name: 'Pendant: Paladin\'s Pendant', type: 'pendant', area: 'bramis', missable: false },
-{ id: 'bramis-ring-02', name: 'Ring: Ring of Infernal Devotion', type: 'ring', area: 'bramis', missable: false },
-{ id: 'bramis-pend-03', name: 'Pendant: Shrunken Skull Pendant', type: 'pendant', area: 'bramis', missable: false },
-{ id: 'bramis-ring-03', name: 'Ring: Smouldering Ring', type: 'ring', area: 'bramis', missable: false },
-{ id: 'bramis-arm-01', name: 'Armour: Drustan\'s Gloves', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-arm-02', name: 'Armour: Drustan\'s Garb', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-arm-03', name: 'Armour: Drustan\'s Leggings', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-arm-04', name: 'Armour: Drustan\'s Helm', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-arm-05', name: 'Armour: Conflagrant Seer Robes', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-arm-06', name: 'Armour: Conflagrant Seer Skirt', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-arm-07', name: 'Armour: Conflagrant Seer Helm', type: 'armor', area: 'bramis', missable: false },
-{ id: 'bramis-arm-08', name: 'Armour: Conflagrant Seer Sleeves', type: 'armor', area: 'bramis', missable: false },
+ { id: 'bramis-weap-05', name: 'Weapon: Conflagrant Seer Staff', type: 'weapon', area: 'bramis', missable: false, farm: 'Conflagrant Seer' },
+  { id: 'bramis-arm-05', name: 'Armour: Conflagrant Seer Robes', type: 'armor', area: 'bramis', missable: false, farm: 'Conflagrant Seer' },
+  { id: 'bramis-arm-06', name: 'Armour: Conflagrant Seer Skirt', type: 'armor', area: 'bramis', missable: false, farm: 'Conflagrant Seer' },
+  { id: 'bramis-arm-07', name: 'Armour: Conflagrant Seer Helm', type: 'armor', area: 'bramis', missable: false, farm: 'Conflagrant Seer' },
+  { id: 'bramis-arm-08', name: 'Armour: Conflagrant Seer Sleeves', type: 'armor', area: 'bramis', missable: false, farm: 'Conflagrant Seer' },
 { id: 'bramis-arm-09', name: 'Armour: Skinstealer Helm', type: 'armor', area: 'bramis', missable: false },
 { id: 'bramis-arm-10', name: 'Armour: Skinstealer Armour', type: 'armor', area: 'bramis', missable: false },
 { id: 'bramis-arm-11', name: 'Armour: Skinstealer Sleeves', type: 'armor', area: 'bramis', missable: false },
@@ -1597,73 +1577,73 @@ const collectibles = [
  { id: 'mothlu-arm-05', name: 'Armour: Infinite Knight Cape', type: 'armor', area: 'mothlu', missable: false },
 
  // Additional missing farmable armor sets
- // Farmable: Ruiner set (Fitzroy's Gorge)
- { id: 'fitg-arm-10', name: 'Armour: Ruiner Cape', type: 'armor', area: 'fitg', missable: false },
- { id: 'fitg-arm-11', name: 'Armour: Ruiner Pauldrons', type: 'armor', area: 'fitg', missable: false },
+  // Farmable: Ruiner set (Fitzroy's Gorge)
+  { id: 'fitg-arm-10', name: 'Armour: Ruiner Cape', type: 'armor', area: 'fitg', missable: false, farm: 'Ruiner' },
+  { id: 'fitg-arm-11', name: 'Armour: Ruiner Pauldrons', type: 'armor', area: 'fitg', missable: false, farm: 'Ruiner' },
 
- // Farmable: Duskmaster set (Fitzroy's Gorge)
- { id: 'fitg-arm-12', name: 'Armour: Duskmaster Hood', type: 'armor', area: 'fitg', missable: false },
+  // Farmable: Duskmaster set (Fitzroy's Gorge)
+  { id: 'fitg-arm-12', name: 'Armour: Duskmaster Hood', type: 'armor', area: 'fitg', missable: false, farm: 'Duskmaster' },
 
- // Farmable: Orian Preacher set (Lower Calrath + others)
- { id: 'lowcal-arm-30', name: 'Armour: Orian Preacher Robes', type: 'armor', area: 'lowcal', missable: false },
- { id: 'lowcal-arm-31', name: 'Armour: Orian Preacher Trousers', type: 'armor', area: 'lowcal', missable: false },
+  // Farmable: Orian Preacher set (Lower Calrath + others)
+  { id: 'lowcal-arm-30', name: 'Armour: Orian Preacher Robes', type: 'armor', area: 'lowcal', missable: false, farm: 'Orian Preacher' },
+  { id: 'lowcal-arm-31', name: 'Armour: Orian Preacher Trousers', type: 'armor', area: 'lowcal', missable: false, farm: 'Orian Preacher' },
 
- // Farmable: Enslaved Miner set (Sunless Skein)
- { id: 'sunske-arm-13', name: 'Armour: Enslaved Miner Gloves', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-14', name: 'Armour: Enslaved Miner Boots', type: 'armor', area: 'sunske', missable: false },
+  // Farmable: Enslaved Miner set (Sunless Skein)
+  { id: 'sunske-arm-13', name: 'Armour: Enslaved Miner Gloves', type: 'armor', area: 'sunske', missable: false, farm: 'Enslaved Miner' },
+  { id: 'sunske-arm-14', name: 'Armour: Enslaved Miner Boots', type: 'armor', area: 'sunske', missable: false, farm: 'Enslaved Miner' },
 
- // Farmable: Bloomkeeper set (Sunless Skein)
- { id: 'sunske-arm-15', name: 'Armour: Bloomkeeper Sleeves', type: 'armor', area: 'sunske', missable: false },
- { id: 'sunske-arm-16', name: 'Armour: Bloomkeeper Boots', type: 'armor', area: 'sunske', missable: false },
+  // Farmable: Bloomkeeper set (Sunless Skein)
+  { id: 'sunske-arm-15', name: 'Armour: Bloomkeeper Sleeves', type: 'armor', area: 'sunske', missable: false, farm: 'Bloomkeeper' },
+  { id: 'sunske-arm-16', name: 'Armour: Bloomkeeper Boots', type: 'armor', area: 'sunske', missable: false, farm: 'Bloomkeeper' },
 
- // Farmable: Frozen Miner set (Cistern)
- { id: 'cistern-arm-14', name: 'Armour: Frozen Miner Boots', type: 'armor', area: 'cistern', missable: false },
- { id: 'cistern-arm-15', name: 'Armour: Frozen Miner Cape', type: 'armor', area: 'cistern', missable: false },
+  // Farmable: Frozen Miner set (Cistern)
+  { id: 'cistern-arm-14', name: 'Armour: Frozen Miner Boots', type: 'armor', area: 'cistern', missable: false, farm: 'Frozen Miner' },
+  { id: 'cistern-arm-15', name: 'Armour: Frozen Miner Cape', type: 'armor', area: 'cistern', missable: false, farm: 'Frozen Miner' },
 
- // Farmable: Fungal Bowman set (Cistern + Path of Devotion)
- { id: 'cistern-arm-16', name: 'Armour: Fungal Bowman Cape', type: 'armor', area: 'cistern', missable: false },
+  // Farmable: Fungal Bowman set (Cistern + Path of Devotion)
+  { id: 'cistern-arm-16', name: 'Armour: Fungal Bowman Cape', type: 'armor', area: 'cistern', missable: false, farm: 'Fungal Bowman' },
 
- // Farmable: Kinrangr sets (Fief)
- { id: 'fief-arm-30', name: 'Armour: Kinrangr Rebel Armor', type: 'armor', area: 'fief', missable: false },
- { id: 'fief-arm-31', name: 'Armour: Kinrangr Rebel Trousers', type: 'armor', area: 'fief', missable: false },
+  // Farmable: Kinrangr sets (Fief)
+  { id: 'fief-arm-30', name: 'Armour: Kinrangr Rebel Armor', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
+  { id: 'fief-arm-31', name: 'Armour: Kinrangr Rebel Trousers', type: 'armor', area: 'fief', missable: false, farm: 'Kinrangr Hunter' },
 
- // Farmable: Devoted Pilgrim set (Pilgrim's Perch 2)
- { id: 'pilgr2-arm-11', name: 'Armour: Devoted Pilgrim Cape', type: 'armor', area: 'pilgr2', missable: false },
+  // Farmable: Devoted Pilgrim set (Pilgrim's Perch 2)
+  { id: 'pilgr2-arm-11', name: 'Armour: Devoted Pilgrim Cape', type: 'armor', area: 'pilgr2', missable: false, farm: 'Devoted Pilgrim' },
 
- // Farmable: Pureblade set (Path of Devotion + Pilgrim's Perch)
- { id: 'patdev-arm-11', name: 'Armour: Pureblade Boots', type: 'armor', area: 'patdev', missable: false },
- { id: 'patdev-arm-12', name: 'Armour: Pureblade Cape', type: 'armor', area: 'patdev', missable: false },
+  // Farmable: Pureblade set (Path of Devotion + Pilgrim's Perch)
+  { id: 'patdev-arm-11', name: 'Armour: Pureblade Boots', type: 'armor', area: 'patdev', missable: false, farm: 'Pureblade' },
+  { id: 'patdev-arm-12', name: 'Armour: Pureblade Cape', type: 'armor', area: 'patdev', missable: false, farm: 'Pureblade' },
 
- // Farmable: Carrion Knight set (Tower of Penance)
- { id: 'tower-arm-23', name: 'Armour: Carrion Knight Cape', type: 'armor', area: 'tower', missable: false },
+  // Farmable: Carrion Knight set (Tower of Penance)
+  { id: 'tower-arm-23', name: 'Armour: Carrion Knight Cape', type: 'armor', area: 'tower', missable: false, farm: 'Carrion Knight' },
 
- // Farmable: Radiant Purifier set (Tower of Penance)
- { id: 'tower-arm-24', name: 'Armour: Radiant Purifier Cape', type: 'armor', area: 'tower', missable: false },
+  // Farmable: Radiant Purifier set (Tower of Penance)
+  { id: 'tower-arm-24', name: 'Armour: Radiant Purifier Cape', type: 'armor', area: 'tower', missable: false, farm: 'Radiant Purifier' },
 
- // Farmable: Skinstealer set (Bramis Castle)
- { id: 'bramis-arm-40', name: 'Armour: Skinstealer Gauntlets', type: 'armor', area: 'bramis', missable: false },
+  // Farmable: Skinstealer set (Bramis Castle)
+  { id: 'bramis-arm-40', name: 'Armour: Skinstealer Gauntlets', type: 'armor', area: 'bramis', missable: false, farm: 'Skinstealer' },
 
- // Farmable: Lord set (Bramis Castle)
- { id: 'bramis-arm-41', name: 'Armour: Lord Shoulder Guards', type: 'armor', area: 'bramis', missable: false },
+  // Farmable: Lord set (Bramis Castle)
+  { id: 'bramis-arm-41', name: 'Armour: Lord Shoulder Guards', type: 'armor', area: 'bramis', missable: false, farm: 'Lord' },
 
- // Farmable: Grace of Adyr set (Bramis Castle)
- { id: 'bramis-arm-42', name: 'Armour: Grace of Adyr Pauldrons', type: 'armor', area: 'bramis', missable: false },
- { id: 'bramis-arm-43', name: 'Armour: Grace of Adyr Gloves', type: 'armor', area: 'bramis', missable: false },
+  // Farmable: Grace of Adyr set (Bramis Castle)
+  { id: 'bramis-arm-42', name: 'Armour: Grace of Adyr Pauldrons', type: 'armor', area: 'bramis', missable: false, farm: 'Grace of Adyr' },
+  { id: 'bramis-arm-43', name: 'Armour: Grace of Adyr Gloves', type: 'armor', area: 'bramis', missable: false, farm: 'Grace of Adyr' },
 
- // Farmable: Abiding Defender set (Manse + Empyrean)
- { id: 'empy-arm-29', name: 'Armour: Abiding Defender Cape', type: 'armor', area: 'empy', missable: false },
- { id: 'empy-arm-30', name: 'Armour: Abiding Defender Shoulder Guards', type: 'armor', area: 'empy', missable: false },
+  // Farmable: Abiding Defender set (Manse + Empyrean)
+  { id: 'empy-arm-29', name: 'Armour: Abiding Defender Cape', type: 'armor', area: 'empy', missable: false, farm: 'Abiding Defender' },
+  { id: 'empy-arm-30', name: 'Armour: Abiding Defender Shoulder Guards', type: 'armor', area: 'empy', missable: false, farm: 'Abiding Defender' },
 
- // Farmable: Ink-Ghoul set (Upper Calrath)
- { id: 'uppcal-arm-09', name: 'Armour: Ink-Ghoul Cape', type: 'armor', area: 'uppcal', missable: false },
+  // Farmable: Ink-Ghoul set (Upper Calrath)
+  { id: 'uppcal-arm-09', name: 'Armour: Ink-Ghoul Cape', type: 'armor', area: 'uppcal', missable: false, farm: 'Ink-Ghoul' },
 
- // Additional enemy armor from Forsaken Fen
- { id: 'forsf2-arm-09', name: 'Armour: Shuja Strider Boots', type: 'armor', area: 'forsf2', missable: false },
- { id: 'forsf2-arm-10', name: 'Armour: Holy Bulwark Cape', type: 'armor', area: 'forsf2', missable: false },
+  // Additional enemy armor from Forsaken Fen
+  { id: 'forsf2-arm-09', name: 'Armour: Shuja Strider Boots', type: 'armor', area: 'forsf2', missable: false, farm: 'Shuja Strider' },
+  { id: 'forsf2-arm-10', name: 'Armour: Holy Bulwark Cape', type: 'armor', area: 'forsf2', missable: false, farm: 'Holy Bulwark' },
 
- // Additional Skyrest Village items
- { id: 'skyb9-arm-08', name: 'Armour: Vagrant Boots', type: 'armor', area: 'skyb9', missable: false },
- { id: 'skyb9-arm-09', name: 'Armour: Skelemancer Boots', type: 'armor', area: 'skyb9', missable: false },
+  // Additional Skyrest Village items
+  { id: 'skyb9-arm-08', name: 'Armour: Vagrant Boots', type: 'armor', area: 'skyb9', missable: false, farm: 'Vagrant' },
+  { id: 'skyb9-arm-09', name: 'Armour: Skelemancer Boots', type: 'armor', area: 'skyb9', missable: false, farm: 'Skelemancer' },
 
  // NG+ AREAS
  { id: 'skyb13-stig-01', name: 'Umbral Stigma', type: 'stigma', area: 'skyb13', missable: false },
